@@ -1,0 +1,480 @@
+module common.
+%=======================================================================
+% opens output file and closes output file
+%=======================================================================
+get_writer(FileOut,Writer) =>
+	%this is for debugging purposes	
+	Writer0 = open(FileOut, write),
+	mclose(Writer0),
+	Writer = open(FileOut, write).
+
+close_writer(Writer) =>
+	flush(Writer),
+	close(Writer),
+	println("Output written").
+
+%=======================================================================
+% reads the input file
+%=======================================================================
+read_file_input(FileIn,GraphOut,AsOut,MapArrOut,OptOut) =>
+	Reader0 = open(FileIn),
+	mclose(Reader0),
+	Reader = open(FileIn),	
+	mread_term(Reader,Term),
+	Term != null,
+	Term = $ins(GraphOut,AsOut),
+	mread_term(Reader,TermMap),
+	mread_term(Reader,TermOpt),
+    mclose(Reader),
+	TermOpt != null,
+	$options(OptOut) = TermOpt,
+	TermMap != null,
+	$idPosMap(MapArrOut) = TermMap.
+
+
+
+%=======================================================================
+% Helps manage inputs and outputs
+%=======================================================================
+
+mread_term(Reader,Term)?=> println("Reading term"), Term = read_term(Reader), println("Success").
+mread_term(Reader,Term)=> close(Reader),println("Failed"),Term = null.
+
+mclose(Writer)?=> close(Writer).
+mclose(_Writer) => true .
+
+
+
+%=======================================================================
+% GraphIn is List of vertex and their neighbours Example:[neibs(1,[2,3]),neibs(2,[1])]
+% ArrOut is Array which index is vertex number and value is list of neigbours.
+% Example: graph_to_indexed_array([$neibs(1,[1,2]),$neibs(2,[1])],Out). Out = {[1,2],[1]}
+% WARNING : arrays are always indexed from one
+%=======================================================================
+graph_to_indexed_array(GraphIn,ArrOut) =>
+ 	GraphLen=len(GraphIn), 
+	ArrOut = new_array(GraphLen),
+	foreach( Item in GraphIn )
+      $neibs(Vert,Neibrs) = Item,
+      ArrOut[Vert] := Neibrs
+    end. 
+
+
+%=======================================================================
+%graph_add_reflex_edge(GraphIn,GraphOut) . 
+%adds to graph a reflexive edges
+%=======================================================================
+graph_add_reflex_edge(GraphIn,GraphOut),GraphIn = [] => GraphOut = []. 
+graph_add_reflex_edge(GraphIn,GraphOut) =>
+	GraphIn = [$neibs(H,T)|Rest],
+	GraphOut = [$neibs(H,[H|T])|Rest2],
+	graph_add_reflex_edge(Rest,Rest2).
+
+ 
+
+
+
+%=======================================================================
+%saves data to file in requierd format. 
+%directive(robotID(NUM),state(IDPOS),rotation(ROTATION),action(ACTION),duration(DURATION),label(SOMETEXT)).
+%AGENTID, IDPOS, ROT, ACTION, DURATION SOMETEXT
+%=======================================================================
+
+%durations for simple method
+step_durationA(north) = 2000.
+step_durationA(south) = 2000.
+step_durationA(east) = 2000.
+step_durationA(west) = 2000.
+step_durationA(wait) = 2000.
+
+
+% durations for Action { leftGo,rightGo, backwardGo,go,wait }
+
+
+step_durationB(leftGo) = 2000.
+step_durationB(rightGo) = 2000.
+step_durationB(backwardGo) = 2000.
+step_durationB(goB) = 2000.
+step_durationB(waitB) = 2000.
+
+step_durationC(turnLeft) = 2000.
+step_durationC(turnRight) = 2000.
+step_durationC(goC) = 2000.
+step_durationC(waitC) = 2000.
+
+
+
+
+%=========================================================
+% arrAnsw(ArrSol)  {{{1,0,0,0,0,0,0....  3D array. 
+% Result: PathList = {{1,12,3,14,4,16,5,17,6,18,8,20,11,21,10}}
+% translates boolean 3D array to List of Path for each agent.
+%=========================================================
+arrSol_to_PathSol(ArrSol,PathList) =>
+	TimeLen = len(ArrSol),
+	AgentLen = len(ArrSol[1]),
+	VertLen = len(ArrSol[1,1]), 
+	PathList = new_array(AgentLen,TimeLen),
+	foreach (Agent in 1..AgentLen) 
+		foreach (Time in 1..TimeLen)											
+			foreach(V in 1..VertLen)
+				if ArrSol[Time,Agent,V] =:= 1 then
+						PathList[Agent,Time] := V
+					
+				end
+			end
+		end	
+	end.
+
+
+
+%=================================================================
+% take PathSol = {{1,3,4,5,6}},
+% MapArr = [1 =(0,0),2 =(4,0),3 =(0,2),4 =(2,2),5 =(4,2),6 =(6,2),7 =(0,4)]
+% output will be actions into  file.
+% Takes into account following actions {turnleft,turnright,goC,waitC}
+%=================================================================
+
+mapf_output_plan_adv_test() => 
+	PathSol = {{1,3,4,5,6}},
+	MapArr = [1 =(0,0),2 =(4,0),3 =(0,2),4 =(2,2),5 =(4,2),6 =(6,2),7 =(0,4)],
+	get_writer("test20.answ",W),
+	mapf_output_plan(PathSol,MapArr,W),
+	close_writer(W).
+
+% VDirMap(Num,Direction) map rotation vertexes into direction %
+mapf_output_plan_adv(PathSol,_MapArr,VDirMap,Writer) =>
+	%IDMap = new_map(MapArr),	
+	AgentLen = len(PathSol),
+	TimeLen = len(PathSol[1]),
+	
+	writef(Writer, "%s %n" ,"#AgentNO VertexNo Rotation Action Duration SomeText"),
+	foreach (A in 1..AgentLen) 
+		Duration = 1,
+
+		% write first row
+		SomeText0 := "end",
+		Vertex0 := (PathSol[A,1]-1) div 4+1,
+		write_row(Writer, A,Vertex0,0,start,2000,"start"),							
+		writef(Writer,"%n"),
+
+		foreach (T in 1..TimeLen-1)		
+			%print("T"),println(T),
+			Action := null,	
+			%print("Action init : "), println(Action),
+ 			Rotation = mapf_output_plan_adv_getRotation(PathSol[A,T]),
+			if (mapf_output_plan_adv_testIsRotation(PathSol[A,T],PathSol[A,T+1]) ) then
+				%it is rotation
+				RotPrev = get(VDirMap,(PathSol[A,T] mod 4)),
+				RotNext = get(VDirMap,(PathSol[A,T+1] mod 4)),
+  				Action := getActionFromDirectionAdv(RotPrev,RotNext)
+			%	print("Action rot : "), println(Action),
+			else 
+				Action := goC
+			%	print("Action go : "), println(Action),
+			end,			
+			%print("T"), println(T),										
+			Duration := step_durationC(Action),
+			%print("Action: "), println(Action),
+			SomeText = to_string(Action),
+			Vertex := (PathSol[A,T]-1) div 4+1,	
+			%print("Action write : "), println(Action),
+			write_row(Writer, A,Vertex,Rotation,Action,Duration,SomeText)							
+		end	,
+		% write last row
+		Action0 := end,
+		SomeText0 := "end",
+		Vertex := (PathSol[A,TimeLen]-1) div 4+1,
+		write_row(Writer, A,Vertex,Rotation,Action0,Duration,SomeText0),							
+		writef(Writer,"%n")
+	end.
+
+mapf_output_plan_adv_testIsRotation(U,V), ((U-1) div 4) = ((V-1) div 4) => true. 
+mapf_output_plan_adv_getRotation(U) = ((U-1) mod 4) * 90. 
+
+%{leftGo,rightGo, backwardGo,goC,waitC}
+getActionFromDirectionAdv(north,north) = waitC.
+getActionFromDirectionAdv(east,east) = waitC.
+getActionFromDirectionAdv(south,south) = waitC.
+getActionFromDirectionAdv(west,west) = waitC.
+getActionFromDirectionAdv(north,north) = waitC.
+
+getActionFromDirectionAdv(north,east) = turnRight.
+getActionFromDirectionAdv(north,west) = turnLeft.
+
+getActionFromDirectionAdv(south,east) = turnLeft.
+getActionFromDirectionAdv(south,west) = turnRight.
+
+getActionFromDirectionAdv(west,south) = turnLeft.
+getActionFromDirectionAdv(west,north) = turnRight.
+
+getActionFromDirectionAdv(east,south) = turnRight.
+getActionFromDirectionAdv(east,north) = turnLeft.
+
+
+
+
+%=================================================================
+% take PathSol = {{1,3,4,5,6}},
+% MapArr = [1 =(0,0),2 =(4,0),3 =(0,2),4 =(2,2),5 =(4,2),6 =(6,2),7 =(0,4)]
+% output will be actions into  file.
+% Takes into account following actions {leftGo,rightGo, backwardGo,goB,waitB}
+%=================================================================
+
+mapf_output_plan_test() => 
+	PathSol = {{1,3,4,5,6}},
+	MapArr = [1 =(0,0),2 =(4,0),3 =(0,2),4 =(2,2),5 =(4,2),6 =(6,2),7 =(0,4)],
+	get_writer("test20.answ",W),
+	mapf_output_plan(PathSol,MapArr,W),
+	close_writer(W).
+
+mapf_output_plan(PathSol,MapArr,Writer) =>
+	IDMap = new_map(MapArr),	
+	AgentLen = len(PathSol),
+	TimeLen = len(PathSol[1]),
+	
+	writef(Writer, "%s %n" ,"#AgentNO VertexNo Rotation Action Duration SomeText"),
+	foreach (A in 1..AgentLen) 
+		% write start row
+		write_row(Writer, A,PathSol[A,1],null,start,2000,"start"),							
+		writef(Writer,"%n"),		
+
+		print("A"),println(A),
+		Rotation = null,
+		Duration = 1,
+		PrevDirection := north,		
+		foreach (T in 1..TimeLen-1)		
+			%print("T"), println(T),										
+			DirectionNext = getDirection(PathSol[A,T],PathSol[A,T+1],IDMap),
+			%print("prevDir :"), print(PrevDirection),
+			%print(", nextDir :"), println(DirectionNext),			
+			Action = getActionFromDirection(PrevDirection,DirectionNext),		
+			Duration := step_durationB(Action),
+			%print("Action: "), println(Action),
+			SomeText = to_string(Action),	
+			write_row(Writer, A,PathSol[A,T],Rotation,Action,Duration,SomeText),							
+ 			PrevDirection := directionUpdate(PrevDirection,DirectionNext)
+		end	,
+		% write last row
+		Action0 := end,
+		SomeText0 := "end",
+		write_row(Writer, A,PathSol[A,TimeLen],Rotation,Action0,Duration,SomeText0),							
+		writef(Writer,"%n")
+	end.
+
+%M = new_map([1 = (0,0),2 = (4,0),3 = (0,2),4 = (2,2),5 = (4,2),6 = (6,2),7 = (0,4)]), 
+% X = getDirection(1,3,M)
+getDirection(V,U,IDMap) = Direction =>
+	%print("getDirec>") , print($getDirection(V,U,IDMap)), 
+	(Vx,Vy) = get(IDMap,V),
+	(Ux,Uy) = get(IDMap,U),
+	Direction = getDirectionPart(Vx,Vy,Ux,Uy).
+
+
+% FirstX,FirstY, LatterX,LatterY
+getDirectionPart(Bx,_By,Ax,_Ay)= Action, Bx < Ax => Action = east. 
+getDirectionPart(Bx,_By,Ax,_Ay)= Action, Bx > Ax => Action = west.
+getDirectionPart(_Bx,By,_Ax,Ay)= Action, By > Ay => Action = north.
+getDirectionPart(_Bx,By,_Ax,Ay)= Action, By < Ay => Action = south.
+getDirectionPart(Bx,By,Ax,Ay) = Action, By == Ay,Bx == Ax => Action = wait.
+
+
+%{leftGo,rightGo, backwardGo,goB,waitB}
+getActionFromDirection(north,north) = goB.
+getActionFromDirection(east,east) = goB.
+getActionFromDirection(south,south) = goB.
+getActionFromDirection(west,west) = goB.
+getActionFromDirection(north,north) = goB.
+
+getActionFromDirection(north,east) = rightGo.
+getActionFromDirection(north,west) = leftGo.
+getActionFromDirection(north,south) = backwardGo.
+
+getActionFromDirection(south,east) = leftGo.
+getActionFromDirection(south,west) = rightGo.
+getActionFromDirection(south,north) = backwardGo.
+
+getActionFromDirection(west,east) = backwardGo.
+getActionFromDirection(west,south) = leftGo.
+getActionFromDirection(west,north) = rightGo.
+
+getActionFromDirection(east,west) = backwardGo.
+getActionFromDirection(east,south) = rightGo.
+getActionFromDirection(east,north) = leftGo.
+
+getActionFromDirection(_X,wait) = waitB.
+
+
+
+
+%if next direction is not wait returns next direction, if it is wait returns prevous direction
+%directionUpdate(PrevouseDirection,NextDirection)= UpdatedDirection.
+%
+directionUpdate(PrevDirection,wait)= PrevDirection.
+directionUpdate(_PrevDirection,X)= Direction, X != wait => X = Direction.
+
+
+%=======================================================================
+% print method to print basic solution.
+% 
+%=======================================================================
+
+% Prints Path of the robots.
+%mapf_simple_output_plan(ArrSol,MapArr,_Writer) ?=> print("mapf_simple_output_plan("),printf("%w, %w, %w",ArrSol,MapArr,stdout), print(")."),fail.
+mapf_simple_output_plan(ArrSol,MapArr,Writer)  => 
+	IDMap = new_map(MapArr),	
+	TimeLen = len(ArrSol),
+	AgentLen = len(ArrSol[1]),
+	VertLen = len(ArrSol[1,1]), 
+	writef(Writer, "%s %n" ,"#AgentNO VertexNo Rotation Action Duration SomeText"),
+	foreach (Agent in 1..AgentLen) 
+		VBefore = 0,	
+		Rotation = null,
+		Duration = 1,
+		
+		foreach (Time in 1..TimeLen)											
+			foreach(V in 1..VertLen)
+				if ArrSol[Time,Agent,V] =:= 1 then
+					%println("Match"), print("Vbefore: "),println(VBefore),print("V: "),println(V),
+					if VBefore =\= 0 then
+						(BefX,BefY)= get(IDMap,VBefore),
+						(AftX,AftY)= get(IDMap,V),
+						mapf_simple_get_action_x(BefX,BefY,AftX,AftY,Action,SomeText),
+						Duration := step_durationA(Action),
+						write_row(Writer, Agent,VBefore,Rotation,Action,Duration,SomeText)
+					else 
+						% write start row
+						write_row(Writer, Agent,V,Rotation,start,2000,"start"),							
+						writef(Writer,"%n")									
+					end,									
+					VBefore := V
+				end
+			end
+		end	,
+		% write last row
+		Action0 := end,
+		SomeText0 := "end",
+		write_row(Writer, Agent,VBefore,Rotation,Action0,Duration,SomeText0),							
+		writef(Writer,"%n")
+	end.
+
+write_row(Writer, AgentID,IDpos,Rotation,Action,Duration,SomeText),Rotation = null ?=>
+	writef(Writer, "%u %u %w %w %u \"%s\" %n", AgentID,IDpos,Rotation,Action,Duration,SomeText).
+write_row(Writer, AgentID,IDpos,Rotation,Action,Duration,SomeText) =>
+	writef(Writer, "%u %u %u %w %u \"%s\" %n", AgentID,IDpos,Rotation,Action,Duration,SomeText).
+
+
+%mapf_simple_get_action(IDMap,IDPosBefore,IDPosAfter,Action,SomeText) =>
+%	(BefX,BefY)= get(IDMap,IDPosBefore),%
+%	(AftX,AftY)= get(IDMap,IDPosAfter),
+%	mapf_simple_get_action_x(BefX,BefY,AftX,AftY).
+
+mapf_simple_get_action_x(Bx,By,Ax,Ay,_Action,_Lbl) ?=>  println((Bx,By,Ax,Ay)), fail. 
+mapf_simple_get_action_x(Bx,_By,Ax,_Ay,Action,Lbl), Bx < Ax ?=> Action = east,Lbl = "east". 
+mapf_simple_get_action_x(Bx,_By,Ax,_Ay,Action,Lbl), Bx > Ax ?=> Action = west,Lbl = "west".
+mapf_simple_get_action_x(_Bx,By,_Ax,Ay,Action,Lbl), By > Ay ?=> Action = north,Lbl = "north".
+mapf_simple_get_action_x(_Bx,By,_Ax,Ay,Action,Lbl), By < Ay ?=> Action = south,Lbl = "south".
+mapf_simple_get_action_x(Bx,By,Ax,Ay,Action,Lbl), By == Ay,Bx == Ax => Action = wait,Lbl = "wait".
+
+%=======================================================================
+%no solution found
+%=======================================================================
+mapf_no_solution_found_write(Writer)  => 
+	writef(Writer, "%w%n", no_solution_found).
+
+
+%=======================================================================
+% 
+% takes graph as array, 
+%=======================================================================
+lower_upper_bounds(GraphArr,As,Opt,Min,Max) =>
+	AsLen = length(As),
+	Result = new_array(AsLen),
+	%computes min length for each agent
+	foreach (I in 1..AsLen) 
+		nth(I,As,A),
+		graph_path_len_agi(GraphArr,A,MinPath),
+		Result[I] := MinPath
+	end,
+
+	if (-1 = min(Result)) then
+		MinT = 0,
+		MaxT = 0
+	else 	
+		MinT = max(Result),
+		MaxT = sum(Result)
+	end,
+	OptMap= new_map(Opt),
+	if has_key(OptMap,upperBound) then
+		UpperBound = get(OptMap,upperBound),
+		if MaxT < UpperBound then
+			Max = UpperBound			
+		else 
+			Max = MaxT
+		end
+	else 
+		Max = MaxT
+	end,
+
+	if has_key(OptMap,lowerBound) then
+		LowerBound = get(OptMap,lowerBound),
+		if MinT < LowerBound then
+			Min = LowerBound			
+		else 
+			Min = MinT
+		end
+	else 
+		Min = MinT
+	end
+	.
+
+%=======================================================================
+% 
+% takes graph as array, Ai = (Start,End), MinPath is out min path.
+% returns -1 if no path found.
+%=======================================================================
+
+graph_path_len_agi(GraphArr,Ai,MinPath) =>
+	MarkedV = new_map(),
+	Ai = (Start,End),
+	put(MarkedV,Start,0),
+	Queue = [Start],
+	Continue := true,
+	while (Continue)
+		%end reached
+		if (Queue = []) then
+			Queue := [End],
+			put(MarkedV,End,-1)
+		end,
+		Vert := first(Queue),
+		VertNum := get(MarkedV,Vert),
+		VertNumNext := VertNum +1,
+		Queue := tail(Queue), 
+		Neibs = GraphArr[Vert],
+		% test end
+		if (Vert = End) then
+			MinPath = VertNum,
+			Continue := fail
+		else	
+		%step
+			QueueUpd := [],			
+			foreach (N in Neibs)
+				if (not has_key(MarkedV,N)) then			
+					put(MarkedV,N,VertNumNext),
+					QueueUpd := QueueUpd ++ [N]
+				end
+			end, 
+			Queue := Queue ++ QueueUpd
+		end
+	end.
+
+
+
+
+
+
+
+
+
+
+

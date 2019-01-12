@@ -1,0 +1,273 @@
+module mapf_edge_split.
+import sat.
+import common.
+
+%import mash1.pi
+
+
+%===============================================
+%What i am doing there.
+% first path takes graph. then adds into it relfelxive edges on nodes where are no edges at all.
+%
+%
+%===============================================
+
+%=======================================================================
+% adds condition of edge disjoint. optimizes Makespan + Sum of cost 
+% action set : {leftGo,rightGo, backwardGo,go,wait}
+%=======================================================================
+
+run(FileIn,FileOut) =>
+	println("RUN"),
+	common.read_file_input(FileIn,GraphRough,As,MapArr,Opt),
+
+	% adds some reflexive edges
+	addReflexiveOnEdges(GraphRough,GraphRoughReflex),	
+	println("reflexedges added"),	
+	% refine graph
+	refine_edges(GraphRoughReflex,doRefine,Graph),	
+
+	println("graph to index array"),	
+	% changes graph so it is like indexed array
+	common.graph_to_indexed_array(Graph,GraphOut),
+   	print("graph"),	println(Graph),
+	print("Calling solver.."),
+	path(GraphOut,As,ArrSol,Opt),
+
+	if (ArrSol != null) then
+
+		common.arrSol_to_PathSol(ArrSol,PathSol),
+		println("Solver ended "),	
+		edge_reduce(PathSol,PathSolRed), 
+		println("Writing output"),
+		common.get_writer(FileOut,Writer),
+		common.mapf_output_plan(PathSolRed,MapArr,Writer),
+		common.close_writer(Writer)
+	else 
+		println("No solution found"),	
+		common.get_writer(FileOut,Writer),
+		common.mapf_no_solution_found_write(Writer),
+		common.close_writer(Writer)
+	end.
+
+test(PathSol) => 
+	$as(As),
+	$ins(GraphRough),
+	% adds some reflexive edges
+	addReflexiveOnEdges(GraphRough,GraphRoughReflex),	
+	println("reflexedges added"),	
+
+	% refine graph
+	refine_edges(GraphRoughReflex,doRefine,Graph),	
+	println("edges refined"),	
+
+	% changes graph so it is like indexed array
+	common.graph_to_indexed_array(Graph,GraphOut),
+
+	print("Calling solver.."),
+	path(GraphOut,As,PathSol).
+
+
+%=========================================================
+% removes odd edges from PathSol
+% PathSol = {{1,12,3,14,4,16,5,17,6,18,8,20,11,21,10}}
+% Out: PathSolRed = 
+%=========================================================
+edge_reduce(PathSol,PathSolRed ) =>
+	AgentLen = len(PathSol),
+	TimeLen = len(PathSol[1]),
+	TimeLenHalf = (TimeLen +1) div 2,
+	PathSolRed = new_array(AgentLen,TimeLenHalf),
+	foreach(A in 1..AgentLen)
+		foreach (T in 1..TimeLenHalf)
+			PathSolRed[A,T] = PathSol[A,((T-1)*2)+1] 			
+		end
+	end.
+
+
+%=========================================================
+%ins2(GraphI), addReflexiveOnEdges(GraphI,Out).
+%add reflexive edge on vertex which has no edges. 
+%=========================================================
+% if v has no edges
+addReflexiveOnEdges(GraphI,GraphOut), 
+	GraphI = [$neibs(H,[])|Rest], GraphOut= [$neibs(H,[H])|RestOut]  =>	
+		addReflexiveOnEdges(Rest,RestOut).
+
+% if v has some edges
+addReflexiveOnEdges(GraphI,GraphOut), 
+	GraphI = [$neibs(H,[X|Y])|Rest], GraphOut= [$neibs(H,[X|Y])|RestOut]  =>	
+		addReflexiveOnEdges(Rest,RestOut).
+
+% tail recursion
+addReflexiveOnEdges(GraphI,GraphOut), 
+	GraphI = []  => GraphOut= [].
+
+
+%=========================================================
+% gets edge and orders it so bigger number comes first
+%=========================================================
+vOrd(e(A,B),O), A >= B => O = $e(A,B).
+vOrd(e(A,B),O), A < B => O = $e(B,A).
+
+
+%=========================================================
+% 
+%note, undirected edges are tested only ie edges where A >= B.
+%=========================================================
+%doRefine(e(3,1)) => fail.
+doRefine(e(_A,_B)) => true.
+
+%=========================================================
+%  
+%refineCond takes predicate, which tells which undirected edges to refine.  
+%=========================================================
+refine_edges(Graph,RefineCond,GraphOut) =>
+	VCount = len(Graph)+1,
+	VCountNew := VCount,
+	Map = new_map(),
+	Graph2 = [],
+	%print("ahoj"),print("vcntnew"), println(VCountNew),
+	Set = new_set(), %% edges that is needed to add after edge update
+	foreach($neibs(V,Neibs) in Graph )	
+		refine_vertex(V,RefineCond,Neibs,VCountNew,VCountOut, Map,Set,NewNeibs),
+		VCountNew := VCountOut,
+		Graph2 := Graph2 ++ [$neibs(V,NewNeibs)]
+	end,
+	SetList = keys(Set),
+	edgeListToNeibs(SetList,[],NL),
+	GraphOut = Graph2 ++ NL.
+
+%=========================================================
+% Map = new_map(),Set = new_set(), refine_vertex(1,[1,2,3,4,4],10,Map,Set,NewNeibs).  
+% Output:Map = (map)[e(4,1) = 13,e(1,1) = 10,e(3,1) = 12,e(2,1) = 11]
+%Set = (map)[e(10,1),e(13,4),e(12,3),e(11,2)]
+% NewNeibs = [10,11,12,13,13]
+%  
+%  Vertex. Map -> mapping with already existing edges.
+%  Nin - first unused index. 
+%=========================================================
+refine_vertex(Vertex,RefineCond,Neibs,Nin,Nout,Map,SetToAdd,NewNeibs) =>
+	NeibsLen = len(Neibs),
+	NewNeibsA = new_array(NeibsLen),
+	I := 0,
+	%println(I),
+	foreach(N in Neibs )
+		vOrd($e(Vertex,N),EdgeOrd), 
+		if 	call(RefineCond,EdgeOrd) then
+			%print("edgeOrd"),println(EdgeOrd),
+			if has_key(Map,EdgeOrd) then
+				Nnew = get(Map,EdgeOrd),
+				NewNeibsA[I+1] = Nnew,
+				put(SetToAdd,($e(Nnew,N)))
+			else		
+				%new edge, make split			
+				put(Map,EdgeOrd,Nin),
+				put(SetToAdd,($e(Nin,N))),
+				NewNeibsA[I+1] = Nin,
+				Nin := Nin +1
+			end
+		else 
+			NewNeibsA[I+1] = N
+		end,
+		I := I +1
+	end,
+	NewNeibs = to_list(NewNeibsA),
+	Nout = Nin.
+
+
+
+%========================
+% List = [e(1,2),e(2,4),e(5,6),e(5,7)]
+% Otupt = [$neibs(1,[2]),$neibs(2,[4]),$neibs(5,[6,7])].
+%========================
+
+edgeListToNeibs(List,Acc,Output) ?=>
+	List = [H|B],	
+	edgeListToNeibsPart(H,Acc,OutputPart),
+	edgeListToNeibs(B,OutputPart,Output).
+edgeListToNeibs([],Acc,Output) => Acc = Output.
+
+edgeListToNeibsPart(Edge,PartlyIns,InsInc) ?=>
+	PartlyIns = [$neibs(E,Neibs)|Rest],
+	Edge = $e(E,B),
+	InsInc = [$neibs(E,[B|Neibs])|Rest].
+
+edgeListToNeibsPart(Edge,PartlyIns,InsInc) ?=>
+	PartlyIns = [$neibs(E,Neibs)|Rest],
+	Edge != $e(E,_B),
+	InsInc = [$neibs(E,Neibs)|Out],
+	edgeListToNeibsPart(Edge,Rest,Out).
+
+edgeListToNeibsPart(Edge,[],InsInc) =>
+	Edge = $e(E,B),
+	InsInc =[$neibs(E,[B])].
+
+
+
+%As je seznam dat o agentech. kazdy prvek seznamu je dvojice (Start_agenta,Cil_agenta). 
+% LB - maximum z vsech delek cest agentu. UB - nejkratsi cesta, pokud pohyb je povolen jen jednomu agentu v case.  
+%lower_upper_bounds(As,LB,UB).
+
+% N - number of nodes
+% M Trying current length of the solution.
+% K pocet agentu.
+
+path(Graph,As,B,Opt) ?=>
+	println("mapf_edge_split"),
+
+	N = len(Graph),
+    K = len(As), % pocet agentu
+	common.lower_upper_bounds(Graph,As,Opt,LB,UB),
+	if (LB = 0 /\ UB = 0) then fail end,
+	between(LB,UB,M),
+	B = new_array(M+1,K,N), %B = (Cas,Agenty,Vrcholy)
+	B :: 0 .. 1,
+
+	end_time(B,As,K,M,E),	
+
+	%initialize the first and last states
+	foreach(A in 1..K)
+		(V,FV) = As[A],
+		B[1,A,V] = 1, % robot ma byt na startovni pozici robota.
+		B[M+1,A,FV] = 1 % robot ma byt na koncove pozici.
+	end,
+
+	%Each agent ocuppies exacly one vertex
+	foreach(T in 1..M+1, A in 1..K) 
+		sum([B[T,A,V]: V in 1..N]) #= 1
+	end,
+
+	%No two agents occupy the same vertex
+	foreach(T in 1..M+1, V in 1..N)
+		sum([B[T,A,V]: A in 1..K]) #=< 1
+	end,
+
+	%Every transition is valid
+	foreach(T in 1..M,A in 1..K, V in 1..N)
+		Neibs = Graph[V], 
+    %neibsN(V,Neibs),
+		B[T,A,V] #=>
+		sum([B[T+1,A,U] : U in Neibs]) #>= 1
+	end,
+
+	solve([$min(sum(E))],B).
+
+path(_Graph,_As,B) => B = null.
+
+%=======================================================================
+% adds variables for end conditions
+%=======================================================================
+end_time(B,As,K,M,E) =>
+	E = new_array(K),
+	E :: 1..M+1,
+	foreach (A in 1..K, T in 1..M+1)
+		(_V,FV) = As[A],
+		if T > 1 then
+			E[A] #= T #=> B[T-1,A,FV] #= 0
+		end,
+		foreach (T1 in T..M+1)
+			E[A] #= T #=> B[T1,A,FV] #= 1
+		end
+	end.
+

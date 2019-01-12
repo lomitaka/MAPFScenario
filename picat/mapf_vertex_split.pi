@@ -1,0 +1,290 @@
+module mapf_vertex_split.
+import sat.
+import common.
+
+%this module is edge disjoint by set of condition
+
+%=======================================================================
+% adds condition of edge disjoint. optimizes Makespan + Sum of cost 
+% action set : {turnLeft,turnRight, goB,waitB}
+%=======================================================================
+
+run(FileIn,FileOut) =>
+	println("RUN"),
+	common.read_file_input(FileIn,GraphRough,AsRough,MapArr,Opt),
+	IDMap = new_map(MapArr),
+
+	%splits vertexes each into four
+	vertex_split(GraphRough,IDMap,Graph,DisjointV,DisjointERaw),
+	println("Vertexes splitted."),	
+	
+	%DisjointERaw contains edges, but edges beetween vertexes need to be connected
+	disjoint_edges_merge(DisjointERaw,DisjointE),
+	println("Disjoint edges merged."),		
+
+	%update agents positions (facing towards north each in their step.
+	ags_relocate(AsRough,As),
+	println("agents relocated."),
+
+	% adds to graph reflexive edges
+	common.graph_add_reflex_edge(Graph,Graph1),		
+
+	% changes graph so it is like indexed array
+	common.graph_to_indexed_array(Graph1,GraphOut),
+
+	print("Calling solver.."),
+	path(GraphOut,As,ArrSol,Opt,DisjointV,DisjointE),
+		
+
+	if (ArrSol != null) then
+		println("Done"),
+		common.arrSol_to_PathSol(ArrSol,PathSol),
+		println("Writing output"),
+		common.get_writer(FileOut,Writer),
+		vertex_num_to_map(VDirMap),
+		common.mapf_output_plan_adv(PathSol,MapArr,VDirMap,Writer),
+		common.close_writer(Writer)
+	else 
+		println("No solution found"),	
+		common.get_writer(FileOut,Writer),
+		common.mapf_no_solution_found_write(Writer),
+		common.close_writer(Writer)
+	end.
+
+
+
+
+% LB - maximum z vsech delek cest agentu. UB - nejkratsi cesta, pokud pohyb je povolen jen jednomu agentu v case.  
+% N - number of nodes
+% M Trying current length of the solution.
+% K pocet agentu.
+
+% Graph is Array, idnex is node number, value is list of neigbour index.
+
+path(Graph,As,B,Opt,DisjointV,DisjointE) ?=>
+	println("mapf_edge_disjoint"),
+	%mesh_size(Width,Height), 
+	%N = Width*Height, % pocet vrcholu	
+	N = len(Graph),
+    K = len(As), % pocet agentu
+	common.lower_upper_bounds(Graph,As,Opt,LB,UB),
+	if (LB = 0 /\ UB = 0) then fail end,
+	between(LB,UB,M),
+	B = new_array(M+1,K,N), %B = (Cas,Agenty,Vrcholy)
+	B :: 0 .. 1,
+
+	end_time(B,As,K,M,E),	
+
+	%initialize the first and last states
+	foreach(A in 1..K)
+		(V,FV) = As[A],
+		B[1,A,V] = 1, % robot ma byt na startovni pozici robota.
+		B[M+1,A,FV] = 1 % robot ma byt na koncove pozici.
+	end,
+
+	%Each agent ocuppies exacly one vertex
+	foreach(T in 1..M+1, A in 1..K) 
+		sum([B[T,A,V]: V in 1..N]) #= 1
+	end,
+
+	%No two agents occupy the same vertex  was replaced by disjoint vertexes
+%	foreach(T in 1..M+1, V in 1..N)
+%		sum([B[T,A,V]: A in 1..K]) #=< 1
+	%end,
+
+	%Every transition is valid
+	foreach(T in 1..M,A in 1..K, V in 1..N)
+		Neibs = Graph[V], 
+    %neibsN(V,Neibs),
+		B[T,A,V] #=>
+		sum([B[T+1,A,U] : U in Neibs]) #>= 1
+	end,
+
+	%disjoint vertexes
+	%No two agents occupy the same vertexset
+	foreach(T in 1..M+1, VSet in DisjointV)		
+		sum([B[T,A,V]: A in 1..K,V in VSet]) #=< 1
+	end,
+
+	%disjoint edges
+	%No two agents occupy the same edgeset
+	%foreach(T in 1..M+1, VSet in DisjointE)		
+	%	sum([B[T,A,V]B[T+1,A,V]: A in 1..K,V in VSet]) #=< 3
+	%end,
+
+	% condition for edge disjoint [ep(e(7,15),e(13,5)),ep(e(3,7),e(5,1)),ep(e(6,10),e(12,8))]
+	%for each pair: ep(e(Vs,Ve),e(Us,Ue)) if agent goes from Vs to Ve, another cannot go from Us,to Ue
+	foreach(T in 1..M, VSet in DisjointE, A in 1..K) 
+		VSet = $ep($e(Vs,Ve),$e(Us,Ue)),
+		foreach(C in 1..K)        
+			if A != C then      
+				(B[T,A,Vs] #/\ B[T+1,A,Ve])  #=> 
+					B[T,C,Us] + B[T+1,C,Ue] #=< 1
+			end
+		end
+	end,
+
+
+	solve([$min(sum(E))],B).
+
+path(_Graph,_As,B,_DisjointV,_DisjointE) => B = null.
+%=======================================================================
+% adds variables for end conditions
+%=======================================================================
+end_time(B,As,K,M,E) =>
+	E = new_array(K),
+	E :: 1..M+1,
+	foreach (A in 1..K, T in 1..M+1)
+		(_V,FV) = As[A],
+		if T > 1 then
+			E[A] #= T #=> B[T-1,A,FV] #= 0
+		end,
+		foreach (T1 in T..M+1)
+			E[A] #= T #=> B[T1,A,FV] #= 1
+		end
+	end.
+
+
+ags_relocate(AgIn,AgOut) ?=> 
+	AgIn = [(X,Y)|Rest],
+	ags_relocate(Rest,AgOutTmp),
+	AgOut = [((X-1)*4+1,(Y-1)*4+1)|AgOutTmp].
+ags_relocate([],AgsOut) => AgsOut = [].
+
+
+%=========================================================
+% if (vertexes are: 1,2,3,4 ; 5,6,7,8 ; 9,10,11,12 
+%EdgesIn =[[3,7],[7,15],[6,10],[5,1],[12,8],[13,5]].
+%Out = [ep(e(7,15),e(13,5)),ep(e(3,7),e(5,1)),ep(e(6,10),e(12,8))]
+% merges edges, that are from the view of original graph the same
+%========================================================= 
+disjoint_edges_merge(EdgesIn,EdgesOut) =>
+	Map = new_map(),
+	foreach ([A,B] in EdgesIn)
+		Ar = (A-1) div 4,
+		Br =(B-1) div 4,
+		vOrd($e(Ar,Br),Edge),
+		if has_key(Map,Edge) then
+			EL = get(Map,Edge),
+			put(Map,Edge,$ep(EL,$e(A,B)))
+		else
+			put(Map,Edge,$e(A,B))
+		end
+	end,
+	EdgesOut = values(Map).
+
+
+%=========================================================
+% if (vertexes are: 1,2,3,4 ; 5,6,7,8 ; 9,10,11,12 
+%EdgesIn =[[3,7],[7,15],[6,10],[5,1],[12,8],[13,5]].
+%Out = [[7,15,13,5],[3,7,5,1],[6,10,12,8]]
+% merges edges, that are from the view of original graph the same
+%========================================================= 
+%disjoint_edges_merge(EdgesIn,EdgesOut) =>
+%	Map = new_map(),
+%	foreach ([A,B] in EdgesIn)
+%		Ar = (A-1) div 4,
+%		Br =(B-1) div 4,
+%		vOrd($e(Ar,Br),Edge),
+%		if has_key(Map,Edge) then
+%			EL = get(Map,Edge),
+%			put(Map,Edge,EL ++ [A,B])
+%		else
+%			put(Map,Edge,[A,B])
+%		end,
+%		print("MAP"), println(Map)
+%	end,
+%	EdgesOut = values(Map).
+
+
+
+%=========================================================
+% gets edge and orders it so bigger number comes first
+%=========================================================
+vOrd(e(A,B),O), A >= B => O = $e(A,B).
+vOrd(e(A,B),O), A < B => O = $e(B,A).
+
+
+
+%=======================================================================
+%vertex_split(GraphIn,IDMap,GraphOut).
+% takes graph, and each vertex splits into 4 another vertices. order determines direction. 
+% vector X => (X-1)*4+1 -north; X-1)*4+2 - east ; X-1)*4+3 - south X-1)*4+4 south. 
+%=======================================================================
+vertex_split(GraphIn,IDMap,GraphOut,DisjointVO,DisjointEO) ?=>
+	GraphIn = [$neibs(V,Neibs)|Rest],
+	vertex_split_part(V,Neibs,IDMap,PartOut, DisjointVPart, DisjointEPart),
+	vertex_split(Rest,IDMap,GraphOutTmp,DisjointOutVTmp,DisjointOutETmp),	
+	DisjointVO = DisjointVPart ++ DisjointOutVTmp,
+	DisjointEO = DisjointEPart ++ DisjointOutETmp,
+	GraphOut = PartOut ++ GraphOutTmp.
+
+vertex_split([],_Map,GraphOut,DisjointVOut,DisjointEOut) => GraphOut = [], DisjointVOut = [], DisjointEOut = [].
+
+% for every pair (V,X) , X in Neibs. considers edge (Vdirect,X) if Vdirect,X has same direction as direction of (V,X) add edge
+% for each vertex Vdirect adds its rotation neighbours. ie Vnorth will have Vwest, Veast. 
+vertex_split_part(V,Neibs,IDMap,GPartOut,DisjointVOut,DisjointEOut) =>
+	DisjointETmp = [],
+	DisjointVTmp = [],
+	%print("Disjoint"),println(DisjointVTmp),
+	Result = [],
+	Vout = (V-1) *4+1,
+	foreach (I in 0..3)
+		VoutI := Vout + I,
+		NewNeibs := [],
+		%print("NewNeibs initt:"),println(NewNeibs),
+		NewNeibs := getNeibs(Vout,I),
+		foreach (Y in Neibs)
+			YNew = (Y-1)*4+1,
+			%print("NewNeibs neibrs:"),println(NewNeibs),
+			ThisVDirection :=vertex_num_to_dir(I),
+			%print("i "), println(I) ,
+			Direction := getDirection(V,Y,IDMap),
+			%print("V,Y Direction "),print(V), print(" "), print(Y), print(" "), println(Direction) ,
+			if (ThisVDirection = Direction) then
+				%print("true"),					
+				NewNeibs := NewNeibs ++ [YNew+I],
+				DisjointETmp :=  [[VoutI,YNew+I]] ++ DisjointETmp,
+				%print("Disjoint appedge :"),println(DisjointVTmp)
+				%print("NewNeibs extend:"),println(NewNeibs),
+			end
+		end,
+		%print("NewNeibs apply:"),println(NewNeibs),
+		Result := [$neibs(VoutI,NewNeibs)|Result]
+	end,
+	DisjointVTmp := DisjointVTmp ++ [[Vout,Vout+1,Vout+2,Vout+3]],
+	%print("Disjoint add vert "),println(DisjointVTmp),
+	DisjointVOut = DisjointVTmp,
+	DisjointEOut = DisjointETmp,
+	GPartOut = Result.
+
+getNeibs(X,0)= [X+1,X+3].
+getNeibs(X,1)= [X+2,X+0].
+getNeibs(X,2)= [X+1,X+3].
+getNeibs(X,3)= [X+2,X+0].
+
+
+	
+
+vertex_num_to_map(Map) => 
+	Map = new_map(), 
+	foreach (I in 0..3) 	
+		Direct =vertex_num_to_dir(I),
+		put(Map,I,Direct)
+	end.
+
+vertex_num_to_dir(0) = north.
+vertex_num_to_dir(1) = east.
+vertex_num_to_dir(2) = south.
+vertex_num_to_dir(3) = west.
+
+
+
+
+
+
+
+
+
+
+	

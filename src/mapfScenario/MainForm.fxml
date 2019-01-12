@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAnchor" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mapfScenario.MainFormController">
+    <children>
+      <SplitPane dividerPositions="0.7" minHeight="700.0" minWidth="900.0" orientation="VERTICAL" prefHeight="700.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+            <BorderPane>
+               <center>
+                      <VBox minWidth="300.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <children>
+                        <Label text="Map">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane prefViewportHeight="1000.0" prefViewportWidth="1000.0" VBox.vgrow="ALWAYS">
+                           <content>
+                              <StackPane>
+                                  <children>
+                                      <Pane fx:id="FXMLmapGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                                      <Pane fx:id="FXMLmapObstacles" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                                      <Pane fx:id="FXMLmapFlags" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                                      <Pane fx:id="FXSimulationInfoMapPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                                      <Pane fx:id="FXSimulationMapPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                                      <Pane fx:id="FXMLmapIteractionLayer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#handleIteractionLayerOnMouseClicked" />
+      
+                                  </children>
+                                 <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </padding>
+                              </StackPane>
+      
+                           </content>
+                        </ScrollPane>
+                        <Label fx:id="infoLabel" layoutX="15.0" layoutY="15.0" text="infoLabel" textFill="#c73a34">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                          </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </padding>
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </BorderPane.margin>
+                      </VBox>
+               </center>
+               <right>
+      
+                      <VBox prefHeight="-1.0" prefWidth="-1.0" style="" BorderPane.alignment="CENTER">
+                          <children>
+                        <TabPane tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Map Definition">
+                                 <content>
+                                    <VBox>
+                                       <children>
+                                          <Label layoutX="25.0" layoutY="66.0" text="Map:">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox spacing="10.0">
+                                             <children>
+                                                <Button id="mapdefinition_load" mnemonicParsing="false" onAction="#mapLoadAction" prefWidth="90.0" text="Load" />
+                                                <Button id="mapdefinition_save" mnemonicParsing="false" onAction="#mapSaveAction" prefWidth="90.0" text="Save" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <Label layoutX="25.0" layoutY="25.0" text="Create new map:">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                                  <Label text="Map size:">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" left="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                                <HBox>
+                                                    <children>
+                                                        <TextField fx:id="FXMLmapSizeX" prefWidth="45" />
+                                                        <Label text="x" />
+                                                        <TextField fx:id="FXMLmapSizeY" prefWidth="45" />
+                                                      <Button id="mapdefinition_create" mnemonicParsing="false" onAction="#CreateNewMap" prefWidth="90.0" text="Create" />
+                        
+                                                          </children>
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                                </HBox>
+                                                <Label text="Edges:">
+                                                    <VBox.margin>
+                                                        <Insets bottom="2.0" left="5.0" top="15.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <HBox spacing="10.0">
+                                                    <children>
+                                                        <Button id="mapdefinition_add" mnemonicParsing="false" onAction="#addObstacleAction" prefWidth="60.0" text="Add" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="42.0" />
+                                                        <Button id="mapdefinition_remove" mnemonicParsing="false" onAction="#removeObstacleAction" prefWidth="80.0" text="Remove" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="42.0" />
+                                                <Button id="map_definition_none" mnemonicParsing="false" onAction="#noneObstacleAction" prefWidth="60.0" text="None" />
+                        
+                                                          </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                                                    </VBox.margin>
+                                                </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                            </Tab>
+                            <Tab text="Agents">
+                                 <content>
+                                    <VBox>
+                                       <children>
+                                          <Label text="Agents:">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox spacing="10.0">
+                                             <children>
+                                                <Button id="agents_load" mnemonicParsing="false" onAction="#loadAgentsAction" prefWidth="90.0" text="Load" />
+                                                <Button id="agents_save" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#saveAgentsAction" prefWidth="90.0" text="Save" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <Label layoutX="25.0" layoutY="25.0" text="Edit:">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <ListView fx:id="agentListView" prefHeight="200.0" />
+                                          <HBox spacing="10.0">
+                                             <children>
+                                                <Button id="agents_add" mnemonicParsing="false" onAction="#agentAddAction" prefWidth="90.0" text="Add" />
+                                                <Button id="agents_remove" mnemonicParsing="false" onAction="#agentRemoveAction" prefWidth="90.0" text="Remove" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox layoutX="25.0" layoutY="377.0" spacing="10.0">
+                                             <children>
+                                                <Button id="agents_setstart" mnemonicParsing="false" onAction="#setAgentStartAction" prefWidth="90.0" text="Set start" />
+                                                <Button id="agents_setend" mnemonicParsing="false" onAction="#setAgentEndAction" prefWidth="90.0" text="Set end" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox spacing="10.0">
+                                             <children>
+                                                <Button id="agents_setname" layoutX="96.0" layoutY="10.0" mnemonicParsing="false" onAction="#setAgentNameAction" prefWidth="90.0" text="Set name" />
+                                                <Button id="agents_setcolor" layoutX="175.0" layoutY="10.0" mnemonicParsing="false" onAction="#setAgentColorAction" prefWidth="90.0" text="Set color" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets right="10.0" top="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="15.0" right="15.0" top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                            </Tab>
+                              <Tab onSelectionChanged="#realMapUpdateSupposedSize" text="Real Map">
+                                 <content>
+                                    <VBox prefWidth="250.0">
+                                       <children>
+                                          <Label text="Display">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Edge length(pt):">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextField fx:id="FXRMedgeLength" />
+                                          <Label text="Edge width(pt):">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" left="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextField fx:id="FXRMedgeWidth" />
+                                          <HBox spacing="10.0">
+                                             <children>
+                                                <Button id="realmap_display" mnemonicParsing="false" onAction="#realMapDisplay" prefWidth="90.0" text="Display" />
+                                                <Button id="realmapcontrol" layoutX="10.0" layoutY="25.0" mnemonicParsing="false" onAction="#realMapControll" prefWidth="90.0" text="Control" />
+                                                <Button id="realmap_export" mnemonicParsing="false" onAction="#realMapExportMap" prefWidth="90.0" text="Export" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <padding>
+                                                <Insets top="15.0" />
+                                             </padding>
+                                          </HBox>
+                                          <Label text="Printing">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label text="Edge length(mm):">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextField fx:id="FXRMedgeLengthMm" onKeyReleased="#realMapUpdateSupposedSize" />
+                                          <Label text="Edge width(mm):">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextField fx:id="FXRMedgeWidthMm" onKeyReleased="#realMapUpdateSupposedSize" />
+                                          <HBox>
+                                             <children>
+                                                <Label text="Supposed size:" />
+                                                <Label fx:id="FXRMTotal" />
+                                             </children>
+                                          </HBox>
+                                          <Button id="realmap_print" mnemonicParsing="false" onAction="#realMapPrint" prefWidth="95.0" text="Print" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+      
+                              <!--    THERE WILL BE LIST BOX FOR SOLVER -->
+                              <!--<ListView fx:id="testList" maxHeight="1.7976931348623157E308" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" />-->
+                          </children>
+                      </VBox>
+               </right>
+               <bottom>
+      
+                      <VBox prefHeight="-1.0" prefWidth="-1.0" style="" BorderPane.alignment="CENTER" />
+               </bottom>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <left>
+                  <VBox prefWidth="250.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Solver">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TabPane prefWidth="230.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Solver">
+                                 <content>
+                                        <VBox prefHeight="-1.0" prefWidth="-1.0">
+                                            <children>
+                                          <GridPane hgap="2.0" vgap="10.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <TextField fx:id="FXMLSoltionName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label prefWidth="150.0" text="Name:" GridPane.rowIndex="1" />
+                                                <ChoiceBox fx:id="FXMLsolverOption" maxHeight="1.7976931348623157E308" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER" />
+                                                      <Label prefWidth="150.0" text="Solver:" GridPane.halignment="LEFT" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </GridPane>
+                                          <HBox prefWidth="200.0">
+                                             <children>
+                                                <VBox prefWidth="200.0">
+                                                   <children>
+                                                      <CheckBox fx:id="FXMLSolverCustomBounds" mnemonicParsing="false" text="Custom bounds" />
+                                                      <Label text="Results:">
+                                                         <padding>
+                                                            <Insets top="10.0" />
+                                                         </padding>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                                <Pane prefWidth="100.0" />
+                                                <Button id="solver_solve" alignment="CENTER" mnemonicParsing="false" onAction="#solverFindAction" prefWidth="120.0" text="Solve" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="11.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <ListView fx:id="FXMLsolverProcess" prefHeight="200.0" prefWidth="200.0" />
+                                          <HBox nodeOrientation="RIGHT_TO_LEFT" spacing="10.0">
+                                             <children>
+                                                <Button id="solver_show" mnemonicParsing="false" onAction="#solverShowSolution" text="Show" />
+                                                <Button id="solver_hide" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#solverHideSolution" text="Hide" />
+                                                <Button id="solver_remove" mnemonicParsing="false" onAction="#solverRemoveSolution" text="Remove" />
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox layoutX="15.0" layoutY="302.0" nodeOrientation="RIGHT_TO_LEFT" spacing="10.0">
+                                             <children>
+                                                 <Button id="solver_ozoexport" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ozobotCodeExport" text="Ozo Export">
+                                                    <HBox.margin>
+                                                         <Insets top="10.0" />
+                                                    </HBox.margin>
+                                                 </Button>
+                                                 <Button id="solver_save" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#solverSolutionSave" text="Save">
+                                                     <HBox.margin>
+                                                         <Insets top="10.0" />
+                                                     </HBox.margin>
+                                                 </Button>
+                                                 <Button id="solver_load" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#solverSolutionLoad" text="Load">
+                                                     <HBox.margin>
+                                                         <Insets top="10.0" />
+                                                     </HBox.margin>
+                                                 </Button>
+
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </HBox>
+                        
+                                                                                    <!--    THERE WILL BE LIST BOX FOR SOLVER -->
+                                                <!--<ListView fx:id="testList" maxHeight="1.7976931348623157E308" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" />-->
+                                            </children>
+                                       <padding>
+                                          <Insets left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                        </VBox>
+                                 </content>
+                            </Tab>
+                            <Tab text="Settings">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="220.0">
+                                       <children>
+                                          <Label text="work directory:" />
+                                          <TextField fx:id="FXRSettingsWorkDir" />
+                                          <Label layoutX="20.0" layoutY="15.0" text="picat interface file:" />
+                                          <TextField fx:id="FXRSettingsIfaceFile" />
+                                          <Label layoutX="20.0" layoutY="57.0" text="picat anotation string:" />
+                                          <TextField fx:id="FXRSettingsPicatAnotString" layoutX="20.0" layoutY="73.0" />
+                                           <Label layoutX="20.0" layoutY="99.0" text="predicate from custom file:" />
+                                           <TextField fx:id="FXRSettingsPredicateFromCustomFile" layoutX="20.0" layoutY="115.0" />
+                                           <Label layoutX="20.0" layoutY="141.0" text="ozobot template file:" />
+                                           <TextField fx:id="FXRSettingsOzobotTemplateFile" layoutX="20.0" layoutY="157.0" />
+                                          <HBox nodeOrientation="RIGHT_TO_LEFT" spacing="10.0">
+                                             <children>
+                                                <Button id="settings_save" mnemonicParsing="false" onAction="#solverSettignsSave" prefWidth="80.0" text="Save" />
+                                                <Button id="settings_cancel" mnemonicParsing="false" onAction="#solverSettingsCancel" prefWidth="80.0" text="Cancel" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" top="5.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                            </Tab>
+                              <Tab text="Actions">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="220.0">
+                                       <children>
+                                          <CheckBox fx:id="CustomActionCheckbox" mnemonicParsing="false" text="Use these">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <Label text="Categories:" />
+                                          <HBox spacing="5.0">
+                                             <children>
+                                                <ChoiceBox fx:id="FXMLactionCategory" prefWidth="150.0" />
+                                                <Button id="actions_minus" fx:id="FXMLactionCategoryRemove" mnemonicParsing="false" prefWidth="30.0" text="-" />
+                                                <Button id="actions_plus" fx:id="FXMLactionCategoryAdd" mnemonicParsing="false" prefWidth="30.0" text="+" />
+                                             </children>
+                                          </HBox>
+                                          <Label layoutX="20.0" layoutY="15.0" text="Action durations:">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin></Label>
+                                          <HBox layoutX="20.0" layoutY="236.0" />
+                                          <ListView fx:id="FXRActionDurationList" prefHeight="200.0" />
+                                          <HBox>
+                                             <children>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="Name:" />
+                                                      <TextField fx:id="FXRTimeName" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="duration (ms):" />
+                                                      <TextField fx:id="FXRTimeDuration" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox nodeOrientation="RIGHT_TO_LEFT" spacing="10.0">
+                                             <children>
+                                                <Button id="actions_add" fx:id="FXRActDurAdd" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefWidth="80.0" text="Add" />
+                                                <Button id="actions_edit" fx:id="FXRActDurEdit" mnemonicParsing="false" prefWidth="80.0" text="Edit" />
+                                                <Button id="actions_delete" fx:id="FXRActDurDelete" mnemonicParsing="false" prefWidth="80.0" text="Delete" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                           <HBox nodeOrientation="RIGHT_TO_LEFT" spacing="10.0">
+                                               <children>
+
+                                                   <Button id="actions_save" fx:id="FXRActDurSave" mnemonicParsing="false" prefWidth="80.0" text="Save" />
+                                                   <Button id="actions_reset" fx:id="FXRActDurReset" mnemonicParsing="false" prefWidth="80.0" text="Reset" />
+                                               </children>
+                                               <VBox.margin>
+                                                   <Insets bottom="10.0" left="10.0" right="10.0" />
+                                               </VBox.margin>
+                                           </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" top="5.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </VBox>
+               </left>
+            </BorderPane>
+            <VBox>
+               <children>
+                  <HBox alignment="CENTER" maxWidth="1.7976931348623157E308">
+                     <children>
+                        <Label text="Simulation:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button id="simulation_play" mnemonicParsing="false" onAction="#simulatorPlayAction" text="Play">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button id="simulation_stop" mnemonicParsing="false" onAction="#simulatorStopAction" text="Stop">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Label text="Path display">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Slider fx:id="FXSimulationPathDisplaySlider" maxWidth="1.7976931348623157E308" minWidth="100.0" HBox.hgrow="ALWAYS" />
+                        <Label text="Scale">
+                           <HBox.margin>
+                              <Insets left="20.0" right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Slider fx:id="FXSimulationScaleSlider" min="1.0" minWidth="100.0" value="0.0" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" />
+                      <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Pane fx:id="FXMLSimulationAgentBar" maxWidth="200.0" minWidth="100.0" />
+                        <ScrollPane fx:id="FXSimulationScrollPane" prefViewportHeight="1000.0" prefViewportWidth="1000.0" GridPane.columnIndex="1">
+                           <content>
+                              <StackPane>
+                                 <children>
+                                    <Pane fx:id="FXSimulationControlPane" />
+                                    <Pane fx:id="FXSimulationTimeMarkPane" mouseTransparent="true" />
+                                 </children>
+                              </StackPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <Slider fx:id="FXSimulationSlider" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+        </items>
+      </SplitPane>
+    </children>
+</AnchorPane>

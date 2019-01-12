@@ -1,0 +1,3 @@
+IQuestion is interface used in methods.showDialogQuestion(IQuestion<InputType,AnswType> input).
+
+Ancestor of IQuestion has node for question and returns various type.

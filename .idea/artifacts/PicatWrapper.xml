@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact name="PicatWrapper">
+    <output-path>$PROJECT_DIR$/out/artifacts/Scenario</output-path>
+    <root id="root">
+      <element id="archive" name="PicatWrapper.jar">
+        <element id="module-output" name="PicatWrapper" />
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/PicatWrapper/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/lib" />
+    </root>
+  </artifact>
+</component>

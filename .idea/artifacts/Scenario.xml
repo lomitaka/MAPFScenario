@@ -1,0 +1,43 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Scenario">
+    <output-path>$PROJECT_DIR$/out/artifacts/Scenario</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="mapfScenario.EntryPoint" />
+        <option name="description" value="" />
+        <option name="height" value="800" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Mapf Scenario" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+        <option name="width" value="900" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="MapfScenario.jar">
+        <element id="module-output" name="MAPFScenario" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="archive" name="PicatWrapper.jar">
+          <element id="directory" name="META-INF">
+            <element id="file-copy" path="$PROJECT_DIR$/PicatWrapper/META-INF/MANIFEST.MF" />
+          </element>
+          <element id="module-output" name="PicatWrapper" />
+        </element>
+        <element id="library" level="project" name="lib" />
+        <element id="library" level="project" name="log4j:log4j:1.2.17" />
+        <element id="dir-copy" path="$PROJECT_DIR$/lib" />
+        <element id="archive" name="OzoCodeGenerator.jar">
+          <element id="directory" name="META-INF">
+            <element id="file-copy" path="$PROJECT_DIR$/OzoCodeGenerator/src/META-INF/MANIFEST.MF" />
+          </element>
+          <element id="module-output" name="OzoCodeGenerator" />
+        </element>
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/outputRoot" />
+      <element id="directory" name="picat">
+        <element id="dir-copy" path="$PROJECT_DIR$/picat" />
+      </element>
+    </root>
+  </artifact>
+</component>

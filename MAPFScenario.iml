@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/img" type="java-resource" relativeOutputPath="img" />
+      <excludeFolder url="file://$MODULE_DIR$/SupportFiles" />
+      <excludeFolder url="file://$MODULE_DIR$/maps" />
+      <excludeFolder url="file://$MODULE_DIR$/picat" />
+      <excludeFolder url="file://$MODULE_DIR$/problems" />
+      <excludeFolder url="file://$MODULE_DIR$/test" />
+      <excludeFolder url="file://$MODULE_DIR$/testOld" />
+      <excludeFolder url="file://$MODULE_DIR$/workdir" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" exported="" name="lib" level="project" />
+  </component>
+</module>

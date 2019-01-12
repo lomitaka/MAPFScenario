@@ -1,0 +1,118 @@
+module mapf_edge_disjoint.
+import common.
+import sat.
+
+
+%=======================================================================
+% adds condition of edge disjoint. optimizes Makespan + Sum of cost 
+% action set : {leftGo,rightGo, backwardGo,go,wait}
+%=======================================================================
+
+run(FileIn,FileOut) =>
+	println("RUN"),
+	common.read_file_input(FileIn,Graph,As,MapArr,Opt),
+	
+	% adds to graph reflexive edges
+	common.graph_add_reflex_edge(Graph,Graph1),		
+
+	% changes graph so it is like indexed array
+	common.graph_to_indexed_array(Graph1,GraphOut),
+
+	print("Calling solver.."),
+	path(GraphOut,As,ArrSol,Opt),
+
+	if (ArrSol != null) then
+	
+		println("Done"),
+		arrSol_to_PathSol(ArrSol,PathSol),
+		println("Writing output"),
+		common.get_writer(FileOut,Writer),
+		common.mapf_output_plan(PathSol,MapArr,Writer),
+		common.close_writer(Writer)
+	else 	
+		println("No solution found"),	
+		common.get_writer(FileOut,Writer),
+		common.mapf_no_solution_found_write(Writer),
+		common.close_writer(Writer)
+	end.
+
+
+
+
+% LB - maximum z vsech delek cest agentu. UB - nejkratsi cesta, pokud pohyb je povolen jen jednomu agentu v case.  
+% N - number of nodes
+% M Trying current length of the solution.
+% K pocet agentu.
+
+% Graph is Array, idnex is node number, value is list of neigbour index.
+
+path(Graph,As,B,Opt) ?=>
+	println("mapf_edge_disjoint"),
+	%mesh_size(Width,Height), 
+	%N = Width*Height, % pocet vrcholu	
+	N = len(Graph),
+    K = len(As), % pocet agentu
+	common.lower_upper_bounds(Graph,As,Opt,LB,UB),
+	if (LB = 0 /\ UB = 0) then fail end,
+	between(LB,UB,M),
+	
+	B = new_array(M+1,K,N), %B = (Cas,Agenty,Vrcholy)
+	B :: 0 .. 1,
+
+	end_time(B,As,K,M,E),	
+
+	%initialize the first and last states
+	foreach(A in 1..K)
+		(V,FV) = As[A],
+		B[1,A,V] = 1, % robot ma byt na startovni pozici robota.
+		B[M+1,A,FV] = 1 % robot ma byt na koncove pozici.
+	end,
+
+	%Each agent ocuppies exacly one vertex
+	foreach(T in 1..M+1, A in 1..K) 
+		sum([B[T,A,V]: V in 1..N]) #= 1
+	end,
+
+	%No two agents occupy the same vertex
+	foreach(T in 1..M+1, V in 1..N)
+		sum([B[T,A,V]: A in 1..K]) #=< 1
+	end,
+
+	%Every transition is valid
+	foreach(T in 1..M,A in 1..K, V in 1..N)
+		Neibs = Graph[V], 
+    %neibsN(V,Neibs),
+		B[T,A,V] #=>
+		sum([B[T+1,A,U] : U in Neibs]) #>= 1
+	end,
+
+	% condition fo edge disjoint 
+	foreach(T in 1..M, V in 1..N, A in 1..K) 
+		foreach(U in Graph[V],C in 1..K)        
+			if A != C then      
+				(B[T,A,V] #/\ B[T+1,A,U])  #=> 
+					B[T,C,U] + B[T+1,C,V] #=< 1
+			end
+		end
+	end,
+
+	solve([$min(sum(E))],B).
+
+path(_Graph,_As,B) => B = null. 
+%=======================================================================
+% adds variables for end conditions
+%=======================================================================
+end_time(B,As,K,M,E) =>
+	E = new_array(K),
+	E :: 1..M+1,
+	foreach (A in 1..K, T in 1..M+1)
+		(_V,FV) = As[A],
+		if T > 1 then
+			E[A] #= T #=> B[T-1,A,FV] #= 0
+		end,
+		foreach (T1 in T..M+1)
+			E[A] #= T #=> B[T1,A,FV] #= 1
+		end
+	end.
+
+

@@ -1,0 +1,81 @@
+import mapf_simple.
+
+import mapf_edge_disjoint.
+import mapf_edge_split.
+import mapf_vertex_split.
+import mapf_edge_split_rob.
+import mapf_vertex_split_rob.
+
+run() => mapf_simple("pr18-07-04-17-44-24.pi","Out.txt").
+run2() => mapf_edge_disjoint("pr18-07-04-17-44-24.pi","Out.txt").
+run3() => mapf_makespan_soc("pr18-07-04-17-44-24.pi","Out.txt").
+run5() => mapf_simple("problem005.tosolve","problem005.solved").
+
+run(FileIn,FileOut) => mapf_simple(FileIn,FileOut).
+
+%=======================================================================
+% 
+% simple MAPF solver. (not edge disjoint, optimizes Makespan)
+%=======================================================================
+
+%[SCENARIO_EXPORT] mapf_simple Simple
+mapf_simple(FileIn,FileOut) =>
+	mapf_simple.run(FileIn,FileOut).
+
+	
+
+%=======================================================================
+% Makespan + sum of cost.
+%  disjoint MAPF solver. Conditions that forbids edges to swap  
+%=======================================================================
+
+%[SCENARIO_EXPORT] mapf_edge_disjoint EdgeDisjoint
+mapf_edge_disjoint(FileIn,FileOut) =>
+	mapf_edge_disjoint.run(FileIn,FileOut).
+
+
+
+%=======================================================================
+% 
+% makespan and sum of cost MAPF solver. 
+%=======================================================================
+
+%[SCENARIO_EXPORT] mapf_edge_split EdgeSplit
+mapf_edge_split(FileIn,FileOut) =>
+	mapf_edge_split.run(FileIn,FileOut).
+	
+	
+
+%=======================================================================
+% 
+% makespan and sum of cost, EdgeDisjoint + VertexSplit. 
+%=======================================================================
+
+%[SCENARIO_EXPORT] mapf_vertex_split VertexSplit
+mapf_vertex_split(FileIn,FileOut) =>
+	mapf_vertex_split.run(FileIn,FileOut).
+	
+
+
+%=======================================================================
+% 
+% makespan and sum of cost MAPF solver. 
+%=======================================================================
+
+%[SCENARIO_EXPORT] mapf_edge_split_rob EdgeSplitRob
+mapf_edge_split_rob(FileIn,FileOut) =>
+	mapf_edge_split_rob.run(FileIn,FileOut).
+	
+
+%=======================================================================
+% 
+% makespan and sum of cost, EdgeDisjoint + VertexSplit. 
+%=======================================================================
+
+%[SCENARIO_EXPORT] mapf_vertex_split_rob VertexSplitRob
+mapf_vertex_split_rob(FileIn,FileOut) =>
+	mapf_vertex_split_rob.run(FileIn,FileOut).
+	
+
+
+

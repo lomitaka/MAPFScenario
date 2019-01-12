@@ -1,0 +1,2214 @@
+label(('$damon_load',0)).
+label(('$damon_load',0,-1)).
+    allocate_det(0,4,([],0),4).
+label(('$damon_load',0,1)).
+    para_c(c(sat)).
+    call0(('$picat_ensure_loaded',1),4).
+    para_c(c(common)).
+    call0(('$picat_ensure_loaded',1),4).
+    last_call(1,('$picat_insert_loaded',1),c(mapf_vertex_split_rob),4).
+    return_det.
+label(('$damon_load',0,3)).
+    fail.
+label(('$damon_load',0,4)).
+    fail0.
+label(('$damon_load',0,5)).
+    cut_fail.
+label((mapf_vertex_split_rob__ds,4)).
+label((mapf_vertex_split_rob__ds,4,-1)).
+    allocate_det(4,17,([],0),4).
+label((mapf_vertex_split_rob__ds,4,1)).
+label((mapf_vertex_split_rob__ds,4,2)).
+    hash(4,0,0,(mapf_vertex_split_rob__ds,4,17)).
+    pred((mapf_vertex_split_rob__ds,4,2),4,13,(mapf_vertex_split_rob__ds,4,17)).
+    arglabel(c,ags_relocate,(mapf_vertex_split_rob__ds,4,3)).
+    arglabel(c,disjoint_edges_merge,(mapf_vertex_split_rob__ds,4,4)).
+    arglabel(c,getNeibs,(mapf_vertex_split_rob__ds,4,5)).
+    arglabel(c,vertex_num_to_map,(mapf_vertex_split_rob__ds,4,6)).
+    arglabel(c,vertex_num_to_dir,(mapf_vertex_split_rob__ds,4,7)).
+    arglabel(c,path,(mapf_vertex_split_rob__ds,4,8)).
+    arglabel(c,end_time,(mapf_vertex_split_rob__ds,4,9)).
+    arglabel(c,vertex_split,(mapf_vertex_split_rob__ds,4,10)).
+    arglabel(c,run,(mapf_vertex_split_rob__ds,4,11)).
+    arglabel(c,vertex_split_part,(mapf_vertex_split_rob__ds,4,12)).
+    arglabel(c,vOrd,(mapf_vertex_split_rob__ds,4,13)).
+    arglabel(c,getCompanion,(mapf_vertex_split_rob__ds,4,14)).
+    arglabel(c,'_$all',(mapf_vertex_split_rob__ds,4,15)).
+label((mapf_vertex_split_rob__ds,4,3)).
+    hash_jmpn_constant(c(ags_relocate),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(2),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$ags_relocate')).
+label((mapf_vertex_split_rob__ds,4,4)).
+    hash_jmpn_constant(c(disjoint_edges_merge),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(2),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$disjoint_edges_merge')).
+label((mapf_vertex_split_rob__ds,4,5)).
+    hash_jmpn_constant(c(getNeibs),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(2),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(func)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$f$$getNeibs')).
+label((mapf_vertex_split_rob__ds,4,6)).
+    hash_jmpn_constant(c(vertex_num_to_map),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(1),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$vertex_num_to_map')).
+label((mapf_vertex_split_rob__ds,4,7)).
+    hash_jmpn_constant(c(vertex_num_to_dir),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(1),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(func)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir')).
+label((mapf_vertex_split_rob__ds,4,8)).
+    hash_jmpn_constant(c(path),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(6),(mapf_vertex_split_rob__ds,4,16),(mapf_vertex_split_rob__ds,4,16)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$path')).
+label((mapf_vertex_split_rob__ds,4,16)).
+    jmpn_eq_constant(4,c(path),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(5),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$path')).
+label((mapf_vertex_split_rob__ds,4,9)).
+    hash_jmpn_constant(c(end_time),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(5),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$end_time')).
+label((mapf_vertex_split_rob__ds,4,10)).
+    hash_jmpn_constant(c(vertex_split),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(5),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$vertex_split')).
+label((mapf_vertex_split_rob__ds,4,11)).
+    hash_jmpn_constant(c(run),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(2),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$run')).
+label((mapf_vertex_split_rob__ds,4,12)).
+    hash_jmpn_constant(c(vertex_split_part),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(6),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$vertex_split_part')).
+label((mapf_vertex_split_rob__ds,4,13)).
+    hash_jmpn_constant(c(vOrd),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(2),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$vOrd')).
+label((mapf_vertex_split_rob__ds,4,14)).
+    hash_jmpn_constant(c(getCompanion),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(3),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_constant(2,c(pred)).
+    unify_constant_return_det(1,c('e$$mapf_vertex_split_rob$$getCompanion')).
+label((mapf_vertex_split_rob__ds,4,15)).
+    hash_jmpn_constant(c('_$all'),(mapf_vertex_split_rob__ds,4,17)).
+    jmpn_eq_constant(3,c(100),(mapf_vertex_split_rob__ds,4,17),(mapf_vertex_split_rob__ds,4,17)).
+    unify_comp_list(1,13,v(-4),v(-5),v(-6),v(-7),v(-8),v(-9),v(-10),v(-11),v(-12),v(-13),v(-14),v(-15),v(-16)).
+    unify_struct_arg_c(-16,(/,2),c(ags_relocate)).
+    unify_arg_c(c(2)).
+    unify_struct_arg_c(-15,(/,2),c(disjoint_edges_merge)).
+    unify_arg_c(c(2)).
+    unify_struct_arg_c(-14,(/,2),c(getNeibs)).
+    unify_arg_c(c(2)).
+    unify_struct_arg_c(-13,(/,2),c(vertex_num_to_map)).
+    unify_arg_c(c(1)).
+    unify_struct_arg_c(-12,(/,2),c(vertex_num_to_dir)).
+    unify_arg_c(c(1)).
+    unify_struct_arg_c(-11,(/,2),c(path)).
+    unify_arg_c(c(6)).
+    unify_struct_arg_c(-10,(/,2),c(end_time)).
+    unify_arg_c(c(5)).
+    unify_struct_arg_c(-9,(/,2),c(vertex_split)).
+    unify_arg_c(c(5)).
+    unify_struct_arg_c(-8,(/,2),c(run)).
+    unify_arg_c(c(2)).
+    unify_struct_arg_c(-7,(/,2),c(vertex_split_part)).
+    unify_arg_c(c(6)).
+    unify_struct_arg_c(-6,(/,2),c(path)).
+    unify_arg_c(c(5)).
+    unify_struct_arg_c(-5,(/,2),c(vOrd)).
+    unify_arg_c(c(2)).
+    unify_struct_arg_c(-4,(/,2),c(getCompanion)).
+    unify_arg_c(c(3)).
+    return_det.
+label((mapf_vertex_split_rob__ds,4,17)).
+    fail.
+label((mapf_vertex_split_rob__ds,4,18)).
+    fail0.
+label((mapf_vertex_split_rob__ds,4,19)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$run',2)).
+label(('e$$mapf_vertex_split_rob$$run',2,-1)).
+    allocate_det(2,29,([],0),4).
+label(('e$$mapf_vertex_split_rob$$run',2,1)).
+    move_comp_list(-4,3,c('R'),c('U'),c('N')).
+    para_c(c(user)).
+    para_u(-4).
+    call0((picat_println,2),5).
+    para_uv(2,-4).
+    para_vv(-5,-6).
+    para_v(-7).
+    call0(('e$$common$$read_file_input',5),8).
+    move_var(-8).
+    jmpn_int_y(-6,('e$$mapf_vertex_split_rob$$run',2,2)).
+    jmpn_ge_ui(-6,0,('e$$mapf_vertex_split_rob$$run',2,2)).
+    para_uu(-8,-6).
+    call0((new_hashtable,2),9).
+    move_var(-9).
+    jmp(('e$$mapf_vertex_split_rob$$run',2,3)).
+label(('e$$mapf_vertex_split_rob$$run',2,2)).
+    para_u(-8).
+    call0((new_hashtable,1),9).
+    move_struct(-9,(new_map,1)).
+    build_arg_u(-6).
+    para_uuu(-8,-6,-9).
+    call0((picat_init_map,3),10).
+label(('e$$mapf_vertex_split_rob$$run',2,3)).
+    move_value(-10,-8).
+    para_uuv(-4,-10,-11).
+    para_vv(-12,-13).
+    call0(('e$$mapf_vertex_split_rob$$vertex_split',5),14).
+    move_comp_list(-14,18,c('V'),c(e),c(r),c(t),c(e),c(x),c(e),c(s),c(' '),c(s),c(p),c(l),c(i),c(t),c(t),c(e),c(d),c('.')).
+    para_c(c(user)).
+    para_u(-14).
+    call0((picat_println,2),15).
+    para_uv(-13,-15).
+    call0(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2),16).
+    move_comp_list(-16,22,c('D'),c(i),c(s),c(j),c(o),c(i),c(n),c(t),c(' '),c(e),c(d),c(g),c(e),c(s),c(' '),c(m),c(e),c(r),c(g),c(e),c(d),c('.')).
+    para_c(c(user)).
+    para_u(-16).
+    call0((picat_println,2),17).
+    para_uv(-5,-17).
+    call0(('e$$mapf_vertex_split_rob$$ags_relocate',2),18).
+    move_comp_list(-18,17,c(a),c(g),c(e),c(n),c(t),c(s),c(' '),c(r),c(e),c(l),c(o),c(c),c(a),c(t),c(e),c(d),c('.')).
+    para_c(c(user)).
+    para_u(-18).
+    call0((picat_println,2),19).
+    para_uv(-11,-19).
+    call0(('e$$common$$graph_add_reflex_edge',2),20).
+    para_uv(-19,-20).
+    call0(('e$$common$$graph_to_indexed_array',2),21).
+    move_comp_list(-21,16,c('C'),c(a),c(l),c(l),c(i),c(n),c(g),c(' '),c(s),c(o),c(l),c(v),c(e),c(r),c('.'),c('.')).
+    para_c(c(user)).
+    para_u(-21).
+    call0((picat_print,2),22).
+    para_uuv(-20,-17,-22).
+    para_uuu(-7,-12,-15).
+    call0(('e$$mapf_vertex_split_rob$$path',6),23).
+    move_var(-23).
+    jmp_unif(u(-22),c(null),('e$$mapf_vertex_split_rob$$run',2,4)).
+    move_comp_list(-24,4,c('D'),c(o),c(n),c(e)).
+    para_c(c(user)).
+    para_u(-24).
+    call0((picat_println,2),25).
+    para_uv(-22,-25).
+    call0(('e$$common$$arrSol_to_PathSol',2),26).
+    move_comp_list(-26,14,c('W'),c(r),c(i),c(t),c(i),c(n),c(g),c(' '),c(o),c(u),c(t),c(p),c(u),c(t)).
+    para_c(c(user)).
+    para_u(-26).
+    call0((picat_println,2),27).
+    para_uu(1,-23).
+    call0(('e$$common$$get_writer',2),27).
+    para_v(-27).
+    call0(('e$$mapf_vertex_split_rob$$vertex_num_to_map',1),28).
+    para_uuu(-25,-6,-27).
+    para_u(-23).
+    call0(('e$$common$$mapf_output_plan_adv',4),28).
+    last_call(1,('e$$common$$close_writer',1),u(-23),28).
+    return_det.
+    jmp(('e$$mapf_vertex_split_rob$$run',2,5)).
+label(('e$$mapf_vertex_split_rob$$run',2,4)).
+    move_vars(-27,-24).
+    move_comp_list(-28,17,c('N'),c(o),c(' '),c(s),c(o),c(l),c(u),c(t),c(i),c(o),c(n),c(' '),c(f),c(o),c(u),c(n),c(d)).
+    para_c(c(user)).
+    para_u(-28).
+    call0((picat_println,2),29).
+    para_uu(1,-23).
+    call0(('e$$common$$get_writer',2),29).
+    para_u(-23).
+    call0(('e$$common$$mapf_no_solution_found_write',1),29).
+    last_call(1,('e$$common$$close_writer',1),u(-23),29).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$run',2,5)).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$run',2,8)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$run',2,9)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$run',2,10)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$path',6)).
+label(('e$$mapf_vertex_split_rob$$path',6,-1)).
+    allocate_nondet(6,33,([],0),9).
+label(('e$$mapf_vertex_split_rob$$path',6,0)).
+    nondet(6).
+label(('e$$mapf_vertex_split_rob$$path',6,1)).
+    bp_fork(('e$$mapf_vertex_split_rob$$path',6,11)).
+    move_comp_list(-9,21,c(m),c(a),c(p),c(f),c('_'),c(v),c(e),c(r),c(t),c(e),c(x),c('_'),c(s),c(p),c(l),c(i),c(t),c('_'),c(r),c(o),c(b)).
+    para_c(c(user)).
+    para_u(-9).
+    call0((picat_println,2),10).
+    builtin2(296,('e$$mapf_vertex_split_rob$$path',6,9),u(6),v(-10)).
+    move_value(-11,-10).
+    builtin2(296,('e$$mapf_vertex_split_rob$$path',6,9),u(5),v(-12)).
+    move_value(-13,-12).
+    para_uuuv(6,5,3,-14).
+    para_v(-15).
+    call0(('e$$common$$lower_upper_bounds',5),16).
+    para_v(-16).
+    para_u(-15).
+    call0(('de$$mapf_vertex_split_rob$$path_6_0__1',2),17).
+    jmp_var_y(-16,('e$$mapf_vertex_split_rob$$path',6,2)).
+    fail.
+    jmp(('e$$mapf_vertex_split_rob$$path',6,3)).
+label(('e$$mapf_vertex_split_rob$$path',6,2)).
+label(('e$$mapf_vertex_split_rob$$path',6,3)).
+    para_uuv(-14,-15,-17).
+    call0((bp_between,3),18).
+    add_u1v(-17,-18).
+    move_value(-19,-18).
+    move_comp_list(-20,3,u(-19),u(-13),u(-11)).
+    move_struct(-21,(new_array,3)).
+    build_arg_3u(-19,-13,-11).
+    para_uu(-20,-21).
+    call0((picat_check_array_dims,2),22).
+    para_uv(-20,-22).
+    call0((picat_create_array,2),23).
+    unify_value(4,-22).
+    move_struct(-23,(..,2)).
+    build_arg_2c(c(0),c(1)).
+    move_struct(-24,(..,2)).
+    build_arg_u(-23).
+    build_arg_c(c(1)).
+    para_c(c(sat)).
+    para_uu(4,-24).
+    call0(('_$_picat_in',3),25).
+    para_uuu(4,5,-13).
+    para_uv(-17,-25).
+    call0(('e$$mapf_vertex_split_rob$$end_time',5),26).
+    para_c(c(1)).
+    para_uuu(-13,-17,4).
+    para_u(5).
+    call0((h___mapf_vertex_split_robpath_6_1_1,5),26).
+    para_v(-26).
+    para_uv(-17,-27).
+    call0(('de$$mapf_vertex_split_rob$$path_6_0__2',3),28).
+    jmp_var_y(-26,('e$$mapf_vertex_split_rob$$path',6,4)).
+    para_c(c(1)).
+    para_uuu(-27,-11,4).
+    para_u(-13).
+    call0((h___mapf_vertex_split_robpath_6_1_4,5),28).
+    jmp(('e$$mapf_vertex_split_rob$$path',6,5)).
+label(('e$$mapf_vertex_split_rob$$path',6,4)).
+label(('e$$mapf_vertex_split_rob$$path',6,5)).
+    para_c(c(1)).
+    para_uuu(-17,-11,4).
+    para_uu(6,-13).
+    call0((h___mapf_vertex_split_robpath_6_1_9,6),28).
+    para_v(-28).
+    para_uv(-17,-29).
+    call0(('de$$mapf_vertex_split_rob$$path_6_0__3',3),30).
+    jmp_var_y(-28,('e$$mapf_vertex_split_rob$$path',6,6)).
+    para_c(c(1)).
+    para_uuu(-29,-13,4).
+    para_u(2).
+    call0((h___mapf_vertex_split_robpath_6_1_15,5),30).
+    jmp(('e$$mapf_vertex_split_rob$$path',6,7)).
+label(('e$$mapf_vertex_split_rob$$path',6,6)).
+label(('e$$mapf_vertex_split_rob$$path',6,7)).
+    para_c(c(1)).
+    para_uuu(-17,-13,4).
+    para_u(1).
+    call0((h___mapf_vertex_split_robpath_6_1_20,5),30).
+    para_c(c(1)).
+    para_uuu(-17,-11,4).
+    para_uu(2,-13).
+    call0((h___mapf_vertex_split_robpath_6_1_27,6),30).
+    move_struct(-30,(sum,1)).
+    build_arg_u(-25).
+    move_struct(-31,(min,1)).
+    build_arg_u(-30).
+    move_comp_list1(-32,u(-31)).
+    para_uu(-32,4).
+    call0(('e$$sat$$solve',2),33).
+    return_nondet.
+label(('e$$mapf_vertex_split_rob$$path',6,9)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$path',6,10)).
+    fail0.
+    noop1(9).
+label(('e$$mapf_vertex_split_rob$$path',6,11)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_1,5)).
+label((h___mapf_vertex_split_robpath_6_1_1,5,-1)).
+    allocate_det(5,8,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_1,5,1)).
+    jmpn_gt_uu(5,4,(h___mapf_vertex_split_robpath_6_1_1,5,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_1,5,2)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_1,5,4),u(5),u(1),v(-4)).
+    unify_struct_arg_2v0(-4,(',',2),-4,-5).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_1,5,4),c(1),u(2),v(-6)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_1,5,4),u(5),u(-6),v(-7)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_1,5,4),u(-4),u(-7),v(-6)).
+    unify_constant(-6,c(1)).
+    add_u1v(3,-6).
+    move_value(-4,-6).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_1,5,4),u(-4),u(2),v(-6)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_1,5,4),u(5),u(-6),v(-4)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_1,5,4),u(-5),u(-4),v(-6)).
+    unify_constant(-6,c(1)).
+    add_u1v(5,-6).
+    move_value(5,-6).
+    tr_det_call0((h___mapf_vertex_split_robpath_6_1_1,5,1),8).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_1,5,4)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_1,5,5)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_1,5,6)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_2,7)).
+label((h___mapf_vertex_split_robpath_6_1_2,7,-1)).
+    allocate_det(7,6,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_2,7,1)).
+    jmpn_gt_uu(7,6,(h___mapf_vertex_split_robpath_6_1_2,7,2)).
+    unify_value_return_det(4,5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_2,7,2)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_2,7,4),u(1),u(2),v(-4)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_2,7,4),u(3),u(-4),v(-5)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_2,7,4),u(7),u(-5),v(-4)).
+    unify_cons_uv0(5,-4,-5).
+    move_value(5,-5).
+    add_u1v(7,-5).
+    move_value(7,-5).
+    tr_det_call0((h___mapf_vertex_split_robpath_6_1_2,7,1),6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_2,7,4)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_2,7,5)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_2,7,6)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_3,5)).
+label((h___mapf_vertex_split_robpath_6_1_3,5,-1)).
+    allocate_det(5,9,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_3,5,1)).
+    jmpn_gt_uu(5,4,(h___mapf_vertex_split_robpath_6_1_3,5,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_3,5,2)).
+    move_var(-5).
+    move_value(-4,-5).
+    para_cuuv(c(1),1,-5,-6).
+    para_uuu(5,2,3).
+    call0((h___mapf_vertex_split_robpath_6_1_2,7),7).
+    unify_nil(-6).
+    move_struct(-5,(sum,1)).
+    build_arg_u(-4).
+    para_uc(-5,c(1)).
+    call0(('e$$sat$$#=',2),7).
+    add_u1v(5,-7).
+    move_value(-8,-7).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_3,5,1),1,5,-8,4,3,2,1,9).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_3,5,4)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_3,5,5)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_3,5,6)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_4,5)).
+label((h___mapf_vertex_split_robpath_6_1_4,5,-1)).
+    allocate_det(5,6,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_4,5,1)).
+    jmpn_gt_uu(5,4,(h___mapf_vertex_split_robpath_6_1_4,5,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_4,5,2)).
+    para_c(c(1)).
+    para_uuu(1,5,2).
+    para_u(3).
+    call0((h___mapf_vertex_split_robpath_6_1_3,5),4).
+    add_u1v(5,-4).
+    move_value(-5,-4).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_4,5,1),1,5,-5,4,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_4,5,4)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_4,5,5)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_4,5,6)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_5,6)).
+label((h___mapf_vertex_split_robpath_6_1_5,6,-1)).
+    allocate_det(6,8,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_5,6,1)).
+    switch_cons_vv(6,(h___mapf_vertex_split_robpath_6_1_5,6,5),(h___mapf_vertex_split_robpath_6_1_5,6,6),(h___mapf_vertex_split_robpath_6_1_5,6,6),-4,-5).
+    add_u1v(1,-6).
+    move_value(-7,-6).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_5,6,8),u(-7),u(2),v(-6)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_5,6,8),u(3),u(-6),v(-7)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_5,6,8),u(-4),u(-7),v(-6)).
+    unify_cons_uv0(5,-6,-4).
+    move_value(-4,-4).
+    tr_det_call2_au((h___mapf_vertex_split_robpath_6_1_5,6,1),1,2,6,-5,-4,4,3,2,1,8).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_5,6,3)).
+    move_value(5,5).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_5,6,1),1,6,-5,5,4,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_5,6,5)).
+    unify_value_return_det(4,5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_5,6,6)).
+    last_call(2,(picat_check_list,2),u(6),c(iterator),4).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_5,6,8)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_5,6,9)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_5,6,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_6,8)).
+label((h___mapf_vertex_split_robpath_6_1_6,8,-1)).
+    allocate_det(8,7,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_6,8,1)).
+    jmpn_gt_uu(8,7,(h___mapf_vertex_split_robpath_6_1_6,8,2)).
+    unify_value_return_det(4,5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_6,8,2)).
+    arg(8,6,-4).
+    move_value(-4,-4).
+    add_u1v(1,-5).
+    move_value(-6,-5).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_6,8,6),u(-6),u(2),v(-5)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_6,8,6),u(3),u(-5),v(-6)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_6,8,6),u(-4),u(-6),v(-5)).
+    unify_cons_uv0(5,-5,-4).
+    move_value(-4,-4).
+    add_u1v(8,-5).
+    move_value(-6,-5).
+    tr_det_call2_au((h___mapf_vertex_split_robpath_6_1_6,8,1),1,4,8,-6,7,6,-4,4,3,2,1,7).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_6,8,4)).
+    add_u1v(8,-4).
+    move_value(8,-4).
+    move_value(5,5).
+    tr_det_call0((h___mapf_vertex_split_robpath_6_1_6,8,1),5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_6,8,6)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_6,8,7)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_6,8,8)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_7,6)).
+label((h___mapf_vertex_split_robpath_6_1_7,6,-1)).
+    allocate_det(6,16,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_7,6,1)).
+    jmpn_gt_uu(6,5,(h___mapf_vertex_split_robpath_6_1_7,6,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_7,6,2)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_7,6,8),u(6),u(1),v(-4)).
+    move_value(-4,-4).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_7,6,8),u(2),u(3),v(-5)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_7,6,8),u(4),u(-5),v(-6)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_7,6,8),u(6),u(-6),v(-5)).
+    move_var(-7).
+    move_value(-6,-7).
+    move_vars(-12,-8).
+    builtin1(264,(h___mapf_vertex_split_robpath_6_1_7,6,3),u(-4)).
+    unify_value(-8,-4).
+    para_uuu(-8,-7,-9).
+    para_uuu(4,3,2).
+    call0((h___mapf_vertex_split_robpath_6_1_5,6),13).
+    jmp((h___mapf_vertex_split_robpath_6_1_7,6,4)).
+label((h___mapf_vertex_split_robpath_6_1_7,6,3)).
+    builtin1(262,(h___mapf_vertex_split_robpath_6_1_7,6,5),u(-4)).
+    unify_value(-10,-4).
+    functor(u(-10),u(-11),u(-12)).
+    para_c(c(1)).
+    para_uuu(-12,-10,-7).
+    para_uuu(-9,4,3).
+    para_u(2).
+    call0((h___mapf_vertex_split_robpath_6_1_6,8),13).
+    jmp((h___mapf_vertex_split_robpath_6_1_7,6,6)).
+label((h___mapf_vertex_split_robpath_6_1_7,6,5)).
+    para_uu(-4,-8).
+    call0((picat_iterator_collection_to_list,2),13).
+    para_uuu(-8,-7,-9).
+    para_uuu(4,3,2).
+    call0((h___mapf_vertex_split_robpath_6_1_5,6),13).
+label((h___mapf_vertex_split_robpath_6_1_7,6,6)).
+label((h___mapf_vertex_split_robpath_6_1_7,6,4)).
+    unify_nil(-9).
+    move_struct(-4,(sum,1)).
+    build_arg_u(-6).
+    move_struct(-13,(#>=,2)).
+    build_arg_u(-4).
+    build_arg_c(c(1)).
+    para_uu(-5,-13).
+    call0(('e$$sat$$#=>',2),14).
+    add_u1v(6,-14).
+    move_value(-15,-14).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_7,6,1),1,6,-15,5,4,3,2,1,16).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_7,6,8)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_7,6,9)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_7,6,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_8,6)).
+label((h___mapf_vertex_split_robpath_6_1_8,6,-1)).
+    allocate_det(6,6,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_8,6,1)).
+    jmpn_gt_uu(6,5,(h___mapf_vertex_split_robpath_6_1_8,6,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_8,6,2)).
+    para_c(c(1)).
+    para_uuu(1,6,2).
+    para_uu(3,4).
+    call0((h___mapf_vertex_split_robpath_6_1_7,6),4).
+    add_u1v(6,-4).
+    move_value(-5,-4).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_8,6,1),1,6,-5,5,4,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_8,6,4)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_8,6,5)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_8,6,6)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_9,6)).
+label((h___mapf_vertex_split_robpath_6_1_9,6,-1)).
+    allocate_det(6,6,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_9,6,1)).
+    jmpn_gt_uu(6,5,(h___mapf_vertex_split_robpath_6_1_9,6,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_9,6,2)).
+    para_c(c(1)).
+    para_uuu(1,2,6).
+    para_uu(3,4).
+    call0((h___mapf_vertex_split_robpath_6_1_8,6),4).
+    add_u1v(6,-4).
+    move_value(-5,-4).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_9,6,1),1,6,-5,5,4,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_9,6,4)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_9,6,5)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_9,6,6)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_10,6)).
+label((h___mapf_vertex_split_robpath_6_1_10,6,-1)).
+    allocate_det(6,8,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_10,6,1)).
+    switch_cons_vv(6,(h___mapf_vertex_split_robpath_6_1_10,6,5),(h___mapf_vertex_split_robpath_6_1_10,6,6),(h___mapf_vertex_split_robpath_6_1_10,6,6),-4,-5).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_10,6,8),u(1),u(2),v(-6)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_10,6,8),u(3),u(-6),v(-7)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_10,6,8),u(-4),u(-7),v(-6)).
+    unify_cons_uv0(5,-6,-4).
+    move_value(-4,-4).
+    tr_det_call2_au((h___mapf_vertex_split_robpath_6_1_10,6,1),1,2,6,-5,-4,4,3,2,1,8).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_10,6,3)).
+    move_value(5,5).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_10,6,1),1,6,-5,5,4,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_10,6,5)).
+    unify_value_return_det(4,5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_10,6,6)).
+    last_call(2,(picat_check_list,2),u(6),c(iterator),4).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_10,6,8)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_10,6,9)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_10,6,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_11,8)).
+label((h___mapf_vertex_split_robpath_6_1_11,8,-1)).
+    allocate_det(8,7,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_11,8,1)).
+    jmpn_gt_uu(8,7,(h___mapf_vertex_split_robpath_6_1_11,8,2)).
+    unify_value_return_det(4,5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_11,8,2)).
+    arg(8,6,-4).
+    move_value(-4,-4).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_11,8,6),u(1),u(2),v(-5)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_11,8,6),u(3),u(-5),v(-6)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_11,8,6),u(-4),u(-6),v(-5)).
+    unify_cons_uv0(5,-5,-4).
+    move_value(-4,-4).
+    add_u1v(8,-5).
+    move_value(-6,-5).
+    tr_det_call2_au((h___mapf_vertex_split_robpath_6_1_11,8,1),1,4,8,-6,7,6,-4,4,3,2,1,7).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_11,8,4)).
+    add_u1v(8,-4).
+    move_value(8,-4).
+    move_value(5,5).
+    tr_det_call0((h___mapf_vertex_split_robpath_6_1_11,8,1),5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_11,8,6)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_11,8,7)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_11,8,8)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_12,7)).
+label((h___mapf_vertex_split_robpath_6_1_12,7,-1)).
+    allocate_det(7,11,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_12,7,1)).
+    jmpn_gt_uu(7,6,(h___mapf_vertex_split_robpath_6_1_12,7,2)).
+    unify_value_return_det(4,5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_12,7,2)).
+    move_vars(-8,-4).
+    builtin1(264,(h___mapf_vertex_split_robpath_6_1_12,7,3),u(1)).
+    unify_value(-4,1).
+    para_uuu(-4,5,-5).
+    para_uuu(7,2,3).
+    call0((h___mapf_vertex_split_robpath_6_1_10,6),9).
+    jmp((h___mapf_vertex_split_robpath_6_1_12,7,4)).
+label((h___mapf_vertex_split_robpath_6_1_12,7,3)).
+    builtin1(262,(h___mapf_vertex_split_robpath_6_1_12,7,5),u(1)).
+    unify_value(-6,1).
+    functor(u(-6),u(-7),u(-8)).
+    para_c(c(1)).
+    para_uuu(-8,-6,5).
+    para_uuu(-5,7,2).
+    para_u(3).
+    call0((h___mapf_vertex_split_robpath_6_1_11,8),9).
+    jmp((h___mapf_vertex_split_robpath_6_1_12,7,6)).
+label((h___mapf_vertex_split_robpath_6_1_12,7,5)).
+    para_uu(1,-4).
+    call0((picat_iterator_collection_to_list,2),9).
+    para_uuu(-4,5,-5).
+    para_uuu(7,2,3).
+    call0((h___mapf_vertex_split_robpath_6_1_10,6),9).
+label((h___mapf_vertex_split_robpath_6_1_12,7,6)).
+label((h___mapf_vertex_split_robpath_6_1_12,7,4)).
+    add_u1v(7,-9).
+    move_value(-10,-9).
+    tr_det_call2_au((h___mapf_vertex_split_robpath_6_1_12,7,1),1,3,7,-10,6,-5,4,3,2,1,11).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_12,7,8)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_12,7,9)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_12,7,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_13,4)).
+label((h___mapf_vertex_split_robpath_6_1_13,4,-1)).
+    allocate_det(4,9,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_13,4,1)).
+    switch_cons_vv(4,(h___mapf_vertex_split_robpath_6_1_13,4,5),(h___mapf_vertex_split_robpath_6_1_13,4,6),(h___mapf_vertex_split_robpath_6_1_13,4,6),-4,-5).
+    move_var(-7).
+    move_value(-6,-7).
+    para_cuuv(c(1),1,-7,-8).
+    para_uuu(2,3,-4).
+    call0((h___mapf_vertex_split_robpath_6_1_12,7),9).
+    unify_nil(-8).
+    move_struct(-7,(sum,1)).
+    build_arg_u(-6).
+    para_uc(-7,c(1)).
+    call0(('e$$sat$$#=<',2),9).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_13,4,1),1,4,-5,3,2,1,9).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_13,4,3)).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_13,4,1),1,4,-5,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_13,4,5)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_13,4,6)).
+    last_call(2,(picat_check_list,2),u(4),c(iterator),4).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_13,4,8)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_13,4,9)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_13,4,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_14,6)).
+label((h___mapf_vertex_split_robpath_6_1_14,6,-1)).
+    allocate_det(6,9,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_14,6,1)).
+    jmpn_gt_uu(6,5,(h___mapf_vertex_split_robpath_6_1_14,6,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_14,6,2)).
+    arg(6,4,-4).
+    move_value(-4,-4).
+    move_var(-6).
+    move_value(-5,-6).
+    para_cuuv(c(1),1,-6,-7).
+    para_uuu(2,3,-4).
+    call0((h___mapf_vertex_split_robpath_6_1_12,7),8).
+    unify_nil(-7).
+    move_struct(-6,(sum,1)).
+    build_arg_u(-5).
+    para_uc(-6,c(1)).
+    call0(('e$$sat$$#=<',2),8).
+    add_u1v(6,-4).
+    move_value(-8,-4).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_14,6,1),1,6,-8,5,4,3,2,1,9).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_14,6,4)).
+    add_u1v(6,-4).
+    move_value(6,-4).
+    tr_det_call0((h___mapf_vertex_split_robpath_6_1_14,6,1),5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_14,6,6)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_14,6,7)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_14,6,8)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_15,5)).
+label((h___mapf_vertex_split_robpath_6_1_15,5,-1)).
+    allocate_det(5,10,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_15,5,1)).
+    jmpn_gt_uu(5,4,(h___mapf_vertex_split_robpath_6_1_15,5,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_15,5,2)).
+    move_vars(-7,-4).
+    builtin1(264,(h___mapf_vertex_split_robpath_6_1_15,5,3),u(1)).
+    unify_value(-4,1).
+    para_uuu(-4,2,5).
+    para_u(3).
+    call0((h___mapf_vertex_split_robpath_6_1_13,4),8).
+    jmp((h___mapf_vertex_split_robpath_6_1_15,5,4)).
+label((h___mapf_vertex_split_robpath_6_1_15,5,3)).
+    builtin1(262,(h___mapf_vertex_split_robpath_6_1_15,5,5),u(1)).
+    unify_value(-5,1).
+    functor(u(-5),u(-6),u(-7)).
+    para_c(c(1)).
+    para_uuu(-7,-5,2).
+    para_uu(5,3).
+    call0((h___mapf_vertex_split_robpath_6_1_14,6),8).
+    jmp((h___mapf_vertex_split_robpath_6_1_15,5,6)).
+label((h___mapf_vertex_split_robpath_6_1_15,5,5)).
+    para_uu(1,-4).
+    call0((picat_iterator_collection_to_list,2),8).
+    para_uuu(-4,2,5).
+    para_u(3).
+    call0((h___mapf_vertex_split_robpath_6_1_13,4),8).
+label((h___mapf_vertex_split_robpath_6_1_15,5,6)).
+label((h___mapf_vertex_split_robpath_6_1_15,5,4)).
+    add_u1v(5,-8).
+    move_value(-9,-8).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_15,5,1),1,5,-9,4,3,2,1,10).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_15,5,8)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_15,5,9)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_15,5,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_16,9)).
+label((h___mapf_vertex_split_robpath_6_1_16,9,-1)).
+    allocate_det(9,37,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_16,9,1)).
+    jmpn_gt_uu(9,8,(h___mapf_vertex_split_robpath_6_1_16,9,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_16,9,2)).
+    move_vars(-17,-4).
+    jmp_unif(u(1),u(9),(h___mapf_vertex_split_robpath_6_1_16,9,3)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(2),u(3),v(-18)).
+    unify_value(-4,-18).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(1),u(-4),v(-19)).
+    unify_value(-5,-19).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(4),u(-5),v(-20)).
+    unify_value(-6,-20).
+    add_u1v(2,-21).
+    unify_value(-7,-21).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(-7),u(3),v(-22)).
+    unify_value(-8,-22).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(1),u(-8),v(-23)).
+    unify_value(-9,-23).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(5),u(-9),v(-24)).
+    unify_value(-10,-24).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(2),u(3),v(-25)).
+    unify_value(-11,-25).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(9),u(-11),v(-26)).
+    unify_value(-12,-26).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(6),u(-12),v(-27)).
+    unify_value(-13,-27).
+    add_u1v(2,-28).
+    unify_value(-14,-28).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(-14),u(3),v(-29)).
+    unify_value(-15,-29).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(9),u(-15),v(-30)).
+    unify_value(-16,-30).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_16,9,6),u(7),u(-16),v(-31)).
+    unify_value(-17,-31).
+    move_struct0(-32,(#/\,2)).
+    build_arg_2u(-6,-10).
+    move_struct0(-33,(+,2)).
+    build_arg_2u(-13,-17).
+    move_struct0(-34,(#=<,2)).
+    build_arg_u(-33).
+    build_arg_c(c(1)).
+    para_uu(-32,-34).
+    call0(('e$$sat$$#=>',2),35).
+    jmp((h___mapf_vertex_split_robpath_6_1_16,9,4)).
+label((h___mapf_vertex_split_robpath_6_1_16,9,3)).
+    move_vars(-34,-18).
+label((h___mapf_vertex_split_robpath_6_1_16,9,4)).
+    add_u1v(9,-35).
+    move_value(-36,-35).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_16,9,1),1,9,-36,8,7,6,5,4,3,2,1,37).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_16,9,6)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_16,9,7)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_16,9,8)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_17,6)).
+label((h___mapf_vertex_split_robpath_6_1_17,6,-1)).
+    allocate_det(6,8,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_17,6,1)).
+    jmpn_gt_uu(6,5,(h___mapf_vertex_split_robpath_6_1_17,6,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_17,6,2)).
+    unify_struct_arg_v0(1,(ep,2),-4).
+    unify_arg_struct((e,2)).
+    unify_arg_2v0(-5,-6).
+    unify_struct_arg_2v0(-4,(e,2),-4,-7).
+    para_c(c(1)).
+    para_uuu(2,-6,-5).
+    para_uuu(-7,-4,3).
+    para_uu(4,6).
+    call0((h___mapf_vertex_split_robpath_6_1_16,9),8).
+    add_u1v(6,-6).
+    move_value(-5,-6).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_17,6,1),1,6,-5,5,4,3,2,1,8).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_17,6,4)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_17,6,5)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_17,6,6)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_18,4)).
+label((h___mapf_vertex_split_robpath_6_1_18,4,-1)).
+    allocate_det(4,6,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_18,4,1)).
+    switch_cons_vv(4,(h___mapf_vertex_split_robpath_6_1_18,4,5),(h___mapf_vertex_split_robpath_6_1_18,4,6),(h___mapf_vertex_split_robpath_6_1_18,4,6),-4,-5).
+    para_c(c(1)).
+    para_uuu(1,2,3).
+    para_uu(1,-4).
+    call0((h___mapf_vertex_split_robpath_6_1_17,6),6).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_18,4,1),1,4,-5,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_18,4,3)).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_18,4,1),1,4,-5,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_18,4,5)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_18,4,6)).
+    last_call(2,(picat_check_list,2),u(4),c(iterator),4).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_18,4,8)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_18,4,9)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_18,4,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_19,6)).
+label((h___mapf_vertex_split_robpath_6_1_19,6,-1)).
+    allocate_det(6,6,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_19,6,1)).
+    jmpn_gt_uu(6,5,(h___mapf_vertex_split_robpath_6_1_19,6,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_19,6,2)).
+    arg(6,4,-4).
+    move_value(-4,-4).
+    para_c(c(1)).
+    para_uuu(1,2,3).
+    para_uu(1,-4).
+    call0((h___mapf_vertex_split_robpath_6_1_17,6),5).
+    add_u1v(6,-4).
+    move_value(-5,-4).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_19,6,1),1,6,-5,5,4,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_19,6,4)).
+    add_u1v(6,-4).
+    move_value(6,-4).
+    tr_det_call0((h___mapf_vertex_split_robpath_6_1_19,6,1),5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_19,6,6)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_19,6,7)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_19,6,8)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_20,5)).
+label((h___mapf_vertex_split_robpath_6_1_20,5,-1)).
+    allocate_det(5,10,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_20,5,1)).
+    jmpn_gt_uu(5,4,(h___mapf_vertex_split_robpath_6_1_20,5,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_20,5,2)).
+    move_vars(-7,-4).
+    builtin1(264,(h___mapf_vertex_split_robpath_6_1_20,5,3),u(1)).
+    unify_value(-4,1).
+    para_uuu(-4,2,5).
+    para_u(3).
+    call0((h___mapf_vertex_split_robpath_6_1_18,4),8).
+    jmp((h___mapf_vertex_split_robpath_6_1_20,5,4)).
+label((h___mapf_vertex_split_robpath_6_1_20,5,3)).
+    builtin1(262,(h___mapf_vertex_split_robpath_6_1_20,5,5),u(1)).
+    unify_value(-5,1).
+    functor(u(-5),u(-6),u(-7)).
+    para_c(c(1)).
+    para_uuu(-7,-5,2).
+    para_uu(5,3).
+    call0((h___mapf_vertex_split_robpath_6_1_19,6),8).
+    jmp((h___mapf_vertex_split_robpath_6_1_20,5,6)).
+label((h___mapf_vertex_split_robpath_6_1_20,5,5)).
+    para_uu(1,-4).
+    call0((picat_iterator_collection_to_list,2),8).
+    para_uuu(-4,2,5).
+    para_u(3).
+    call0((h___mapf_vertex_split_robpath_6_1_18,4),8).
+label((h___mapf_vertex_split_robpath_6_1_20,5,6)).
+label((h___mapf_vertex_split_robpath_6_1_20,5,4)).
+    add_u1v(5,-8).
+    move_value(-9,-8).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_20,5,1),1,5,-9,4,3,2,1,10).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_20,5,8)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_20,5,9)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_20,5,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_21,6)).
+label((h___mapf_vertex_split_robpath_6_1_21,6,-1)).
+    allocate_det(6,8,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_21,6,1)).
+    switch_cons_vv(6,(h___mapf_vertex_split_robpath_6_1_21,6,5),(h___mapf_vertex_split_robpath_6_1_21,6,6),(h___mapf_vertex_split_robpath_6_1_21,6,6),-4,-5).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_21,6,8),u(1),u(2),v(-6)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_21,6,8),u(3),u(-6),v(-7)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_21,6,8),u(-4),u(-7),v(-6)).
+    unify_cons_uv0(5,-6,-4).
+    move_value(-4,-4).
+    tr_det_call2_au((h___mapf_vertex_split_robpath_6_1_21,6,1),1,2,6,-5,-4,4,3,2,1,8).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_21,6,3)).
+    move_value(5,5).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_21,6,1),1,6,-5,5,4,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_21,6,5)).
+    unify_value_return_det(4,5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_21,6,6)).
+    last_call(2,(picat_check_list,2),u(6),c(iterator),4).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_21,6,8)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_21,6,9)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_21,6,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_22,8)).
+label((h___mapf_vertex_split_robpath_6_1_22,8,-1)).
+    allocate_det(8,7,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_22,8,1)).
+    jmpn_gt_uu(8,7,(h___mapf_vertex_split_robpath_6_1_22,8,2)).
+    unify_value_return_det(4,5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_22,8,2)).
+    arg(8,6,-4).
+    move_value(-4,-4).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_22,8,6),u(1),u(2),v(-5)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_22,8,6),u(3),u(-5),v(-6)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_22,8,6),u(-4),u(-6),v(-5)).
+    unify_cons_uv0(5,-5,-4).
+    move_value(-4,-4).
+    add_u1v(8,-5).
+    move_value(-6,-5).
+    tr_det_call2_au((h___mapf_vertex_split_robpath_6_1_22,8,1),1,4,8,-6,7,6,-4,4,3,2,1,7).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_22,8,4)).
+    add_u1v(8,-4).
+    move_value(8,-4).
+    move_value(5,5).
+    tr_det_call0((h___mapf_vertex_split_robpath_6_1_22,8,1),5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_22,8,6)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_22,8,7)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_22,8,8)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_23,7)).
+label((h___mapf_vertex_split_robpath_6_1_23,7,-1)).
+    allocate_det(7,11,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_23,7,1)).
+    jmpn_gt_uu(7,6,(h___mapf_vertex_split_robpath_6_1_23,7,2)).
+    unify_value_return_det(4,5).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_23,7,2)).
+    move_vars(-8,-4).
+    builtin1(264,(h___mapf_vertex_split_robpath_6_1_23,7,3),u(1)).
+    unify_value(-4,1).
+    para_uuu(-4,5,-5).
+    para_uuu(2,3,7).
+    call0((h___mapf_vertex_split_robpath_6_1_21,6),9).
+    jmp((h___mapf_vertex_split_robpath_6_1_23,7,4)).
+label((h___mapf_vertex_split_robpath_6_1_23,7,3)).
+    builtin1(262,(h___mapf_vertex_split_robpath_6_1_23,7,5),u(1)).
+    unify_value(-6,1).
+    functor(u(-6),u(-7),u(-8)).
+    para_c(c(1)).
+    para_uuu(-8,-6,5).
+    para_uuu(-5,2,3).
+    para_u(7).
+    call0((h___mapf_vertex_split_robpath_6_1_22,8),9).
+    jmp((h___mapf_vertex_split_robpath_6_1_23,7,6)).
+label((h___mapf_vertex_split_robpath_6_1_23,7,5)).
+    para_uu(1,-4).
+    call0((picat_iterator_collection_to_list,2),9).
+    para_uuu(-4,5,-5).
+    para_uuu(2,3,7).
+    call0((h___mapf_vertex_split_robpath_6_1_21,6),9).
+label((h___mapf_vertex_split_robpath_6_1_23,7,6)).
+label((h___mapf_vertex_split_robpath_6_1_23,7,4)).
+    add_u1v(7,-9).
+    move_value(-10,-9).
+    tr_det_call2_au((h___mapf_vertex_split_robpath_6_1_23,7,1),1,3,7,-10,6,-5,4,3,2,1,11).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_23,7,8)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_23,7,9)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_23,7,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_24,8)).
+label((h___mapf_vertex_split_robpath_6_1_24,8,-1)).
+    allocate_det(8,10,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_24,8,1)).
+    jmpn_gt_uu(8,7,(h___mapf_vertex_split_robpath_6_1_24,8,2)).
+    unify_value_return_det(5,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_24,8,2)).
+    para_vv(-4,-5).
+    para_uuu(2,1,8).
+    call0((dh___mapf_vertex_split_robpath_6_1_24_8_0__1,5),6).
+    move_vars(-7,-6).
+    jmp_var_y(-4,(h___mapf_vertex_split_robpath_6_1_24,8,3)).
+    para_uuu(-5,2,6).
+    para_uuu(-6,3,8).
+    para_u(4).
+    call0((h___mapf_vertex_split_robpath_6_1_23,7),8).
+    unify_value(-6,-7).
+    jmp((h___mapf_vertex_split_robpath_6_1_24,8,4)).
+label((h___mapf_vertex_split_robpath_6_1_24,8,3)).
+    unify_value(6,-7).
+label((h___mapf_vertex_split_robpath_6_1_24,8,4)).
+    add_u1v(8,-8).
+    move_value(-9,-8).
+    tr_det_call2_au((h___mapf_vertex_split_robpath_6_1_24,8,1),1,3,8,-9,7,-7,5,4,3,2,1,10).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_24,8,6)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_24,8,7)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_24,8,8)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_25,7)).
+label((h___mapf_vertex_split_robpath_6_1_25,7,-1)).
+    allocate_det(7,15,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_25,7,1)).
+    jmpn_gt_uu(7,6,(h___mapf_vertex_split_robpath_6_1_25,7,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_25,7,2)).
+    para_uuv(7,1,-4).
+    call0(('e$$mapf_vertex_split_rob$$getCompanion',3),5).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_25,7,4),u(2),u(3),v(-5)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_25,7,4),u(4),u(-5),v(-6)).
+    builtin3(273,(h___mapf_vertex_split_robpath_6_1_25,7,4),u(7),u(-6),v(-7)).
+    move_var(-9).
+    move_value(-8,-9).
+    para_cuuv(c(1),5,-9,-10).
+    para_uuu(-4,3,2).
+    para_u(4).
+    call0((h___mapf_vertex_split_robpath_6_1_24,8),11).
+    unify_nil(-10).
+    move_struct(-11,(sum,1)).
+    build_arg_u(-8).
+    move_struct(-12,(#=,2)).
+    build_arg_u(-11).
+    build_arg_c(c(0)).
+    para_uu(-7,-12).
+    call0(('e$$sat$$#=>',2),13).
+    add_u1v(7,-13).
+    move_value(-14,-13).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_25,7,1),1,7,-14,6,5,4,3,2,1,15).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_25,7,4)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_25,7,5)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_25,7,6)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_26,7)).
+label((h___mapf_vertex_split_robpath_6_1_26,7,-1)).
+    allocate_det(7,6,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_26,7,1)).
+    jmpn_gt_uu(7,6,(h___mapf_vertex_split_robpath_6_1_26,7,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_26,7,2)).
+    para_c(c(1)).
+    para_uuu(1,2,7).
+    para_uuu(3,4,5).
+    call0((h___mapf_vertex_split_robpath_6_1_25,7),4).
+    add_u1v(7,-4).
+    move_value(-5,-4).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_26,7,1),1,7,-5,6,5,4,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_26,7,4)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_26,7,5)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_26,7,6)).
+    cut_fail.
+label((h___mapf_vertex_split_robpath_6_1_27,6)).
+label((h___mapf_vertex_split_robpath_6_1_27,6,-1)).
+    allocate_det(6,6,([],0),4).
+label((h___mapf_vertex_split_robpath_6_1_27,6,1)).
+    jmpn_gt_uu(6,5,(h___mapf_vertex_split_robpath_6_1_27,6,2)).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_27,6,2)).
+    para_c(c(1)).
+    para_uuu(1,2,6).
+    para_uuu(3,1,4).
+    call0((h___mapf_vertex_split_robpath_6_1_26,7),4).
+    add_u1v(6,-4).
+    move_value(-5,-4).
+    tr_det_call1_au((h___mapf_vertex_split_robpath_6_1_27,6,1),1,6,-5,5,4,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robpath_6_1_27,6,4)).
+    fail.
+label((h___mapf_vertex_split_robpath_6_1_27,6,5)).
+    fail0.
+label((h___mapf_vertex_split_robpath_6_1_27,6,6)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$path',5)).
+label(('e$$mapf_vertex_split_rob$$path',5,-1)).
+    allocate_det(5,4,([],0),4).
+label(('e$$mapf_vertex_split_rob$$path',5,1)).
+    unify_constant_return_det(3,c(null)).
+label(('e$$mapf_vertex_split_rob$$path',5,2)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$path',5,3)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$path',5,4)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$getCompanion',3)).
+label(('e$$mapf_vertex_split_rob$$getCompanion',3,-1)).
+    allocate_nondet(3,11,([],0),9).
+label(('e$$mapf_vertex_split_rob$$getCompanion',3,0)).
+    nondet(3).
+label(('e$$mapf_vertex_split_rob$$getCompanion',3,1)).
+    fork_unify_cons_vw(('e$$mapf_vertex_split_rob$$getCompanion',3,2),2,-9).
+    para_uu(3,-9).
+    call0((member,2),10).
+    unify_value_return_nondet(1,-9).
+    return_nondet.
+    noop1(9).
+label(('e$$mapf_vertex_split_rob$$getCompanion',3,2)).
+    fork_unify_cons_v910(('e$$mapf_vertex_split_rob$$getCompanion',3,4),2).
+    para_uu(-9,3).
+    call0(('de$$mapf_vertex_split_rob$$getCompanion_3_0__1',2),11).
+    para_uuu(3,-10,1).
+    call0(('e$$mapf_vertex_split_rob$$getCompanion',3),11).
+    return_nondet.
+    noop1(9).
+label(('e$$mapf_vertex_split_rob$$getCompanion',3,4)).
+    jmpn_nil(2,('e$$mapf_vertex_split_rob$$getCompanion',3,7),('e$$mapf_vertex_split_rob$$getCompanion',3,7)).
+    cut0.
+    unify_nil(1).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$getCompanion',3,5)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$getCompanion',3,6)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$getCompanion',3,7)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$end_time',5)).
+label(('e$$mapf_vertex_split_rob$$end_time',5,-1)).
+    allocate_det(5,9,([],0),4).
+label(('e$$mapf_vertex_split_rob$$end_time',5,1)).
+    move_var(-4).
+    jmpn_int_y(3,('e$$mapf_vertex_split_rob$$end_time',5,2)).
+    jmpn_ge_ui(3,0,('e$$mapf_vertex_split_rob$$end_time',5,2)).
+    jmpn_ge_ui(3,1250,('e$$mapf_vertex_split_rob$$end_time',5,4)).
+    para_u(3).
+    call0((garbage_collect,1),5).
+    jmp(('e$$mapf_vertex_split_rob$$end_time',5,5)).
+label(('e$$mapf_vertex_split_rob$$end_time',5,4)).
+label(('e$$mapf_vertex_split_rob$$end_time',5,5)).
+    functor(u(-4),c({}),u(3)).
+    move_var(-5).
+    jmp(('e$$mapf_vertex_split_rob$$end_time',5,3)).
+label(('e$$mapf_vertex_split_rob$$end_time',5,2)).
+    move_struct(-5,(nonnegative_integer_expected,1)).
+    build_arg_u(3).
+    para_uc(-5,c(new_array)).
+    call0((handle_exception,2),6).
+label(('e$$mapf_vertex_split_rob$$end_time',5,3)).
+    unify_value(1,-4).
+    add_u1v(2,-5).
+    move_value(-6,-5).
+    move_struct(-7,(..,2)).
+    build_arg_2c(c(1),c(1)).
+    move_struct(-8,(..,2)).
+    build_arg_2u(-7,-6).
+    para_c(c(sat)).
+    para_uu(1,-8).
+    call0(('_$_picat_in',3),9).
+    last_call(6636321,(h___mapf_vertex_split_robend_time_5_1_3,6),c(1),u(3),u(4),u(1),u(5),u(2),9).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$end_time',5,7)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$end_time',5,8)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$end_time',5,9)).
+    cut_fail.
+label((h___mapf_vertex_split_robend_time_5_1_1,7)).
+label((h___mapf_vertex_split_robend_time_5_1_1,7,-1)).
+    allocate_det(7,7,([],0),4).
+label((h___mapf_vertex_split_robend_time_5_1_1,7,1)).
+    jmpn_gt_uu(7,6,(h___mapf_vertex_split_robend_time_5_1_1,7,2)).
+    return_det.
+label((h___mapf_vertex_split_robend_time_5_1_1,7,2)).
+    builtin3(273,(h___mapf_vertex_split_robend_time_5_1_1,7,4),u(1),u(2),v(-4)).
+    builtin3(273,(h___mapf_vertex_split_robend_time_5_1_1,7,4),u(7),u(3),v(-5)).
+    builtin3(273,(h___mapf_vertex_split_robend_time_5_1_1,7,4),u(1),u(-5),v(-6)).
+    builtin3(273,(h___mapf_vertex_split_robend_time_5_1_1,7,4),u(4),u(-6),v(-5)).
+    move_struct0(-6,(#=,2)).
+    build_arg_2u(-4,5).
+    move_struct0(-4,(#=,2)).
+    build_arg_u(-5).
+    build_arg_c(c(1)).
+    para_uu(-6,-4).
+    call0(('e$$sat$$#=>',2),7).
+    add_u1v(7,-6).
+    move_value(-4,-6).
+    tr_det_call1_au((h___mapf_vertex_split_robend_time_5_1_1,7,1),1,7,-4,6,5,4,3,2,1,7).
+    return_det.
+label((h___mapf_vertex_split_robend_time_5_1_1,7,4)).
+    fail.
+label((h___mapf_vertex_split_robend_time_5_1_1,7,5)).
+    fail0.
+label((h___mapf_vertex_split_robend_time_5_1_1,7,6)).
+    cut_fail.
+label((h___mapf_vertex_split_robend_time_5_1_2,7)).
+label((h___mapf_vertex_split_robend_time_5_1_2,7,-1)).
+    allocate_det(7,21,([],0),4).
+label((h___mapf_vertex_split_robend_time_5_1_2,7,1)).
+    jmpn_gt_uu(7,6,(h___mapf_vertex_split_robend_time_5_1_2,7,2)).
+    return_det.
+label((h___mapf_vertex_split_robend_time_5_1_2,7,2)).
+    builtin3(273,(h___mapf_vertex_split_robend_time_5_1_2,7,8),u(1),u(2),v(-4)).
+    unify_struct(-4,(',',2)).
+    unify_arg_w.
+    unify_arg_v0(-4).
+    move_vars(-9,-5).
+    jmpn_gt_ui(7,1,(h___mapf_vertex_split_robend_time_5_1_2,7,3)).
+    builtin3(273,(h___mapf_vertex_split_robend_time_5_1_2,7,8),u(1),u(3),v(-10)).
+    unify_value(-5,-10).
+    sub_u1v(7,-11).
+    unify_value(-6,-11).
+    builtin3(273,(h___mapf_vertex_split_robend_time_5_1_2,7,8),u(-6),u(4),v(-12)).
+    unify_value(-7,-12).
+    builtin3(273,(h___mapf_vertex_split_robend_time_5_1_2,7,8),u(1),u(-7),v(-13)).
+    unify_value(-8,-13).
+    builtin3(273,(h___mapf_vertex_split_robend_time_5_1_2,7,8),u(-4),u(-8),v(-14)).
+    unify_value(-9,-14).
+    move_struct0(-15,(#=,2)).
+    build_arg_2u(-5,7).
+    move_struct0(-16,(#=,2)).
+    build_arg_u(-9).
+    build_arg_c(c(0)).
+    para_uu(-15,-16).
+    call0(('e$$sat$$#=>',2),17).
+    jmp((h___mapf_vertex_split_robend_time_5_1_2,7,4)).
+label((h___mapf_vertex_split_robend_time_5_1_2,7,3)).
+    move_vars(-16,-10).
+label((h___mapf_vertex_split_robend_time_5_1_2,7,4)).
+    para_v(-17).
+    para_uv(5,-18).
+    call0((dh___mapf_vertex_split_robend_time_5_1_2_7_0__1,3),19).
+    jmp_var_y(-17,(h___mapf_vertex_split_robend_time_5_1_2,7,5)).
+    para_uuu(7,-18,7).
+    para_uuu(-4,4,3).
+    para_u(1).
+    call0((h___mapf_vertex_split_robend_time_5_1_1,7),19).
+    jmp((h___mapf_vertex_split_robend_time_5_1_2,7,6)).
+label((h___mapf_vertex_split_robend_time_5_1_2,7,5)).
+label((h___mapf_vertex_split_robend_time_5_1_2,7,6)).
+    add_u1v(7,-19).
+    move_value(-20,-19).
+    tr_det_call1_au((h___mapf_vertex_split_robend_time_5_1_2,7,1),1,7,-20,6,5,4,3,2,1,21).
+    return_det.
+label((h___mapf_vertex_split_robend_time_5_1_2,7,8)).
+    fail.
+label((h___mapf_vertex_split_robend_time_5_1_2,7,9)).
+    fail0.
+label((h___mapf_vertex_split_robend_time_5_1_2,7,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robend_time_5_1_3,6)).
+label((h___mapf_vertex_split_robend_time_5_1_3,6,-1)).
+    allocate_det(6,8,([],0),4).
+label((h___mapf_vertex_split_robend_time_5_1_3,6,1)).
+    jmpn_gt_uu(6,5,(h___mapf_vertex_split_robend_time_5_1_3,6,2)).
+    return_det.
+label((h___mapf_vertex_split_robend_time_5_1_3,6,2)).
+    para_v(-4).
+    para_uv(1,-5).
+    call0((dh___mapf_vertex_split_robend_time_5_1_3_6_0__1,3),6).
+    jmp_var_y(-4,(h___mapf_vertex_split_robend_time_5_1_3,6,3)).
+    para_c(c(1)).
+    para_uuu(-5,1,2).
+    para_uuu(3,4,6).
+    call0((h___mapf_vertex_split_robend_time_5_1_2,7),6).
+    jmp((h___mapf_vertex_split_robend_time_5_1_3,6,4)).
+label((h___mapf_vertex_split_robend_time_5_1_3,6,3)).
+label((h___mapf_vertex_split_robend_time_5_1_3,6,4)).
+    add_u1v(6,-6).
+    move_value(-7,-6).
+    tr_det_call1_au((h___mapf_vertex_split_robend_time_5_1_3,6,1),1,6,-7,5,4,3,2,1,8).
+    return_det.
+label((h___mapf_vertex_split_robend_time_5_1_3,6,6)).
+    fail.
+label((h___mapf_vertex_split_robend_time_5_1_3,6,7)).
+    fail0.
+label((h___mapf_vertex_split_robend_time_5_1_3,6,8)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$ags_relocate',2)).
+label(('e$$mapf_vertex_split_rob$$ags_relocate',2,-1)).
+    allocate_nondet(2,27,([],0),9).
+label(('e$$mapf_vertex_split_rob$$ags_relocate',2,0)).
+    nondet(2).
+label(('e$$mapf_vertex_split_rob$$ags_relocate',2,1)).
+    fork_unify_cons_v910(('e$$mapf_vertex_split_rob$$ags_relocate',2,2),2).
+    unify_struct_arg_2v0(-9,(',',2),-11,-12).
+    para_uv(-10,-13).
+    call0(('e$$mapf_vertex_split_rob$$ags_relocate',2),14).
+    sub_u1v(-11,-14).
+    move_value(-15,-14).
+    mul_iuv(4,-15,-16).
+    move_value(-17,-16).
+    add_u1v(-17,-18).
+    move_value(-19,-18).
+    sub_u1v(-12,-20).
+    move_value(-21,-20).
+    mul_iuv(4,-21,-22).
+    move_value(-23,-22).
+    add_u1v(-23,-24).
+    move_value(-25,-24).
+    unify_cons(1,v(-26),u(-13)).
+    unify_struct_arg_2u(-26,(',',2),-25,-19).
+    unify_arg_read_u(-25).
+    return_nondet.
+    noop1(9).
+label(('e$$mapf_vertex_split_rob$$ags_relocate',2,2)).
+    jmpn_nil(2,('e$$mapf_vertex_split_rob$$ags_relocate',2,5),('e$$mapf_vertex_split_rob$$ags_relocate',2,5)).
+    cut0.
+    unify_nil(1).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$ags_relocate',2,3)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$ags_relocate',2,4)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$ags_relocate',2,5)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2)).
+label(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,-1)).
+    allocate_det(2,11,([],0),4).
+label(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,1)).
+    para_v(-4).
+    call0((new_hashtable,1),5).
+    move_value(-5,-4).
+    move_vars(-9,-6).
+    builtin1(264,('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,2),u(2)).
+    unify_value(-6,2).
+    para_uu(-6,-5).
+    call0((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2),10).
+    jmp(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,3)).
+label(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,2)).
+    builtin1(262,('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,4),u(2)).
+    unify_value(-7,2).
+    functor(u(-7),u(-8),u(-9)).
+    para_c(c(1)).
+    para_uuu(-9,-7,-5).
+    call0((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4),10).
+    jmp(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,5)).
+label(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,4)).
+    para_uu(2,-6).
+    call0((picat_iterator_collection_to_list,2),10).
+    para_uu(-6,-5).
+    call0((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2),10).
+label(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,5)).
+label(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,3)).
+    para_uv(-5,-10).
+    call0((picat_get_values,2),11).
+    unify_value_return_det(1,-10).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,6)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,7)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$disjoint_edges_merge',2,8)).
+    cut_fail.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2)).
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,-1)).
+    allocate_det(2,16,([],0),4).
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,1)).
+    switch_cons_vv(2,(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,7),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,8),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,8),-4,-5).
+    switch_cons_vv(-4,(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,5),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,5),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,5),-6,-7).
+    switch_cons_vv(-7,(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,5),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,5),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,5),-8,-9).
+    jmpn_nil(-9,(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,5),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,5)).
+    sub_u1v(-6,-9).
+    move_value(-10,-9).
+    move_struct0(-9,(div,2)).
+    build_arg_u(-10).
+    build_arg_c(c(4)).
+    add_uiv(-9,0,-9).
+    move_value(-10,-9).
+    move_value(-9,-10).
+    move_value(-9,-9).
+    sub_u1v(-8,-10).
+    move_value(-11,-10).
+    move_struct0(-10,(div,2)).
+    build_arg_u(-11).
+    build_arg_c(c(4)).
+    add_uiv(-10,0,-10).
+    move_value(-11,-10).
+    move_value(-10,-11).
+    move_value(-10,-10).
+    move_struct0(-11,(e,2)).
+    build_arg_2u(-9,-10).
+    para_uv(-11,-9).
+    call0(('e$$mapf_vertex_split_rob$$vOrd',2),12).
+    para_v(-11).
+    para_uu(-9,1).
+    call0((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_1_2_0__1,3),12).
+    move_var(-12).
+    move_var(-10).
+    jmp_var_y(-11,(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,2)).
+    para_uuu(1,-9,-10).
+    call0((picat_get,3),13).
+    unify_value(-12,-10).
+    move_struct(-13,(e,2)).
+    build_arg_2u(-6,-8).
+    move_struct(-14,(ep,2)).
+    build_arg_2u(-12,-13).
+    para_uuu(1,-9,-14).
+    call0((picat_put,3),15).
+    move_var(-15).
+    jmp((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,3)).
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,2)).
+    move_vars(-14,-13).
+    move_struct(-15,(e,2)).
+    build_arg_2u(-6,-8).
+    para_uuu(1,-9,-15).
+    call0((picat_put,3),16).
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,3)).
+    tr_det_call1_au((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,1),1,2,-5,1,16).
+    return_det.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,5)).
+    tr_det_call1_au((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,1),1,2,-5,1,6).
+    return_det.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,7)).
+    return_det.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,8)).
+    last_call(2,(picat_check_list,2),u(2),c(iterator),4).
+    return_det.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,10)).
+    fail.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,11)).
+    fail0.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_1,2,12)).
+    cut_fail.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4)).
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,-1)).
+    allocate_det(4,17,([],0),4).
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,1)).
+    jmpn_gt_uu(4,3,(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,2)).
+    return_det.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,2)).
+    arg(4,2,-4).
+    switch_cons_vv(-4,(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,6),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,6),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,6),-5,-6).
+    switch_cons_vv(-6,(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,6),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,6),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,6),-7,-8).
+    jmpn_nil(-8,(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,6),(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,6)).
+    sub_u1v(-5,-8).
+    move_value(-9,-8).
+    move_struct0(-8,(div,2)).
+    build_arg_u(-9).
+    build_arg_c(c(4)).
+    add_uiv(-8,0,-8).
+    move_value(-9,-8).
+    move_value(-8,-9).
+    move_value(-8,-8).
+    sub_u1v(-7,-9).
+    move_value(-10,-9).
+    move_struct0(-9,(div,2)).
+    build_arg_u(-10).
+    build_arg_c(c(4)).
+    add_uiv(-9,0,-9).
+    move_value(-10,-9).
+    move_value(-9,-10).
+    move_value(-9,-9).
+    move_struct0(-10,(e,2)).
+    build_arg_2u(-8,-9).
+    para_uv(-10,-8).
+    call0(('e$$mapf_vertex_split_rob$$vOrd',2),11).
+    para_v(-10).
+    para_uu(-8,1).
+    call0((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_2_4_0__1,3),11).
+    move_var(-11).
+    move_var(-9).
+    jmp_var_y(-10,(h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,3)).
+    para_uuu(1,-8,-9).
+    call0((picat_get,3),12).
+    unify_value(-11,-9).
+    move_struct(-12,(e,2)).
+    build_arg_2u(-5,-7).
+    move_struct(-13,(ep,2)).
+    build_arg_2u(-11,-12).
+    para_uuu(1,-8,-13).
+    call0((picat_put,3),14).
+    move_var(-14).
+    jmp((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,4)).
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,3)).
+    move_vars(-13,-12).
+    move_struct(-14,(e,2)).
+    build_arg_2u(-5,-7).
+    para_uuu(1,-8,-14).
+    call0((picat_put,3),15).
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,4)).
+    add_u1v(4,-15).
+    move_value(-16,-15).
+    tr_det_call1_au((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,1),1,4,-16,3,2,1,17).
+    return_det.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,6)).
+    add_u1v(4,-4).
+    move_value(4,-4).
+    tr_det_call0((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,1),5).
+    return_det.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,8)).
+    fail.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,9)).
+    fail0.
+label((h___mapf_vertex_split_robdisjoint_edges_merge_2_1_2,4,10)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$vOrd',2)).
+label(('e$$mapf_vertex_split_rob$$vOrd',2,-1)).
+    allocate_det(2,6,([],0),4).
+label(('e$$mapf_vertex_split_rob$$vOrd',2,1)).
+    jmpn_eq_struct(2,(e,2),('e$$mapf_vertex_split_rob$$vOrd',2,3),('e$$mapf_vertex_split_rob$$vOrd',2,3)).
+    fetch_45.
+    jmpn_ge_uu(-4,-5,('e$$mapf_vertex_split_rob$$vOrd',2,2)).
+    unify_struct_arg_2u(1,(e,2),-5,-4).
+    unify_arg_read_u(-5).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$vOrd',2,2)).
+    unify_struct_arg_2u(1,(e,2),-4,-5).
+    unify_arg_read_u(-4).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$vOrd',2,3)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$vOrd',2,4)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$vOrd',2,5)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$vertex_split',5)).
+label(('e$$mapf_vertex_split_rob$$vertex_split',5,-1)).
+    allocate_nondet(5,22,([],0),9).
+label(('e$$mapf_vertex_split_rob$$vertex_split',5,0)).
+    nondet(5).
+label(('e$$mapf_vertex_split_rob$$vertex_split',5,1)).
+    fork_unify_cons_v910(('e$$mapf_vertex_split_rob$$vertex_split',5,2),5).
+    unify_struct_arg_2v0(-9,(neibs,2),-11,-12).
+    para_uuuv(-11,-12,4,-13).
+    para_vv(-14,-15).
+    call0(('e$$mapf_vertex_split_rob$$vertex_split_part',6),16).
+    para_uuv(-10,4,-16).
+    para_vv(-17,-18).
+    call0(('e$$mapf_vertex_split_rob$$vertex_split',5),19).
+    para_uuv(-14,-17,-19).
+    call0(('$concat_lists_or_arrays',3),20).
+    unify_value(2,-19).
+    para_uuv(-15,-18,-20).
+    call0(('$concat_lists_or_arrays',3),21).
+    unify_value(1,-20).
+    para_uuv(-13,-16,-21).
+    call0(('$concat_lists_or_arrays',3),22).
+    unify_value_return_nondet(3,-21).
+    return_nondet.
+    noop1(9).
+label(('e$$mapf_vertex_split_rob$$vertex_split',5,2)).
+    jmpn_nil(5,('e$$mapf_vertex_split_rob$$vertex_split',5,5),('e$$mapf_vertex_split_rob$$vertex_split',5,5)).
+    cut0.
+    unify_nil(3).
+    unify_nil(2).
+    unify_nil(1).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$vertex_split',5,3)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$vertex_split',5,4)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$vertex_split',5,5)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$vertex_split_part',6)).
+label(('e$$mapf_vertex_split_rob$$vertex_split_part',6,-1)).
+    allocate_det(6,18,([],0),4).
+label(('e$$mapf_vertex_split_rob$$vertex_split_part',6,1)).
+    move_constant(-4,c([])).
+    move_constant(-5,c([])).
+    move_constant(-6,c([])).
+    sub_u1v(6,-7).
+    move_value(-8,-7).
+    mul_iuv(4,-8,-8).
+    move_value(-7,-8).
+    add1(-7).
+    move_value(-8,-7).
+    move_value(-8,-8).
+    para_c(c(0)).
+    para_cuv(c(3),-4,-7).
+    para_uv(-6,-9).
+    para_uuu(6,4,5).
+    para_u(-8).
+    call0((h___mapf_vertex_split_robvertex_split_part_6_1_3,10),10).
+    add_u1v(-8,-4).
+    move_value(-6,-4).
+    add_uiv(-8,2,-10).
+    move_value(-11,-10).
+    add_uiv(-8,3,-12).
+    move_value(-13,-12).
+    move_comp_list(-14,4,u(-8),u(-6),u(-11),u(-13)).
+    move_comp_list1(-15,u(-14)).
+    para_uuv(-5,-15,-16).
+    call0(('$concat_lists_or_arrays',3),17).
+    move_value(-17,-16).
+    unify_value(2,-17).
+    unify_value(1,-7).
+    unify_value_return_det(3,-9).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$vertex_split_part',6,2)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$vertex_split_part',6,3)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$vertex_split_part',6,4)).
+    cut_fail.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_1,9)).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,-1)).
+    allocate_det(9,24,([],0),4).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,1)).
+    switch_cons_vv(9,(h___mapf_vertex_split_robvertex_split_part_6_1_1,9,7),(h___mapf_vertex_split_robvertex_split_part_6_1_1,9,8),(h___mapf_vertex_split_robvertex_split_part_6_1_1,9,8),-4,-5).
+    sub_u1v(-4,-6).
+    move_value(-7,-6).
+    mul_iuv(4,-7,-7).
+    move_value(-6,-7).
+    add1(-6).
+    move_value(-7,-6).
+    move_value(-7,-7).
+    para_v(-6).
+    para_u(1).
+    call0(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2),8).
+    move_value(-8,-6).
+    para_v(-9).
+    para_uuu(2,-4,3).
+    call0(('e$$common$$f$$getDirection',4),10).
+    move_value(-10,-9).
+    move_vars(-18,-11).
+    jmpn_unif(u(-8),u(-10),(h___mapf_vertex_split_robvertex_split_part_6_1_1,9,2)).
+    add_uuv(-7,1,-19).
+    unify_value(-11,-19).
+    move_comp_list1(-20,u(-11)).
+    para_uuu(8,-20,-12).
+    call0(('$concat_lists_or_arrays',3),21).
+    unify_value(-13,-12).
+    add_uuv(-7,1,-21).
+    unify_value(-14,-21).
+    move_comp_list(-22,2,u(4),u(-14)).
+    move_comp_list1(-23,u(-22)).
+    para_uuu(-23,6,-15).
+    call0(('$concat_lists_or_arrays',3),24).
+    unify_value(-16,-15).
+    unify_value(-13,-17).
+    unify_value(-16,-18).
+    jmp((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,3)).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,2)).
+    move_vars(-23,-19).
+    unify_value(8,-17).
+    unify_value(6,-18).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,3)).
+    tr_det_call_au((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,1),1057,9,-5,-17,7,-18,5,4,3,2,1,24).
+    return_det.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,5)).
+    move_value(8,8).
+    move_value(6,6).
+    tr_det_call1_au((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,1),1,9,-5,8,7,6,5,4,3,2,1,6).
+    return_det.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,7)).
+    unify_value(7,8).
+    unify_value_return_det(5,6).
+    return_det.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,8)).
+    last_call(2,(picat_check_list,2),u(9),c(iterator),4).
+    return_det.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,10)).
+    fail.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,11)).
+    fail0.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_1,9,12)).
+    cut_fail.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_2,11)).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,-1)).
+    allocate_det(11,25,([],0),4).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,1)).
+    jmpn_gt_uu(11,10,(h___mapf_vertex_split_robvertex_split_part_6_1_2,11,2)).
+    unify_value(7,8).
+    unify_value_return_det(5,6).
+    return_det.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,2)).
+    arg(11,9,-4).
+    move_value(-4,-4).
+    sub_u1v(-4,-5).
+    move_value(-6,-5).
+    mul_iuv(4,-6,-6).
+    move_value(-5,-6).
+    add1(-5).
+    move_value(-6,-5).
+    move_value(-6,-6).
+    para_v(-5).
+    para_u(1).
+    call0(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2),7).
+    move_value(-7,-5).
+    para_v(-8).
+    para_uuu(2,-4,3).
+    call0(('e$$common$$f$$getDirection',4),9).
+    move_value(-9,-8).
+    move_vars(-17,-10).
+    jmpn_unif(u(-7),u(-9),(h___mapf_vertex_split_robvertex_split_part_6_1_2,11,3)).
+    add_uuv(-6,1,-18).
+    unify_value(-10,-18).
+    move_comp_list1(-19,u(-10)).
+    para_uuu(8,-19,-11).
+    call0(('$concat_lists_or_arrays',3),20).
+    unify_value(-12,-11).
+    add_uuv(-6,1,-20).
+    unify_value(-13,-20).
+    move_comp_list(-21,2,u(4),u(-13)).
+    move_comp_list1(-22,u(-21)).
+    para_uuu(-22,6,-14).
+    call0(('$concat_lists_or_arrays',3),23).
+    unify_value(-15,-14).
+    unify_value(-12,-16).
+    unify_value(-15,-17).
+    jmp((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,4)).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,3)).
+    move_vars(-22,-18).
+    unify_value(8,-16).
+    unify_value(6,-17).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,4)).
+    add_u1v(11,-23).
+    move_value(-24,-23).
+    tr_det_call_au((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,1),1601,11,-24,10,9,-16,7,-17,5,4,3,2,1,25).
+    return_det.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,6)).
+    add_u1v(11,-4).
+    move_value(11,-4).
+    move_value(8,8).
+    move_value(6,6).
+    tr_det_call0((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,1),5).
+    return_det.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,8)).
+    fail.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,9)).
+    fail0.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_2,11,10)).
+    cut_fail.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_3,10)).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,-1)).
+    allocate_det(10,17,([],0),4).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,1)).
+    jmpn_gt_uu(10,9,(h___mapf_vertex_split_robvertex_split_part_6_1_3,10,2)).
+    unify_value(7,8).
+    unify_value_return_det(5,6).
+    return_det.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,2)).
+    add_uuv(1,10,-4).
+    move_value(-5,-4).
+    move_value(-5,-5).
+    para_v(-4).
+    para_uu(1,10).
+    call0(('e$$mapf_vertex_split_rob$$f$$getNeibs',3),6).
+    move_value(-6,-4).
+    move_vars(-12,-7).
+    builtin1(264,(h___mapf_vertex_split_robvertex_split_part_6_1_3,10,3),u(2)).
+    unify_value(-7,2).
+    para_uuu(-7,-6,-8).
+    para_uuu(8,-9,-5).
+    para_uuu(3,4,10).
+    call0((h___mapf_vertex_split_robvertex_split_part_6_1_1,9),13).
+    jmp((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,4)).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,3)).
+    builtin1(262,(h___mapf_vertex_split_robvertex_split_part_6_1_3,10,5),u(2)).
+    unify_value(-10,2).
+    functor(u(-10),u(-11),u(-12)).
+    para_c(c(1)).
+    para_uuu(-12,-10,-6).
+    para_uuu(-8,8,-9).
+    para_uuu(-5,3,4).
+    para_u(10).
+    call0((h___mapf_vertex_split_robvertex_split_part_6_1_2,11),13).
+    jmp((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,6)).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,5)).
+    para_uu(2,-7).
+    call0((picat_iterator_collection_to_list,2),13).
+    para_uuu(-7,-6,-8).
+    para_uuu(8,-9,-5).
+    para_uuu(3,4,10).
+    call0((h___mapf_vertex_split_robvertex_split_part_6_1_1,9),13).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,6)).
+label((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,4)).
+    move_struct(-13,(neibs,2)).
+    build_arg_2u(-5,-8).
+    move_cons(-14,u(-13),u(6)).
+    add_u1v(10,-15).
+    move_value(-16,-15).
+    tr_det_call_au((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,1),1329,10,-16,9,-9,7,-14,5,4,3,2,1,17).
+    return_det.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,8)).
+    fail.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,9)).
+    fail0.
+label((h___mapf_vertex_split_robvertex_split_part_6_1_3,10,10)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3)).
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,-1)).
+    allocate_det(3,7,([],0),4).
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,1)).
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,2)).
+    hash(1,0,0,('e$$mapf_vertex_split_rob$$f$$getNeibs',3,7)).
+    pred(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,2),1,4,('e$$mapf_vertex_split_rob$$f$$getNeibs',3,7)).
+    arglabel(i,0,('e$$mapf_vertex_split_rob$$f$$getNeibs',3,3)).
+    arglabel(i,1,('e$$mapf_vertex_split_rob$$f$$getNeibs',3,4)).
+    arglabel(i,2,('e$$mapf_vertex_split_rob$$f$$getNeibs',3,5)).
+    arglabel(i,3,('e$$mapf_vertex_split_rob$$f$$getNeibs',3,6)).
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,3)).
+    hash_jmpn_constant(c(0),('e$$mapf_vertex_split_rob$$f$$getNeibs',3,7)).
+    unify_comp_list(3,2,v(-4),v(-5)).
+    add_u1v(2,-6).
+    unify_value(-4,-6).
+    add_uiv(2,3,-6).
+    unify_value_return_det(-5,-6).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,4)).
+    hash_jmpn_constant(c(1),('e$$mapf_vertex_split_rob$$f$$getNeibs',3,7)).
+    unify_comp_list(3,2,v(-4),v(-5)).
+    add_uiv(2,2,-6).
+    unify_value(-4,-6).
+    add_uiv(2,0,-6).
+    unify_value_return_det(-5,-6).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,5)).
+    hash_jmpn_constant(c(2),('e$$mapf_vertex_split_rob$$f$$getNeibs',3,7)).
+    unify_comp_list(3,2,v(-4),v(-5)).
+    add_u1v(2,-6).
+    unify_value(-4,-6).
+    add_uiv(2,3,-6).
+    unify_value_return_det(-5,-6).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,6)).
+    hash_jmpn_constant(c(3),('e$$mapf_vertex_split_rob$$f$$getNeibs',3,7)).
+    unify_comp_list(3,2,v(-4),v(-5)).
+    add_uiv(2,2,-6).
+    unify_value(-4,-6).
+    add_uiv(2,0,-6).
+    unify_value_return_det(-5,-6).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,7)).
+    move_struct0(-4,(getNeibs,2)).
+    build_arg_2u(2,1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,9)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,10)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$f$$getNeibs',3,11)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$vertex_num_to_map',1)).
+label(('e$$mapf_vertex_split_rob$$vertex_num_to_map',1,-1)).
+    allocate_det(1,5,([],0),4).
+label(('e$$mapf_vertex_split_rob$$vertex_num_to_map',1,1)).
+    para_v(-4).
+    call0((new_hashtable,1),5).
+    unify_value(1,-4).
+    last_call(801,(h___mapf_vertex_split_robvertex_num_to_map_1_1_1,3),c(0),c(3),u(1),5).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$vertex_num_to_map',1,3)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$vertex_num_to_map',1,4)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$vertex_num_to_map',1,5)).
+    cut_fail.
+label((h___mapf_vertex_split_robvertex_num_to_map_1_1_1,3)).
+label((h___mapf_vertex_split_robvertex_num_to_map_1_1_1,3,-1)).
+    allocate_det(3,8,([],0),4).
+label((h___mapf_vertex_split_robvertex_num_to_map_1_1_1,3,1)).
+    jmpn_gt_uu(3,2,(h___mapf_vertex_split_robvertex_num_to_map_1_1_1,3,2)).
+    return_det.
+label((h___mapf_vertex_split_robvertex_num_to_map_1_1_1,3,2)).
+    para_v(-4).
+    para_u(3).
+    call0(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2),5).
+    move_value(-5,-4).
+    para_uuu(1,3,-5).
+    call0((picat_put,3),6).
+    add_u1v(3,-6).
+    move_value(-7,-6).
+    tr_det_call1_au((h___mapf_vertex_split_robvertex_num_to_map_1_1_1,3,1),1,3,-7,2,1,8).
+    return_det.
+label((h___mapf_vertex_split_robvertex_num_to_map_1_1_1,3,4)).
+    fail.
+label((h___mapf_vertex_split_robvertex_num_to_map_1_1_1,3,5)).
+    fail0.
+label((h___mapf_vertex_split_robvertex_num_to_map_1_1_1,3,6)).
+    cut_fail.
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2)).
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,-1)).
+    allocate_det(2,6,([],0),4).
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,1)).
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,2)).
+    hash(1,0,0,('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,7)).
+    pred(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,2),1,4,('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,7)).
+    arglabel(i,0,('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,3)).
+    arglabel(i,1,('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,4)).
+    arglabel(i,2,('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,5)).
+    arglabel(i,3,('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,6)).
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,3)).
+    hash_jmpn_constant(c(0),('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,7)).
+    unify_constant_return_det(2,c(north)).
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,4)).
+    hash_jmpn_constant(c(1),('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,7)).
+    unify_constant_return_det(2,c(east)).
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,5)).
+    hash_jmpn_constant(c(2),('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,7)).
+    unify_constant_return_det(2,c(south)).
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,6)).
+    hash_jmpn_constant(c(3),('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,7)).
+    unify_constant_return_det(2,c(west)).
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,7)).
+    move_struct0(-4,(vertex_num_to_dir,1)).
+    build_arg_u(1).
+    move_struct0(-5,(unresolved_function_call,1)).
+    build_arg_u(-4).
+    last_call(1,(throw,1),u(-5),6).
+    return_det.
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,9)).
+    fail.
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,10)).
+    fail0.
+label(('e$$mapf_vertex_split_rob$$f$$vertex_num_to_dir',2,11)).
+    cut_fail.
+label(('de$$mapf_vertex_split_rob$$path_6_0__3',3)).
+label(('de$$mapf_vertex_split_rob$$path_6_0__3',3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label(('de$$mapf_vertex_split_rob$$path_6_0__3',3,0)).
+    nondet(3).
+label(('de$$mapf_vertex_split_rob$$path_6_0__3',3,1)).
+    bp_fork(('de$$mapf_vertex_split_rob$$path_6_0__3',3,2)).
+    add_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('de$$mapf_vertex_split_rob$$path_6_0__3',3,2)).
+    cut_return.
+label(('de$$mapf_vertex_split_rob$$path_6_0__3',3,3)).
+    fail.
+label(('de$$mapf_vertex_split_rob$$path_6_0__3',3,4)).
+    fail0.
+label(('de$$mapf_vertex_split_rob$$path_6_0__3',3,5)).
+    cut_fail.
+label(('de$$mapf_vertex_split_rob$$path_6_0__1',2)).
+label(('de$$mapf_vertex_split_rob$$path_6_0__1',2,-1)).
+    allocate_nondet(2,10,([],0),9).
+label(('de$$mapf_vertex_split_rob$$path_6_0__1',2,0)).
+    nondet(2).
+label(('de$$mapf_vertex_split_rob$$path_6_0__1',2,1)).
+    bp_fork(('de$$mapf_vertex_split_rob$$path_6_0__1',2,2)).
+    and(c(0),u(1),-9).
+    fail.
+    cut0.
+    unify_constant_return_det(2,c(1)).
+    noop1(9).
+label(('de$$mapf_vertex_split_rob$$path_6_0__1',2,2)).
+    cut_return.
+label(('de$$mapf_vertex_split_rob$$path_6_0__1',2,3)).
+    fail.
+label(('de$$mapf_vertex_split_rob$$path_6_0__1',2,4)).
+    fail0.
+label(('de$$mapf_vertex_split_rob$$path_6_0__1',2,5)).
+    cut_fail.
+label((dh___mapf_vertex_split_robend_time_5_1_2_7_0__1,3)).
+label((dh___mapf_vertex_split_robend_time_5_1_2_7_0__1,3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label((dh___mapf_vertex_split_robend_time_5_1_2_7_0__1,3,0)).
+    nondet(3).
+label((dh___mapf_vertex_split_robend_time_5_1_2_7_0__1,3,1)).
+    bp_fork((dh___mapf_vertex_split_robend_time_5_1_2_7_0__1,3,2)).
+    add_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___mapf_vertex_split_robend_time_5_1_2_7_0__1,3,2)).
+    cut_return.
+label((dh___mapf_vertex_split_robend_time_5_1_2_7_0__1,3,3)).
+    fail.
+label((dh___mapf_vertex_split_robend_time_5_1_2_7_0__1,3,4)).
+    fail0.
+label((dh___mapf_vertex_split_robend_time_5_1_2_7_0__1,3,5)).
+    cut_fail.
+label(('de$$mapf_vertex_split_rob$$path_6_0__2',3)).
+label(('de$$mapf_vertex_split_rob$$path_6_0__2',3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label(('de$$mapf_vertex_split_rob$$path_6_0__2',3,0)).
+    nondet(3).
+label(('de$$mapf_vertex_split_rob$$path_6_0__2',3,1)).
+    bp_fork(('de$$mapf_vertex_split_rob$$path_6_0__2',3,2)).
+    add_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label(('de$$mapf_vertex_split_rob$$path_6_0__2',3,2)).
+    cut_return.
+label(('de$$mapf_vertex_split_rob$$path_6_0__2',3,3)).
+    fail.
+label(('de$$mapf_vertex_split_rob$$path_6_0__2',3,4)).
+    fail0.
+label(('de$$mapf_vertex_split_rob$$path_6_0__2',3,5)).
+    cut_fail.
+label((dh___mapf_vertex_split_robpath_6_1_24_8_0__1,5)).
+label((dh___mapf_vertex_split_robpath_6_1_24_8_0__1,5,-1)).
+    allocate_nondet(5,11,([],0),9).
+label((dh___mapf_vertex_split_robpath_6_1_24_8_0__1,5,0)).
+    nondet(5).
+label((dh___mapf_vertex_split_robpath_6_1_24_8_0__1,5,1)).
+    bp_fork((dh___mapf_vertex_split_robpath_6_1_24_8_0__1,5,2)).
+    para_uu(1,2).
+    call0((\=,2),9).
+    sub_u1v(3,-9).
+    move_value(-10,-9).
+    para_c(c(1)).
+    para_uu(-10,4).
+    call0((picat_max_2,3),11).
+    cut.
+    unify_constant_return_det(5,c(1)).
+    noop1(9).
+label((dh___mapf_vertex_split_robpath_6_1_24_8_0__1,5,2)).
+    cut_return.
+label((dh___mapf_vertex_split_robpath_6_1_24_8_0__1,5,3)).
+    fail.
+label((dh___mapf_vertex_split_robpath_6_1_24_8_0__1,5,4)).
+    fail0.
+label((dh___mapf_vertex_split_robpath_6_1_24_8_0__1,5,5)).
+    cut_fail.
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_2_4_0__1,3)).
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_2_4_0__1,3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_2_4_0__1,3,0)).
+    nondet(3).
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_2_4_0__1,3,1)).
+    bp_fork((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_2_4_0__1,3,2)).
+    para_uu(1,2).
+    call0((picat_has_key,2),9).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_2_4_0__1,3,2)).
+    cut_return.
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_2_4_0__1,3,3)).
+    fail.
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_2_4_0__1,3,4)).
+    fail0.
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_2_4_0__1,3,5)).
+    cut_fail.
+label(('de$$mapf_vertex_split_rob$$getCompanion_3_0__1',2)).
+label(('de$$mapf_vertex_split_rob$$getCompanion_3_0__1',2,-1)).
+    allocate_nondet(2,9,([],0),9).
+label(('de$$mapf_vertex_split_rob$$getCompanion_3_0__1',2,0)).
+    nondet(2).
+label(('de$$mapf_vertex_split_rob$$getCompanion_3_0__1',2,1)).
+    bp_fork(('de$$mapf_vertex_split_rob$$getCompanion_3_0__1',2,2)).
+    para_uu(1,2).
+    call0((member,2),9).
+    cut.
+    fail.
+    return_det.
+    noop1(9).
+label(('de$$mapf_vertex_split_rob$$getCompanion_3_0__1',2,2)).
+    cut_return.
+label(('de$$mapf_vertex_split_rob$$getCompanion_3_0__1',2,3)).
+    fail.
+label(('de$$mapf_vertex_split_rob$$getCompanion_3_0__1',2,4)).
+    fail0.
+label(('de$$mapf_vertex_split_rob$$getCompanion_3_0__1',2,5)).
+    cut_fail.
+label((dh___mapf_vertex_split_robend_time_5_1_3_6_0__1,3)).
+label((dh___mapf_vertex_split_robend_time_5_1_3_6_0__1,3,-1)).
+    allocate_nondet(3,10,([],0),9).
+label((dh___mapf_vertex_split_robend_time_5_1_3_6_0__1,3,0)).
+    nondet(3).
+label((dh___mapf_vertex_split_robend_time_5_1_3_6_0__1,3,1)).
+    bp_fork((dh___mapf_vertex_split_robend_time_5_1_3_6_0__1,3,2)).
+    add_u1v(2,-9).
+    unify_value_cut(1,-9).
+    cut0.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___mapf_vertex_split_robend_time_5_1_3_6_0__1,3,2)).
+    cut_return.
+label((dh___mapf_vertex_split_robend_time_5_1_3_6_0__1,3,3)).
+    fail.
+label((dh___mapf_vertex_split_robend_time_5_1_3_6_0__1,3,4)).
+    fail0.
+label((dh___mapf_vertex_split_robend_time_5_1_3_6_0__1,3,5)).
+    cut_fail.
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_1_2_0__1,3)).
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_1_2_0__1,3,-1)).
+    allocate_nondet(3,9,([],0),9).
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_1_2_0__1,3,0)).
+    nondet(3).
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_1_2_0__1,3,1)).
+    bp_fork((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_1_2_0__1,3,2)).
+    para_uu(1,2).
+    call0((picat_has_key,2),9).
+    cut.
+    unify_constant_return_det(3,c(1)).
+    noop1(9).
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_1_2_0__1,3,2)).
+    cut_return.
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_1_2_0__1,3,3)).
+    fail.
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_1_2_0__1,3,4)).
+    fail0.
+label((dh___mapf_vertex_split_robdisjoint_edges_merge_2_1_1_2_0__1,3,5)).
+    cut_fail.

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MAPFScenario.iml" filepath="$PROJECT_DIR$/MAPFScenario.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OzoCodeGenerator/OzoCodeGenerator.iml" filepath="$PROJECT_DIR$/OzoCodeGenerator/OzoCodeGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PicatWrapper/PicatWrapper.iml" filepath="$PROJECT_DIR$/PicatWrapper/PicatWrapper.iml" />
+    </modules>
+  </component>
+</project>
