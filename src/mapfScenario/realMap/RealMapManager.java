@@ -64,7 +64,7 @@ public class RealMapManager {
 
         this.source = source;
 
-        myMv = new MapView(gridPane,obstaclePane, source.mvs.sizeX,source.mvs.sizeY);
+        myMv = new MapView(gridPane,obstaclePane,  source.mvs.sizeX,source.mvs.sizeY);
         //myMv.mvs.mapBackGroundColor = JavaFx;
         myMv.setObstacles(source.getObstacles());
 

@@ -98,6 +98,7 @@ public class SolverProcess {
         File workdir = methods.fileToAbsolute(workDirStr);
         sp.fileOut = new File(workdir.getAbsolutePath()+ File.separator  + "out" + sp.solverFile + ".answ" );
         sp.so.targetFilePath = sp.fileOut.getAbsolutePath();
+        sp.solution.setSolutionFileName(sp.fileOut.getAbsolutePath());
         if (!sp.fileOut.exists()){
             SolutionFileWorker sfw = new SolutionFileWorker();
             sfw.writeListToFile(packet.answFile,sp.fileOut);

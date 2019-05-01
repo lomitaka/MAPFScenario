@@ -3,6 +3,7 @@ package mapfScenario.mapView;
 import graphics.GraphicManager;
 import graphics.MVPoint;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -50,10 +51,12 @@ public class MapView {
     /** allows to display some information */
     private Label infoLabel;
 
+
+
     /** represents current meaning of clicking on map */
     public MapViewState.AbstractMapHandler mapActionState = new MapViewState.NullMapHandler();
 
-    public MapView(Pane mapViewPane,Pane mapViewPaneObstacles, int sizeX,int sizeY){
+    public MapView(Pane mapViewPane, Pane mapViewPaneObstacles, int sizeX, int sizeY){
 
         mvs = new MapViewSettings();
         mvs.sizeX = sizeX;
@@ -71,6 +74,7 @@ public class MapView {
         //edgeLength = Consts.defaultEdgeLength;
         gm = new GraphicManager(mvs);
     }
+
 
     /** assigns infoLabel  */
     public void setSourceinfoLabel(Label l){
@@ -256,6 +260,11 @@ public class MapView {
 
     public void setEdgeLength(int edgeLength){
         mvs.edgeLength = edgeLength;
+        setMapSize(mvs.sizeX,mvs.sizeY);
+        reloadObstaclesRequest();
+    }
+    public void setEdgeWidth(int edgeWidth){
+        mvs.edgeWidth = edgeWidth;
         setMapSize(mvs.sizeX,mvs.sizeY);
         reloadObstaclesRequest();
     }

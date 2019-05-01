@@ -31,11 +31,24 @@
                <center>
                       <VBox minWidth="300.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <children>
-                        <Label text="Map">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <left>
+                              <Label text="Map" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </left>
+                           <right>
+                              <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label prefWidth="63.0" text="Zoom: -" />
+                                    <Slider fx:id="FXMapZoom" blockIncrement="1.0" max="10.0" value="5.0" />
+                                    <Label text="+" />
+                                 </children>
+                              </HBox>
+                           </right>
+                        </BorderPane>
                         <ScrollPane prefViewportHeight="1000.0" prefViewportWidth="1000.0" VBox.vgrow="ALWAYS">
                            <content>
                               <StackPane>

@@ -100,6 +100,13 @@ public class AgentManager {
         return false;
     }
 
+    /** iterates over every agent and update their flags  */
+    public void refreshAgentFlags(){
+        for (Agent a : agentObsList){
+            updateAgentFlags(a);
+        }
+    }
+
     public void updateAgentFlags(Agent a){
         afm.removeStartFlag(a);
         afm.removeStartFlag(a);

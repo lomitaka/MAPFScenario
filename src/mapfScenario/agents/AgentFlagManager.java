@@ -155,7 +155,9 @@ public class AgentFlagManager {
         //moves flag of the topleft corner by contst
         gm.moveImgViewByCoords(img, Consts.mapLineMove,Consts.mapLineMove );
         // move flag off the grid
-        gm.moveImgViewByCoords(img,Consts.mapFlagOffsetStartX,Consts.mapFlagOffsetStartY);
+        gm.moveImgViewByCoords(img, Consts.mapFlagOffsetStartX,Consts.mapFlagOffsetStartY);
+        //adjust star flag position
+        gm.moveImgViewByPixels(img,(int)(-mvs.edgeLength*Consts.mapFlagCircleRadius),(int)(-mvs.edgeLength*Consts.mapFlagCircleRadius) );
         startFlagsNodes.put(a,img);
         flagPane.getChildren().add(img);
 
@@ -170,6 +172,9 @@ public class AgentFlagManager {
         gm.moveImgViewByCoords(img, Consts.mapLineMove,Consts.mapLineMove );
         // move flag off the grid
         gm.moveImgViewByCoords(img,Consts.mapFlagOffsetFinishX,Consts.mapFlagOffsetFinishY);
+        // adjust end position of the flag
+        //gm.moveImgViewByPixels(img,0,-Consts.mapFlagFlagHeight );
+        gm.moveImgViewByPixels(img,(int)(-mvs.edgeLength*Consts.mapFlagCircleRadius),(int)(-mvs.edgeLength*Consts.mapFlagCircleRadius) );
         endFlagsNodes.put(a,img);
         flagPane.getChildren().add(img);
 

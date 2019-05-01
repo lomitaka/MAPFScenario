@@ -63,6 +63,9 @@ public class MainFormController implements Initializable {
     @FXML /** used to realMapDisplay flags (agents start and ends) */
     Pane FXMLmapFlags;
 
+    @FXML
+    Slider FXMapZoom;
+
     /* elements that defines size of Map */
     @FXML
     TextField FXMLmapSizeX;
@@ -206,7 +209,7 @@ public class MainFormController implements Initializable {
     /** solution that was shown last time */
     Solution activeSolution = null;
 
-
+    ZoomSlider zs ;
 
     /**************************************************************************/
 
@@ -221,6 +224,9 @@ public class MainFormController implements Initializable {
         // manager for agents
         am = new AgentManager(agentListView,mv.mvs,FXMLmapFlags);
         //afm = new AgentFlagManager(FXMLmapFlags,mv.mvs);
+
+        //creates slider that updates flags
+        zs = new ZoomSlider(FXMapZoom,mv.mvs,mv,am);
 
         mfd = new MainFormDelegate(this);
         // Initialize picat manager (alias solver Manager)

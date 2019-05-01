@@ -1,0 +1,10 @@
+SupportFiles/*
+nogit
+picat/*.qi
+lib/log4j-1.2.17-javadoc.jar
+notes
+out
+map4x4F2.map
+ags4x4F2.ags
+workdir
+THIS_PROJECT_IS_ON_GITHUB

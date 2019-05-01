@@ -19,19 +19,37 @@ public class Consts {
     /** grid lines will be moved from upper left corner over ratio of edge length (value in edge ratio) */
     public static final float mapLineMove = 0.53f;
 
+
     /** flag offset X from vertex point (value in edge ratio) */
-    public static final float mapFlagOffsetStartX = -0.52f;
+    public static final float mapFlagStaticOffsetStartX = -0.052f;
     /** flag offset Y from point center (value in edge ratio)*/
-    public static final float mapFlagOffsetStartY = -0.52f;
+    public static final float mapFlagStaticOffsetStartY = -0.052f;
 
     /** flag offset X from vertex point (value in edge ratio)*/
-    public static final float mapFlagOffsetFinishX = 0.06f;
+    public static final float mapFlagStaticOffsetFinishX = 0.06f;
     /** flag offset Y form vertex point (value in edge ratio)*/
-    public static final float mapFlagOffsetFinishY = -0.52f;
+    public static final float mapFlagStaticOffsetFinishY = -0.52f;
+
+    public static final float mapFlagFlagWidth = 23.0f;
+    public static final float mapFlagFlagHeight = 26.0f;
+     //     img.setFitHeight(26.0f);
+      //  img.setFitWidth(23.0f);
+
+    /** flag offset X from vertex point (value in edge ratio) */
+    public static final float mapFlagOffsetStartX = -0.0052f;
+    /** flag offset Y from point center (value in edge ratio)*/
+    public static final float mapFlagOffsetStartY = -0.0052f;
+
+    /** flag offset X from vertex point (value in edge ratio)*/
+    public static final float mapFlagOffsetFinishX = 0.006f;
+    /** flag offset Y form vertex point (value in edge ratio)*/
+    public static final float mapFlagOffsetFinishY = -0.0052f;
 
     /** determines size of hole or obstacle (value in edge ratio) */
     public static final float mapHoleSize = 0.51f;
 
+    /** ratio of edge length of circle showing agent in flags */
+    public static float mapFlagCircleRadius = 0.1f;
 
     /** size of the agent figure on simulation map (value in edge ratio) */
     public static final float mapAgentRepCircleSize = 0.20f;
@@ -158,5 +176,6 @@ public class Consts {
     public static String errorInvalidValue = "Error: invalid value";
     public static String removeCategoryQuestion = "Do you want to remove category?";
     public static String categoryNotSavedQuestion = "Not saved changes will be lost, continue?";
+
 }
 

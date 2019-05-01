@@ -8,7 +8,10 @@ import java.util.*;
 
 public class UserButtonAccessManager {
 
-    private HashSet<PS> currentStatus = new HashSet<>();
+
+    /** current status is set of program statuses.  */
+    private HashSet<PS> currentStatus = new HashSet<>()
+            ;
     private HashMap<String,Button> programButtons = new HashMap<>();
     private ArrayList<Pair<List<PS>,List<BL>>> actionMap = new ArrayList<>();
     private final Logger logger = Logger.getLogger(UserButtonAccessManager.class);

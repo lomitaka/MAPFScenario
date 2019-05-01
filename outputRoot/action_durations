@@ -1,0 +1,21 @@
+#Thu Jul 19 10:49:06 CEST 2018
+Real.goC=800
+Real.goB=800
+Uniform.turnRight=990
+Real.start=900
+Real.rightGo=1200
+Real.turnRight=400
+Uniform.turnLeft=990
+Real.backwardGo=1500
+Uniform.waitC=1000
+Uniform.waitB=2000
+Real.turnLeft=400
+Real.leftGo=1200
+Uniform.rightGo=2005
+Uniform.goC=1007
+Uniform.start=900
+Uniform.goB=2010
+Uniform.leftGo=2005
+Real.waitC=600
+Uniform.backwardGo=1985
+Real.waitB=1000

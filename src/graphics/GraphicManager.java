@@ -80,6 +80,13 @@ public class GraphicManager {
         c.setCenterY(c.getCenterY()+mvs.edgeLength *stepLengthRatioY);
 
     }
+
+    public void moveCircleByPixels(Circle c, int pixelsX, int pixelsY ){
+        c.setCenterX(c.getCenterX()+pixelsX);
+        c.setCenterY(c.getCenterY()+pixelsY);
+
+    }
+
     public void moveRectangleByCoords(Rectangle c, float stepLengthRatioX,float stepLengthRatioY ){
         c.setX(c.getX()+mvs.edgeLength *stepLengthRatioX);
         c.setY(c.getY()+mvs.edgeLength *stepLengthRatioY);
@@ -131,49 +138,82 @@ public class GraphicManager {
 
     }
 
+    public void moveImgViewByPixels(Node c, float pixelsX, float pixelsY) {
+        c.setLayoutX(c.getLayoutX()+pixelsX);
+        c.setLayoutY(c.getLayoutY()+pixelsY);
+
+    }
+
     public enum FlagType  { Start, End };
 
     public Node makeFlag(MVPoint a, Color c, FlagType flType  ){
 
 
+
         ImageView img = new ImageView();
-        img.setFitHeight(26.0f);
-        img.setFitWidth(23.0f);
+       // img.setFitHeight(26.0f);
+       // img.setFitWidth(23.0f);
+        img.setFitHeight(Consts.mapFlagFlagHeight);
+        img.setFitWidth(Consts.mapFlagFlagWidth);
         String borderPart = "";
+
+        double circleRadius = mvs.edgeLength*Consts.mapFlagCircleRadius;
+        //constatn to move flag to outside of circle
+        double oneOverSqrtof2 = 0.707106; // 1/sqrt(2)
+         //img.setX((agent.x )* mvs.edgeLength);
+        //img.setY((agent.y )* mvs.edgeLength);
+
         if (flType == FlagType.Start){
             img.setImage(new Image(Consts.greenFlagImgLoc));
-            borderPart = "0 3 3 0";
+
+            //top left top corner to circle center
+            moveImgViewByPixels(img,(int)((0.9*circleRadius)),(int)(1*circleRadius));
+            //bottom right corner to circle center
+            moveImgViewByPixels(img,-Consts.mapFlagFlagWidth,-Consts.mapFlagFlagHeight);
+            //moves bottom right corerner out of circle (in -45 degree)
+            moveImgViewByPixels(img,(int)(-circleRadius*oneOverSqrtof2),(int)(-circleRadius*oneOverSqrtof2));
         } else if (flType == FlagType.End){
             img.setImage(new Image(Consts.blwhFlagImgLoc));
             borderPart = "0 0 3 3";
+            //top left top corner to circle center
+            moveImgViewByPixels(img,(int)((1.1*circleRadius)),(int)(1*circleRadius));
+            //bottom left corner to circle center
+            moveImgViewByPixels(img,0,-Consts.mapFlagFlagHeight);
+            //moves bottom left corerner corerner out of circle (in 45 degree)
+            moveImgViewByPixels(img,(int)(circleRadius*oneOverSqrtof2),(int)(-circleRadius*oneOverSqrtof2));
         } else {
             logger.error("unrecognized flagType error");
         }
 
-        //img.setX((agent.x )* mvs.edgeLength);
-        //img.setY((agent.y )* mvs.edgeLength);
+
 
         Circle circle = new Circle();
         circle.setFill(c);
-        circle.setRadius(mvs.edgeLength*0.1);
+        circle.setRadius(circleRadius);
+        //moves cirlce to the right left of the border
 
-        circle.setLayoutY(mvs.edgeLength/2);
+        //circle.setLayoutY(mvs.edgeLength/2);
 
         if (flType == FlagType.Start){
-            circle.setLayoutX(mvs.edgeLength/2);
+            //circle.setLayoutX(mvs.edgeLength/2);
+                moveCircleByPixels(circle,(int)(0.9*circleRadius),(int)(1*circleRadius));
         } else if (flType == FlagType.End){
-
+                moveCircleByPixels(circle,(int)(1.1*circleRadius),(int)(1*circleRadius));
         } else {
             logger.error("unrecognized flagType error");
         }
 
         Pane border = new Pane();
+
+        //border.setStyle( String.format("-fx-border-color: #000000; "/*, methods.colorToWebString(c) */)
+         //      + String.format("-fx-border-width: %s; ","1"));
+
         border.setLayoutX((a.x/2 )* mvs.edgeLength);
         border.setLayoutY((a.y/2 )* mvs.edgeLength);
 
+        border.getChildren().add(circle);
         border.getChildren().add(img);
 
-        border.getChildren().add(circle);
 
 
         return border;

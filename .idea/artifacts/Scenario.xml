@@ -38,6 +38,7 @@
       <element id="directory" name="picat">
         <element id="dir-copy" path="$PROJECT_DIR$/picat" />
       </element>
+      <element id="directory" name="workdir" />
     </root>
   </artifact>
 </component>
