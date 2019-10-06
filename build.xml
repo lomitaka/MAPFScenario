@@ -1,0 +1,97 @@
+<project name="MAPFScenario" default="publish" basedir=".">
+ 	 <property name="JAVA_HOME" value="/usr/share/java"/>
+	<property name="src.dir" value="./src"/>
+ 	<property name="build.dir" value="./build"/>
+ 	<property name="lib.dir" value="./lib"/>
+    <property name="publish.dir" value="./publish"/>
+	<property name="temp.dir" value="./temp"/>
+   
+   <path id="src-files">
+    <!-- source files -->
+	<fileset id="java.src" dir="${src.dir}">
+		<include name="**/*.java"/>
+	</fileset>
+   </path>
+
+   <path id="build-classpath">
+	 <pathelement location="lib/log4j-1.2.17.jar"/>
+	 <pathelement location="${JAVA_HOME}/javafx-base.jar"/>
+	 <pathelement location="${JAVA_HOME}/javafx-controls.jar"/>
+	 <pathelement location="${JAVA_HOME}/javafx-graphics.jar"/>
+	 <pathelement location="${JAVA_HOME}/javafx-fxml.jar"/>
+	 <pathelement location="${JAVA_HOME}/javafx-swing.jar"/>
+   </path>
+   
+	 <!-- source files -->
+	<fileset id="java.src" dir="${src.dir}">
+		<include name="**/*.java"/>
+	</fileset>
+
+	<target name="init">
+ 		<mkdir dir="${temp.dir}"/>
+	
+		<zip destfile="${temp.dir}/javafx.jar">
+			<zipgroupfileset dir="${JAVA_HOME}" includes="javafx-*.jar"/>
+		</zip>
+ 	</target> 
+	
+	<target name="clean">
+ 		<delete>
+      <fileset dir="${build.dir}" includes="**/*"/>
+      <fileset dir="${publish.dir}" includes="**/*"/>
+	  <fileset dir="${temp.dir}" includes="**/*"/>
+    </delete>
+ 	</target> 
+
+	
+	<target name="publish" depends="build" >
+ 		<mkdir dir="${publish.dir}"/>
+	
+		<!-- compile soureces.  -->
+		<jar destfile="${publish.dir}/MAPFScenario.jar" basedir="${build.dir}/" > 
+			<!-- copies javafx -->
+			<zipfileset includes="**/*.*" src="${temp.dir}/javafx.jar"/>
+			<!-- copies images -->
+			<fileset dir=".">
+    			<include name="**/img/**"/>
+			</fileset>
+			
+			<manifest>
+      			<attribute name="Main-Class" value="mapfScenario.EntryPointJava11"/>
+				<attribute name="Class-Path" value="lib/OzoCodeGenerator.jar lib/PicatWrapper.jar lib/log4j-1.2.17-javadoc.jar lib/log4j-1.2.17.jar"/>
+				<attribute name="JavaFX-Version" value="11.0"/> 
+    		</manifest>
+		</jar>
+		<copy todir="${publish.dir}/lib">
+  			<fileset dir="lib"/>
+		</copy> 
+		<copy todir="${publish.dir}/">
+			<fileset dir="outputRoot"/>
+		</copy> 
+		<mkdir dir="${publish.dir}/picat"/>
+		<mkdir dir="${publish.dir}/workdir"/>
+		<copy todir="${publish.dir}/picat">
+			<fileset dir="picat"/>
+		</copy> 
+		
+ 	</target>    
+
+
+	<target name="build" depends="init">
+
+ 		<mkdir dir="${build.dir}"/>
+
+		<!-- compile soureces.  -->
+		<javac srcdir="${src.dir}" destdir="${build.dir}" classpath=".:${JAVA_HOME}/:./lib/log4j-1.2.17.jar">
+			<classpath refid="build-classpath"/>				 
+			
+		</javac>
+		<!-- copy every not java file to build directory -->
+		<copy todir="${build.dir}">
+  			<fileset dir="${src.dir}">
+    		<exclude name="**/*.java"/>
+  		</fileset>
+		 </copy> 
+ 	</target>
+	
+</project>

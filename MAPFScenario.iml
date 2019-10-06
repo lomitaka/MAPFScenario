@@ -13,9 +13,19 @@
       <excludeFolder url="file://$MODULE_DIR$/testOld" />
       <excludeFolder url="file://$MODULE_DIR$/workdir" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" exported="" name="lib" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file:///usr/share/java" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file:///usr/share/java" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>

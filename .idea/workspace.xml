@@ -6,13 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="starting edition for version 1.02&#10;-Reapir bug when user loads solution from another computer (original path hangs in .answ file)" />
-    <ignored path="JavaFxApplication.iws" />
-    <ignored path=".idea/workspace.xml" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored mask="*.qi" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="starting edition for version 1.02&#10;-Reapir bug when user loads solution from another computer (original path hangs in .answ file)" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,28 +62,6 @@
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Consts.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mapfScenario/Consts.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntryPoint.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/mapfScenario/EntryPoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -98,161 +71,19 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>customb</find>
-      <find>remove</find>
-      <find>picatMa</find>
-      <find>showDialogQuestion</find>
-      <find>createbackup</find>
-      <find>save</find>
-      <find>find</find>
-      <find>name</find>
-      <find>question</find>
-      <find>hook</find>
-      <find>-&gt;</find>
-      <find>&lt;br</find>
-      <find>Add</find>
-      <find>map</find>
-      <find>show</find>
-      <find>solutions</find>
-      <find>reset</find>
-      <find>mv</find>
-      <find>mvs</find>
-      <find>Zoom</find>
-      <find>Slider</find>
-      <find>scaleSlider</find>
-      <find>1.0</find>
-      <find>version</find>
-      <find>circle</find>
-      <find>am</find>
-      <find>load</find>
-      <find>Load</find>
-      <find>solutionpacket</find>
-      <find>solverSolutionLoad</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/OzoCodeGenerator/src</dir>
-      <dir>$PROJECT_DIR$</dir>
-    </dirStrings>
-  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/mapfScenario/realMap/RealMapControll.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/realMap/RealMapPlayer.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/simulation/AgentAction.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/simulation/AgentActionPair.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/simulation/package-info.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/simulation/SimulationControll.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/simulation/SimulationMap.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/simulation/SimulationPlayer.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/simulation/Simulator.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/simulation/SimulatorDisplaySettings.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/simulation/SolutionDurationModifier.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/solutionPack/SolutionAutogenItem.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/solutionPack/SolutionPack.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/timeDuration/ActionDuration.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/timeDuration/ActionDurationCellDisplay.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/DataStore.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/MainFormControllerLogic.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/MainFormDelegate.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/MapView.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/MapViewSettings.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/MapViewState.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/OzoCodeExport.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/Settings.java" />
-        <option value="$PROJECT_DIR$/src/fileHandling/ActionDurationFileWorker.java" />
-        <option value="$PROJECT_DIR$/PicatWrapper/src/mapfScenario/picat/EntryPoint.java" />
-        <option value="$PROJECT_DIR$/PicatWrapper/src/mapfScenario/picat/PicatWrapper.java" />
-        <option value="$PROJECT_DIR$/OzoCodeGenerator/src/EntryPoint.java" />
-        <option value="$PROJECT_DIR$/OzoCodeGenerator/src/GeneralElement.java" />
-        <option value="$PROJECT_DIR$/OzoCodeGenerator/src/GeneralElementLeaf.java" />
-        <option value="$PROJECT_DIR$/OzoCodeGenerator/src/MissingFceChecker.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/realMap/package-info.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/solutionPack/package-info.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/timeDuration/package-info.java" />
-        <option value="$PROJECT_DIR$/src/helpout/methods.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/mapView/MapViewState.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/MainFormControllerHelpout.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/UserAccessManager.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/simulation/SimulationMapPath.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/timeDuration/ActionCategory.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/timeDuration/ActionDurationManager.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/mapView/MapView.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/agents/AgentManager.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/realMap/RealMapManager.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/Consts.java" />
-        <option value="$PROJECT_DIR$/src/graphics/GraphicManager.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/ZoomSlider.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/agents/AgentFlagManager.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/MainFormController.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/UserButtonAccessManager.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/picat/SolverProcess.java" />
-        <option value="$PROJECT_DIR$/src/mapfScenario/EntryPoint.java" />
-      </list>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
-  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1989" />
-    <option name="y" value="375" />
-    <option name="width" value="1132" />
-    <option name="height" value="727" />
-  </component>
+  <component name="ProjectId" id="1Rnia6rHjg6TJqkrkmx6nHVOrDi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="MAPFScenario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MAPFScenario" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MAPFScenario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MAPFScenario" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MAPFScenario" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MAPFScenario" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mapfScenario" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
-    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
-    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
-    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="ozoblockcodegenerator" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="testbuild" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -265,12 +96,12 @@
     <property name="SearchEverywhereHistoryKey" value="showDialogQuestion&#9;PSI&#9;JAVA://helpout.methods#showDialogQuestion&#10;QuestionName&#9;FILE&#9;file:///home/ivan/IdeaProjects/mapfscenario/src/helpout/QuestionName.java&#10;updating supposed size&#9;null&#9;null&#10;Testing set end flag&#9;null&#9;null&#10;File&#9;FILE&#9;file:///afs/ms/u/k/krasicei/IdeaProjects/OzoblockCodeGenerator/src/fileHandling/MapViewFileWorker.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="/usr/share/java" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.23590814" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Background" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -308,97 +139,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HEIGHT" value="0" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="WIDTH" value="0" />
-    </configuration>
-    <configuration name="CodeExecutor" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="EntryPoint" />
-      <module name="OzoCodeGenerator" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/out/artifacts/Scenario/workdir/out18-07-18-21-08-09.answ $USER_HOME$/test1/template9.real.ozocode $USER_HOME$/test1/benchmark.real.t1.ozocode -1 " />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mapfScenario.EntryPoint" />
-      <module name="MAPFScenario" />
-      <option name="PROGRAM_PARAMETERS" value="switch.map switch.ags dbg" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-    </configuration>
-    <configuration name="MainConsole" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mapfScenario.EntryPoint" />
-      <module name="MAPFScenario" />
-      <option name="PROGRAM_PARAMETERS" value="solpack $USER_HOME$/test1/benchmark.real.sp ozor $USER_HOME$/test1/template10.real.ozocode $USER_HOME$/test1/benchmark.real.t1.ozocode dbg" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/out/artifacts/Scenario" />
-    </configuration>
-    <configuration name="PicatWrapper" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (1)" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="mapfScenario.picat.EntryPoint" />
-      <module name="PicatWrapper" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/out/artifacts/Scenario/ mapf_simple('$PROJECT_DIR$/out/artifacts/Scenario/pr1.pi','$PROJECT_DIR$/out/artifacts/Scenario/pr1.answ') $PROJECT_DIR$/out/artifacts/Scenario/picat_iface.pi" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-    </configuration>
-    <configuration name="Unnamed" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mapfScenario.realMap.AgentIDBlink" />
-      <module name="MAPFScenario" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -410,6 +150,104 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="HEIGHT" value="0" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="WIDTH" value="0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CodeExecutor" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="EntryPoint" />
+      <module name="OzoCodeGenerator" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/out/artifacts/Scenario/workdir/out18-07-18-21-08-09.answ $USER_HOME$/test1/template9.real.ozocode $USER_HOME$/test1/benchmark.real.t1.ozocode -1 " />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mapfScenario.EntryPointJava11" />
+      <module name="MAPFScenario" />
+      <option name="PROGRAM_PARAMETERS" value="switch.map switch.ags dbg" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainConsole" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mapfScenario.EntryPoint" />
+      <module name="MAPFScenario" />
+      <option name="PROGRAM_PARAMETERS" value="solpack $USER_HOME$/test1/benchmark.real.sp ozor $USER_HOME$/test1/template10.real.ozocode $USER_HOME$/test1/benchmark.real.t1.ozocode dbg" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/out/artifacts/Scenario" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PicatWrapper" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (1)" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="mapfScenario.picat.EntryPoint" />
+      <module name="PicatWrapper" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/out/artifacts/Scenario/ mapf_simple('$PROJECT_DIR$/out/artifacts/Scenario/pr1.pi','$PROJECT_DIR$/out/artifacts/Scenario/pr1.answ') $PROJECT_DIR$/out/artifacts/Scenario/picat_iface.pi" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mapfScenario.realMap.AgentIDBlink" />
+      <module name="MAPFScenario" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
@@ -790,86 +628,6 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="1914" y="345" width="1452" height="849" extended-state="6" />
-    <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49928263" weight="0.15568022" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49569583" weight="0.25910932" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="8" sideWeight="0.2195122" side_tool="true" visible="true" weight="0.30995792" />
-      <window_info anchor="right" id="Maven Projects" order="11" weight="0.3292683" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.82639885" weight="0.23562412" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49710566" weight="0.24320652" />
-      <window_info anchor="bottom" id="Terminal" order="14" weight="0.3287858" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.40401787" visible="true" weight="0.26040173" />
-      <window_info id="Structure" order="1" sideWeight="0.59598213" side_tool="true" weight="0.3438849" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7804878" weight="0.37447405" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="JetGradle" order="4" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" x="0" y="0" width="310" height="638" id="Documentation" order="9" side_tool="true" weight="0.3298611" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49569583" weight="0.4109397" />
-      <window_info anchor="bottom" id="Changes" order="9" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Learn" order="3" />
-      <window_info anchor="bottom" id="Profiler" order="10" />
-      <window_info anchor="bottom" id="Problems" order="11" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Application Servers" order="12" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32950708" />
-    </layout>
-    <layout-to-restore>
-      <window_info anchor="bottom" id="Application Servers" order="12" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Learn" order="7" />
-      <window_info id="Image Layers" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7562366" weight="0.0676259" />
-      <window_info anchor="right" id="JetGradle" order="4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info id="UI Designer" order="3" />
-      <window_info anchor="bottom" id="Profiler" order="10" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Changes" order="9" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50249463" side_tool="true" weight="0.6634483" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.22014388" />
-      <window_info anchor="right" x="0" y="0" width="310" height="638" id="Documentation" order="10" side_tool="true" weight="0.3298611" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Problems" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49750534" weight="0.6634483" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="bottom" id="Terminal" order="14" weight="0.3287858" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.40401787" visible="true" weight="0.36256447" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.15667576" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info id="Structure" order="1" sideWeight="0.59598213" side_tool="true" weight="0.3438849" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Coverage" order="11" side_tool="true" weight="0.32950708" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.23597123" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8063428" weight="0.3208633" />
-    </layout-to-restore>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -908,41 +666,34 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/mapfScenario/agents/Agent.java</url>
           <line>93</line>
-          <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/mapfScenario/Temp.java</url>
           <line>54</line>
-          <properties />
           <option name="timeStamp" value="95" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/mapfScenario/realMap/RealMapPlayer.java</url>
           <line>71</line>
-          <properties />
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/mapfScenario/realMap/AgentIDBlink.java</url>
           <line>55</line>
-          <properties />
           <option name="timeStamp" value="203" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/mapfScenario/timeDuration/ActionDurationManager.java</url>
           <line>172</line>
-          <properties />
           <option name="timeStamp" value="207" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/mapfScenario/picat/SolverProcess.java</url>
           <line>84</line>
-          <properties />
           <option name="timeStamp" value="208" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="209" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1005,430 +756,5 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/timeDuration/ActionDuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/MainFormDelegate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="33" column="85" selection-start-line="33" selection-start-column="85" selection-end-line="33" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fileHandling/ActionDurationFileWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OzoCodeGenerator/src/EntryPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="118" column="23" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OzoCodeGenerator/src/GeneralElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OzoCodeGenerator/src/GeneralElementLeaf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="26" column="53" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OzoCodeGenerator/src/ozoCMDS.java" />
-    <entry file="file://$PROJECT_DIR$/OzoCodeGenerator/src/MissingFceChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OzoCodeGenerator/src/XmlTraverser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OzoCodeGenerator/src/CodePatchIface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OzoCodeGenerator/src/ActionFileWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpout/methods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="298" column="33" selection-start-line="298" selection-start-column="33" selection-end-line="298" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/timeDuration/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/realMap/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OzoCodeGenerator/src/CodePatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OzoCodeGenerator/src/CodePatchMutiple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/oracle-jdk-bin-1.8.0.172/javafx-src.zip!/javafx/scene/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="723" selection-start-line="723" selection-end-line="723" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/oracle-jdk-bin-1.8.0.172/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="2578" selection-start-line="2578" selection-end-line="2578" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/oracle-jdk-bin-1.8.0.172/javafx-src.zip!/javafx/scene/control/SplitPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="329" selection-start-line="329" selection-end-line="329" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/MainFormControllerLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="90" column="22" lean-forward="true" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/MainFormControllerHelpout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/oracle-jdk-bin-1.8.0.172/javafx-src.zip!/javafx/event/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="189" column="25" selection-start-line="189" selection-start-column="25" selection-end-line="189" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/timeDuration/ActionCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/timeDuration/ActionDurationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="282" column="50" selection-start-line="282" selection-start-column="50" selection-end-line="282" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/simulation/SimulationMapPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="170" column="25" selection-start-line="170" selection-start-column="25" selection-end-line="170" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/mapView/MapViewSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/realMap/RealMapManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="66" column="50" lean-forward="true" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/mapView/MapView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="29" column="4" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/mapView/MapViewState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="136" selection-start-line="136" selection-end-line="136" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/agents/AgentManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="102" column="57" selection-start-line="102" selection-start-column="57" selection-end-line="102" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/simulation/Simulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="150" column="2" selection-start-line="150" selection-start-column="2" selection-end-line="153" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/ZoomSlider.java" />
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/UserButtonAccessManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2415">
-          <caret line="167" column="11" selection-start-line="167" selection-start-column="11" selection-end-line="167" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PicatWrapper/src/mapfScenario/picat/PicatWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="81" selection-start-line="2" selection-start-column="81" selection-end-line="2" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PicatWrapper/src/mapfScenario/picat/mapfScenario_picat_PicatWrapper.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PicatWrapper/src/mapfScenario/picat/EntryPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="47" column="49" lean-forward="true" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphics/GraphicManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="208" column="11" selection-start-line="208" selection-start-column="11" selection-end-line="208" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/agents/AgentFlagManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="159" column="83" selection-start-line="159" selection-start-column="83" selection-end-line="159" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fileHandling/PicatFileWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-870">
-          <caret line="218" column="35" lean-forward="true" selection-start-line="218" selection-start-column="35" selection-end-line="218" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/OzoCodeExport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/solutionPack/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="76" lean-forward="true" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/picat/SolverProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/MainForm.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="295" column="83" selection-start-line="295" selection-start-column="83" selection-end-line="295" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/picat/PicatManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3405">
-          <caret line="247" column="40" lean-forward="true" selection-start-line="247" selection-start-column="40" selection-end-line="247" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/MainFormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="704" column="20" selection-start-line="704" selection-start-column="20" selection-end-line="704" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/simulation/Solution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="52" column="19" lean-forward="true" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fileHandling/SolutionPackFileWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-149">
-          <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fileHandling/SolutionFileWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2307">
-          <caret line="169" column="30" selection-start-line="169" selection-start-column="30" selection-end-line="169" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/Consts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapfScenario/EntryPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>Scenario</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23590814" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23590814" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23590814" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23590814" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>PicatWrapper</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23590814" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>log4j:log4j:1.2.17</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.23590814" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

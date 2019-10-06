@@ -1,10 +1,6 @@
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
-import org.xml.sax.helpers.AttributesImpl;
-import sun.java2d.loops.FillRect;
 
-import java.lang.reflect.GenericArrayType;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

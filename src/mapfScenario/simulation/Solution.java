@@ -3,9 +3,7 @@ package mapfScenario.simulation;
 import mapfScenario.Data.MapData;
 import mapfScenario.agents.Agent;
 import org.apache.log4j.Logger;
-import sun.management.snmp.jvmmib.JVM_MANAGEMENT_MIBOidTable;
 
-import javax.swing.*;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
