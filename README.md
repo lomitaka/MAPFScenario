@@ -1,36 +1,69 @@
 # MAPFScenario
 
+## What is it
+Mapf Scenario holds for Multi Agent Path Finding Scenario. It is program that can:
+- work with grid maps. Allows to design, print, export as image.
+- specify Multiple Agent Path Finding problem. (place on grid map agents start position and agents target positions)
+- using picat interpreter and provided solvers to find solution to MAPF problem.
+- visualize solution directly on drawn map
+- export MAPF solution as ozobot program.  
+
+## How to run it (UBUNTU)
+ MAPF Scenario uses graphic library javafx which can be installed by typing
+ ```
+ sudo apt-get install openjfx
+ ```
+to create jar archive is used apache ant build, which can be installed by  
+```
+sudo apt-get install ant
+ ```
+It may be needed to check if libraries are located under right JAVA_HOME path.
+To check that open build.xml find property 	 
+```<property name="JAVA_HOME" value="/usr/share/java"/>```
+if under given folder aren't present javafx jar packages it may be needed to locate right path. 
+
+```
+ant publish
+```
+should publish project. 
+
+to run project just type (from publish directory)
+```
+java -jar MAPFScenario.jar
+```
+Happy developing. 
+
+# Developer Notes:  
+
 ## File structure
 - MapfScenario.jar - main executable. 
 - config.properties - used to store program configuration
 - action_durations - used in simulation. contains custom durations of the ozobot actions.
 - template.ozocode - ozocode program file which is used by Ozocode generator as template to produce pathfinding program.
-- workdir - program working direcory. contains files "pr<current_date>.pi" which are used by picatwrapper, and "out<current_date>.answ" which are result action of picatWrapper, and are used by simulator and ozocode generator.    
-- picat/picat_iface.pi - picat interface is file which contains functions that picat exposes and can be used in MapfScenario
-- lib/OzocodeGenerator.jar - runnable library which read files: out<date>.answ template.ozocode. and produces ozocode made of out<date>.answ file. 
-- lib/PicatWrapper.jar - runnable libraray used to call platform dependent picat executable. Currently supports only linux and macOs.   
-
-
+- workdir - program working direcory. Contains files "pr<current_date>.pi" which are used by picatWrapper.jar, and "out<current_date>.answ" which contains ouptput of picatWrapper.jar, and are used by simulator and ozocode generator.    
+- picat/picat_iface.pi - picat interface is file which contains predicates that picat exposes and can be used in MapfScenario. More about picat can be found on http://picat-lang.org/ .
+- lib/OzocodeGenerator.jar - runnable archive which read files: "out<date>.answ" template.ozocode. and produces ozocode made of out<date>.answ file. 
+- lib/PicatWrapper.jar - runnable archive used to call platform dependent picat interpreters. Currently supports only linux and macOs.    
 
  
-## Program can be divided into four logical components
+## Program can be divided into following logical components:
 - OzoCodeGenerator. Used to generate ozobot code. It is separate executable jar archive.
 - PicatWrapper. Platform independent wrapper over picat libraries. Used to call picat methods from java. 
   picat folder - contains picat scripts, which are used to model and find solution for generated problem.  
-- MapfScenario - gui program which is used interactively create multi agent path finding problem, call solver and vizualize result. Also calls components
+- workdir - folder where are files that are used to exchange information beetwen components.  
+- MapfScenario - gui program which is used interactively create multi agent path finding problem, call solver and vizualize result. (It uses internally OzocodeGenerator and PicatWrapper)
 
 
 ## On button solver clicked workflow
-1. currently drawn map is converted to graph, and with agents positions is written into file workdir/pr<current_date>.pi
-2. picat interpreter (picatWrapper) is invoked with pr<current_date>.pi file path and file where out<date>.answ where picat output is expected
-3. after picat interpreted had finished. out<date>.answ is read and parset.  
-
+1. currently drawn map is converted to graph, and with agents positions is written into file "workdir/pr<current_date>.pi"
+2. picat interpreter (picatWrapper) is invoked with "pr<current_date>.pi" file path and file where "out<date>.answ" where picat output is expected
+3. after picat interpreter had finished. "out<date>.answ" is read and parsed.  
 
 
 ## Workdir file structures
-workdir is folder used to store files whose are subject of passing to another component.
+Workdir is folder used to store files whose are subject of passing to another component.
 
-### pr<date>.pi
+### "pr<date>.pi"
 This file is generated when in MapfScenario button Solve is clicked. It contains all data about currently modeled problem written in picat term format.  
 
 File consists of graph of nodes, and agent start and end positions
@@ -42,7 +75,7 @@ AgentPositions = [ (AgentVertexIdStart,AgentVertexIdEnd),... ]
 IncidentGraph is list of terms neibs, where each term is representing graph vertexId and contains list of its neigbours.
 AgentPositions is list of tuples where each tuple represnets one agent, and first value is start position of agent, second is agent goal position. 
 
-file alco contains term idPosMap which is map, which can be used to map vertexIds back to grid location. 
+file also contains term idPosMap which is map that can be used to map vertexIds back to grid location. 
 ```
 Example file:
 % Map num mapping
@@ -65,24 +98,23 @@ neibs(6,[1,5]),
 neibs(7,[3,8]),
 neibs(8,[4,7])
 ],[(5,4),(8,5)]).
-% Map from ID to coords (x, y) top left is (1,1) 
+% Map from ID to coords (x, y) top left is (0,0) 
 idPosMap([1 =(2,0),2 =(4,0),3 =(6,0),4 =(8,0),5 =(0,2),6 =(2,2),7 =(6,2),8 =(8,2)]).
 ```
 
-```
 Represents following map: format: nodeId(xCord,yCord)
-
+```
          1(2,0)--2(4,0)--3(6,0)--4(8,0) 
            |               |       |
  5(0,2)--6(2,2)          7(6,2)--8(8,2)
 ```
-Where there are two agents. One starts on node 5(bottom left), and wants to go to node 4 (top right) , and second is on node 8 and want to go to node 5.  
+Where there are two agents. One starts on node 5(bottom left), and wants to go to node 4 (top right), and second is on node 8 and want to go to node 5.  
 
 
-### out<date>.answ
+### "out<date>.answ"
 
 This file is generated by picatWrapper after button Solver in MapfScenario is clicked.
-To be more precise: MapfScenario generates file pr<data>.pi and gives it as argument to picatWrapper, which reads file and writes upon it solion file. This solution file is further used to visualize solution and to generate ozobot program. 
+To be more precise: MapfScenario generates file "pr<data>.pi" and gives it as argument to picatWrapper, which reads file and writes upon it solution file ("out<date>.answ"). This solution file is further used to visualize solution and to generate ozobot program. 
 
 This file is readed line by line and contains picat generated plan for agents.
 One line represents agent current position. Combination of two neigbour lines gives agent action. 
@@ -95,9 +127,9 @@ This says, that agent number 1, starts on vertex 3. performs operation east, whi
 
 File contains six columns which are divided by space. 
 
-Coumnus:
+Coumnus description:
 1. AgentNo - numbered from 1. Defines for which agent action holds.
-2. VertexNo - vertexId as used in pr<date>.pi. Specifies Agent position beetween action.  
+2. VertexNo - vertexId as used in "pr<date>.pi". Specifies Agent position beetween action.  
 3. Rotation - can be ommited and set by null. Is clockwise value of agent current rotation in degrees. Zero is top, supports only nonnegative integer values
 4. Action - it is label which says what action will be performed between current line and next. Last action of each agent should be always end.
 5. Duration - if picat script supports action durations (miliseconds). It can specify how long each action will take. From view point of this file, action is transition beetween current line and the next one.
