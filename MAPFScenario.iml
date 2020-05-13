@@ -13,7 +13,7 @@
       <excludeFolder url="file://$MODULE_DIR$/testOld" />
       <excludeFolder url="file://$MODULE_DIR$/workdir" />
     </content>
-    <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" exported="" name="lib" level="project" />
@@ -27,5 +27,6 @@
         <jarDirectory url="file:///usr/share/java" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="PicatWrapper" />
   </component>
 </module>

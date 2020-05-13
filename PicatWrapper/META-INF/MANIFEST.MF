@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Class-Path: log4j-1.2.17.jar libpicat32.jnilib libpicat64.jnilib libpicat64.so
-Main-Class: mapfScenario.picat.EntryPoint
+Class-Path: log4j-1.2.17.jar
+Main-Class: picatWrapper.EntryPoint
 

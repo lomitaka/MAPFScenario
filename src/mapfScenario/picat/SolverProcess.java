@@ -261,10 +261,10 @@ public class SolverProcess {
                         fileOut.getPath(),
                         so.targetFilePath );*/
         String[] calledProg = {
-                "java",  //run java
-                "-jar",  // jar
+           //     "java",  //run java
+         //       "-jar",  // jar
                 // absolute path to called library
-                String.format("%s%sPicatWrapper.jar",libdir.getAbsolutePath(), File.separator),
+        //        String.format("%s%sPicatWrapper.jar",libdir.getAbsolutePath(), File.separator),
                 //absolute path to library (probably not needed, but what if.
                 libdir.getAbsolutePath(),
                 //predicat that should be called
@@ -283,7 +283,6 @@ public class SolverProcess {
 
 
         String[] calledProg = constructCallPred();
-
 
 
         SolverProcessRun spr = new SolverProcessRun(this,calledProg);
@@ -345,19 +344,21 @@ public class SolverProcess {
 
     /** creates new process, and calls solver and waits untill it ends. */
     private  void runInBackground(String[] calledProg){
-        try {
+        //try {
         logger.debug("solving");
         StringBuilder picatOutput = new StringBuilder();
 
-        Process proc = Runtime.getRuntime().exec(calledProg);
+        //Process proc = Runtime.getRuntime().exec(calledProg);
+
+        picatWrapper.EntryPoint.main(calledProg);
 
         // Then retreive the process output
-        InputStream in = proc.getInputStream();
+       // InputStream in = proc.getInputStream();
         // InputStream err = proc.getErrorStream();
         //OutputStream ostr = proc.getOutputStream();
-        BufferedInputStream bis = new BufferedInputStream(in);
+        //BufferedInputStream bis = new BufferedInputStream(in);
         //this waits anyway.
-        int newLine = (int)System.getProperty("line.separator").charAt(0);
+        /*int newLine = (int)System.getProperty("line.separator").charAt(0);
         int znak = 0;
         while ((znak = bis.read())!= -1) {
             System.out.print((char) znak);
@@ -365,20 +366,20 @@ public class SolverProcess {
             if (znak == newLine){
                 Platform.runLater(()->{picatErrorOutput= picatOutput.toString();});
             }
-        }
+        }*/
 
         picatErrorOutput = picatOutput.toString();
 
 
 
-        proc.waitFor();
-        } catch (InterruptedException e) {
+        //proc.waitFor();
+        /*} catch (InterruptedException e) {
             logger.error("exectuion interrupted");
             logger.error(e.toString());
         } catch (IOException e){
             logger.error("read write exception");
             logger.error(e.toString());
-        }
+        }*/
 
     }
 
