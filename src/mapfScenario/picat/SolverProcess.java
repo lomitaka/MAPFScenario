@@ -1,5 +1,6 @@
 package mapfScenario.picat;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import fileHandling.PicatFileWorker;
 import fileHandling.SolutionFileWorker;
 import graphics.MVPoint;
@@ -13,6 +14,7 @@ import mapfScenario.DataStore;
 import mapfScenario.agents.Agent;
 import org.apache.log4j.Logger;
 import mapfScenario.simulation.Solution;
+import picatWrapper.OutputContainer;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -96,7 +98,7 @@ public class SolverProcess {
 
         String workDirStr = DataStore.settings.workDirectoryPath;
         File workdir = methods.fileToAbsolute(workDirStr);
-        sp.fileOut = new File(workdir.getAbsolutePath()+ File.separator  + "out" + sp.solverFile + ".answ" );
+        sp.fileOut = new File(workdir.getAbsolutePath()+ File.separator  + "out" + sp.solverFile);
         sp.so.targetFilePath = sp.fileOut.getAbsolutePath();
         sp.solution.setSolutionFileName(sp.fileOut.getAbsolutePath());
         if (!sp.fileOut.exists()){
@@ -205,9 +207,9 @@ public class SolverProcess {
         File libdir = methods.fileToAbsolute(libDirStr);
         //File libdir = new File(libDirStr);
 
-        String timeStamp =new SimpleDateFormat("yy-MM-dd-HH-mm-ss").format(new Date());;
+        String timeStamp =new SimpleDateFormat(Consts.fileOutputFormatString).format(new Date());;
 
-        File problFle = new File(workdir.getAbsolutePath() + File.separator + "pr" + timeStamp + ".pi");
+        File problFle = new File(workdir.getAbsolutePath() + File.separator + "pr" + timeStamp);
         // tests if file already exists.. if so.. sleeps agent little and creates new file.
         for (int i = 0; i < 30;i++) {
 
@@ -215,8 +217,8 @@ public class SolverProcess {
                 try {
                     logger.info("already exists, waiting");
                     Thread.sleep(TimeUnit.SECONDS.toMillis(1));
-                    timeStamp = new SimpleDateFormat("yy-MM-dd-HH-mm-ss").format(new Date());
-                    problFle = new File(workdir.getAbsolutePath() + File.separator + "pr" + timeStamp + ".pi");
+                    timeStamp = new SimpleDateFormat(Consts.fileOutputFormatString).format(new Date());
+                    problFle = new File(workdir.getAbsolutePath() + File.separator + "pr" + timeStamp );
                 } catch (InterruptedException e) {
                     // e.printStackTrace();
                 }
@@ -226,7 +228,7 @@ public class SolverProcess {
         }
         solverFile = timeStamp;
 
-        fileOut = new File(workdir.getAbsolutePath()+ File.separator  + "out" + timeStamp + ".answ" );
+        fileOut = new File(workdir.getAbsolutePath()+ File.separator  + "out" + timeStamp );
 
         HashMap<String,String> options = new HashMap<>();
         if (useCustomBounds) {
@@ -268,7 +270,7 @@ public class SolverProcess {
                 //absolute path to library (probably not needed, but what if.
                 libdir.getAbsolutePath(),
                 //predicat that should be called
-                String.format("%s(\"%s\",\"%s\")", so.predicatName,problFle.getPath(),fileOut.getPath()),
+                String.format("%s(\"%s\",\"%s\")", so.predicatName,problFle.getName(),fileOut.getName()),
                 //file in which precita will be called
                 so.targetFilePath
         };
@@ -350,7 +352,8 @@ public class SolverProcess {
 
         //Process proc = Runtime.getRuntime().exec(calledProg);
 
-        picatWrapper.EntryPoint.main(calledProg);
+        OutputContainer outputContainer = new OutputContainer();
+        picatWrapper.EntryPoint.callPicat(calledProg,outputContainer);
 
         // Then retreive the process output
        // InputStream in = proc.getInputStream();
@@ -368,7 +371,7 @@ public class SolverProcess {
             }
         }*/
 
-        picatErrorOutput = picatOutput.toString();
+        picatErrorOutput = outputContainer.output;
 
 
 

@@ -24,7 +24,7 @@ public class EntryPoint extends Application {
 
         DataStore.mainWindow = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("MainForm.fxml"));
-        primaryStage.setTitle("MAPF Scenario v1.04");
+        primaryStage.setTitle("MAPF Scenario v1.05");
         primaryStage.setScene(new Scene(root, 900, 600));
         primaryStage.show();
        /* VBox hb = Temp.getRange();

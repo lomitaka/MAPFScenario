@@ -177,5 +177,6 @@ public class Consts {
     public static String removeCategoryQuestion = "Do you want to remove category?";
     public static String categoryNotSavedQuestion = "Not saved changes will be lost, continue?";
 
+    public static String fileOutputFormatString = "yyMMddHHmmss";
 }
 

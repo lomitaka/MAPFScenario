@@ -401,8 +401,6 @@
                                  <content>
                                     <VBox prefHeight="200.0" prefWidth="220.0">
                                        <children>
-                                          <Label text="work directory:" />
-                                          <TextField fx:id="FXRSettingsWorkDir" />
                                           <Label layoutX="20.0" layoutY="15.0" text="picat interface file:" />
                                           <TextField fx:id="FXRSettingsIfaceFile" />
                                           <Label layoutX="20.0" layoutY="57.0" text="picat anotation string:" />

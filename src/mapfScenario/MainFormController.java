@@ -112,8 +112,6 @@ public class MainFormController implements Initializable {
 
     /* ******************** settings ************************************************ */
     @FXML
-    TextField FXRSettingsWorkDir;
-    @FXML
     TextField FXRSettingsIfaceFile;
     @FXML
     TextField FXRSettingsPicatAnotString;
@@ -712,7 +710,6 @@ public class MainFormController implements Initializable {
         Settings s = DataStore.settings;
             FXRSettingsPredicateFromCustomFile.setText(s.customFilePredicat);
             FXRSettingsPicatAnotString.setText(s.picatAnotationString) ;
-            FXRSettingsWorkDir.setText(s.workDirectoryPath);
             FXRSettingsIfaceFile.setText(s.defaultPicatInterfaceFileName) ;
             FXRSettingsOzobotTemplateFile.setText(s.ozobotTemplateFile);
             ubam.setFalse(UserButtonAccessManager.PS.SETTINGS_EDITED);
@@ -724,7 +721,8 @@ public class MainFormController implements Initializable {
         s.customFilePredicat =FXRSettingsPredicateFromCustomFile.getText();
         //s.libDirectoryPath = DataStore.settings.libDirectoryPath;
         s.picatAnotationString = FXRSettingsPicatAnotString.getText();;
-        s.workDirectoryPath =FXRSettingsWorkDir.getText();
+        //s.workDirectoryPath =FXRSettingsWorkDir.getText();
+        s.workDirectoryPath = DataStore.settings.workDirectoryPath;
         s.defaultPicatInterfaceFileName =  FXRSettingsIfaceFile.getText();
         s.ozobotTemplateFile =  FXRSettingsOzobotTemplateFile.getText();
 
@@ -849,7 +847,6 @@ public class MainFormController implements Initializable {
                 ubam.setTrue(UserButtonAccessManager.PS.SETTINGS_EDITED);
             }
         };
-        FXRSettingsWorkDir.textProperty().addListener(settingsChangeListener);
         FXRSettingsIfaceFile.textProperty().addListener(settingsChangeListener);
         FXRSettingsPicatAnotString.textProperty().addListener(settingsChangeListener);
         FXRSettingsPredicateFromCustomFile.textProperty().addListener(settingsChangeListener);

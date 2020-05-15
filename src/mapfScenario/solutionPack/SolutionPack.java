@@ -2,6 +2,7 @@ package mapfScenario.solutionPack;
 
 import fileHandling.*;
 import helpout.methods;
+import mapfScenario.Consts;
 import mapfScenario.Data.MapData;
 import mapfScenario.DataStore;
 import mapfScenario.MainFormControllerLogic;
@@ -210,8 +211,8 @@ public class SolutionPack {
 
         File workdir = methods.fileToAbsolute(DataStore.settings.workDirectoryPath);
         if (!workdir.exists()) { workdir.mkdir();}
-        String timeStamp =new SimpleDateFormat("yy-MM-dd-HH-mm-ss").format(new Date());;
-        File fileForOzoGenerator = new File(workdir.getAbsolutePath()+ File.separator  + "out" + timeStamp + ".answ" );
+        String timeStamp =new SimpleDateFormat(Consts.fileOutputFormatString).format(new Date());;
+        File fileForOzoGenerator = new File(workdir.getAbsolutePath()+ File.separator  + "out" + timeStamp);
 
         SolutionFileWorker swf = new SolutionFileWorker();
         swf.createOzoGeneratorInputFile(actionList,fileForOzoGenerator);
