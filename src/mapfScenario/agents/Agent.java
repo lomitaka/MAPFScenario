@@ -4,7 +4,6 @@ package mapfScenario.agents;
 import graphics.MVPoint;
 import javafx.scene.paint.Color;
 
-import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;

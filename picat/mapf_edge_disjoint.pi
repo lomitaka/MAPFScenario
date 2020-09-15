@@ -98,7 +98,7 @@ path(Graph,As,B,Opt) ?=>
 
 	solve([$min(sum(E))],B).
 
-path(_Graph,_As,B) => B = null. 
+path(_Graph,_As,B,_Opt) => B = null. 
 %=======================================================================
 % adds variables for end conditions
 %=======================================================================

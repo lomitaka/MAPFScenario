@@ -1,3 +1,5 @@
+package ozoCodeGenerator;
+
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 

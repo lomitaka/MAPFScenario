@@ -15,7 +15,6 @@ import javafx.util.Pair;
 import mapfScenario.Consts;
 import org.apache.log4j.Logger;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

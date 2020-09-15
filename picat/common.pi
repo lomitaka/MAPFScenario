@@ -155,8 +155,7 @@ mapf_output_plan_adv(PathSol,_MapArr,VDirMap,Writer) =>
 		% write first row
 		SomeText0 := "end",
 		Vertex0 := (PathSol[A,1]-1) div 4+1,
-		write_row(Writer, A,Vertex0,0,start,2000,"start"),							
-		writef(Writer,"%n"),
+		write_row(Writer, A,Vertex0,0,start,2000,"start"),
 
 		foreach (T in 1..TimeLen-1)		
 			%print("T"),println(T),
@@ -236,8 +235,7 @@ mapf_output_plan(PathSol,MapArr,Writer) =>
 	writef(Writer, "%s %n" ,"#AgentNO VertexNo Rotation Action Duration SomeText"),
 	foreach (A in 1..AgentLen) 
 		% write start row
-		write_row(Writer, A,PathSol[A,1],null,start,2000,"start"),							
-		writef(Writer,"%n"),		
+		write_row(Writer, A,PathSol[A,1],null,start,2000,"start"),									
 
 		print("A"),println(A),
 		Rotation = null,
@@ -344,8 +342,7 @@ mapf_simple_output_plan(ArrSol,MapArr,Writer)  =>
 						write_row(Writer, Agent,VBefore,Rotation,Action,Duration,SomeText)
 					else 
 						% write start row
-						write_row(Writer, Agent,V,Rotation,start,2000,"start"),							
-						writef(Writer,"%n")									
+						write_row(Writer, Agent,V,Rotation,start,2000,"start")								
 					end,									
 					VBefore := V
 				end
@@ -359,9 +356,9 @@ mapf_simple_output_plan(ArrSol,MapArr,Writer)  =>
 	end.
 
 write_row(Writer, AgentID,IDpos,Rotation,Action,Duration,SomeText),Rotation = null ?=>
-	writef(Writer, "%u %u %w %w %u \"%s\" %n", AgentID,IDpos,Rotation,Action,Duration,SomeText).
+	writef(Writer, "%u %u %w %w %u \"%s\"%n", AgentID,IDpos,Rotation,Action,Duration,SomeText).
 write_row(Writer, AgentID,IDpos,Rotation,Action,Duration,SomeText) =>
-	writef(Writer, "%u %u %u %w %u \"%s\" %n", AgentID,IDpos,Rotation,Action,Duration,SomeText).
+	writef(Writer, "%u %u %u %w %u \"%s\"%n", AgentID,IDpos,Rotation,Action,Duration,SomeText).
 
 
 %mapf_simple_get_action(IDMap,IDPosBefore,IDPosAfter,Action,SomeText) =>

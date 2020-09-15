@@ -127,7 +127,7 @@ path(Graph,As,B,Opt,DisjointV,DisjointE) ?=>
 
 	solve([$min(sum(E))],B).
 
-path(_Graph,_As,B,_DisjointV,_DisjointE) => B = null.
+path(_Graph,_As,B,_Opt,_DisjointV,_DisjointE) => B = null.
 %=======================================================================
 % adds variables for end conditions
 %=======================================================================

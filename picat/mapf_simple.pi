@@ -15,8 +15,9 @@ run(FileIn,FileOut) =>
 	common.graph_add_reflex_edge(Graph,Graph1),		
 	% changes graph so it is like indexed array
 	common.graph_to_indexed_array(Graph1,GraphOut),
+    println("BeforePath"),
 	path(GraphOut,As,PathSol,Opt),	
-	
+	println("PathEnd"),
 
 	if (PathSol != null) then
 		common.get_writer(FileOut,Writer),
@@ -77,6 +78,6 @@ path(Graph,As,B,Opt) ?=>
 
 	solve(B).
 
-path(_Graph,_As,B) => B = null.
+path(_Graph,_As,B,_Opt) => B = null.
 
 

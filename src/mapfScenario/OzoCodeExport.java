@@ -3,9 +3,9 @@ package mapfScenario;
 import helpout.QuestionAgentCount;
 import helpout.methods;
 import javafx.stage.FileChooser;
-import mapfScenario.picat.SolverProcess;
 import mapfScenario.simulation.Solution;
 import org.apache.log4j.Logger;
+import ozoCodeGenerator.EntryPoint;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -51,7 +51,7 @@ public class OzoCodeExport{
             targetFile = new File(targetFile.getAbsolutePath()+".ozocode");
         }
 
-        doExport(s.getSolutionFileName(),targetFile,answer);
+        doExport2(s.getSolutionFileName(),targetFile,answer);
 
 
 
@@ -144,5 +144,13 @@ public class OzoCodeExport{
         }
 
     }
+    public void doExport2(String inputFile, File outputFile, int agentNum ){
+
+        //OutputContainer outputContainer = new OutputContainer();
+        EntryPoint.directRun(inputFile,getTemplateFileName(),outputFile,agentNum);
+
+
+    }
+
 
 }

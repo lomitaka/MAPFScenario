@@ -1,4 +1,4 @@
-package helpout;
+package ozoCodeGenerator.helpout;
 
 public class Pair<T,V> {
     T key;

@@ -1,15 +1,14 @@
 package mapfScenario.picat;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import fileHandling.PicatFileWorker;
 import fileHandling.SolutionFileWorker;
 import graphics.MVPoint;
 import helpout.methods;
 import javafx.application.Platform;
-import javafx.scene.control.ListView;
 import mapfScenario.Consts;
 import mapfScenario.Data.MapData;
 import mapfScenario.Data.SolutionPacket;
+import mapfScenario.Data.SolutionPacketReadable;
 import mapfScenario.DataStore;
 import mapfScenario.agents.Agent;
 import org.apache.log4j.Logger;
@@ -112,18 +111,21 @@ public class SolverProcess {
     }
 
     /** pack SolverProcess to solution packet */
-    public SolutionPacket getSolutionPacket(){
+    public SolutionPacketReadable getSolutionPacketReadable(){
 
         if (sls == SolverState.Done) {
             SolutionFileWorker sfw = new SolutionFileWorker();
 
-            SolutionPacket sp = new SolutionPacket();
-            sp.s = solution;
+            SolutionPacketReadable sp = new SolutionPacketReadable();
+            sp.agentList = agentList;
+            sp.hasNoSoluiton = hasNoSolution();
+            sp.md = mapData;
             sp.so = so;
             sp.timeStamp = solverFile;
             sp.idToPointMap = idToPointMap;
             sp.answFile = sfw.readToList(fileOut);
-            sp.solutionName = solutionName;
+            sp.solutionName = solution.getSolutionName();
+            sp.solutionFileName = solution.getSolutionFileName();
             return sp;
         }
         else {

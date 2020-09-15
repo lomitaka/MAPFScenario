@@ -11,6 +11,7 @@ import javafx.stage.FileChooser;
 import mapfScenario.Consts;
 import mapfScenario.Data.MapData;
 import mapfScenario.Data.SolutionPacket;
+import mapfScenario.Data.SolutionPacketReadable;
 import mapfScenario.DataStore;
 import mapfScenario.agents.Agent;
 import mapfScenario.simulation.Solution;
@@ -251,6 +252,8 @@ public class PicatManager {
 
         SolutionPacket packet = sfw.loadSolutionPacket();
         if (packet == null) { return;}
+
+
         SolverProcess sp = SolverProcess.recreateFromPackage(packet);
         listViewProcesses.add(sp.getSolverListItem());
     }
@@ -264,10 +267,10 @@ public class PicatManager {
             return;
         }
         SolverListItem sp = (SolverListItem)solverResults.getSelectionModel().getSelectedItems().get(0);
-        SolutionPacket packet = sp.solverProcess.getSolutionPacket();
+        SolutionPacketReadable packet = sp.solverProcess.getSolutionPacketReadable();
         if (packet != null){
             SolutionFileWorker sfw = new SolutionFileWorker();
-            sfw.saveSolutionPacket(packet);
+            sfw.saveSolutionPacketReadable(packet);
         }
     }
 

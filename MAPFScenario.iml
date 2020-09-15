@@ -28,5 +28,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="PicatWrapper" />
+    <orderEntry type="module" module-name="OzoCodeGenerator" />
   </component>
 </module>

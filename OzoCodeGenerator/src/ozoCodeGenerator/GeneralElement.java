@@ -1,35 +1,40 @@
-import helpout.Pair;
+package ozoCodeGenerator;
+
+import ozoCodeGenerator.helpout.Pair;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
 
 import java.util.ArrayList;
 import java.util.List;
-/**
- * element list, which can contain value.
- * */
-public class GeneralElementLeaf extends GeneralElement {
+
+/** represenation of html element. Used to easily represent actions that i want to include. */
+public class GeneralElement {
+
+    /** name of element */
+    protected String name;
+    /** list of elements */
+    protected List<Pair<String,String>> args = new ArrayList<>();
+    /** list of childrens. */
+    protected List<GeneralElement> childerns = new ArrayList<GeneralElement>();
 
 
     public List<GeneralElement> getChilderns() {
-        return null;
+        return childerns;
     }
 
-    public GeneralElementLeaf(String name){
-        super(name);
-    }
-    private String leafData;
 
-    public void SetLeafData(String leafData){
-        this.leafData = leafData;
+    public GeneralElement(String name){
+        this.name = name;
     }
 
-    /** writes content of element into contentHandler */
+    public void addParam(String name, String value){
+        args.add(new Pair<>(name,value));
+    }
+
+    /** performs element write into content handler. */
     public void construct(ContentHandler target){
-
-        //
-
-
+        /* ELEMENT  BLOCK */
          //elementName = "block";
         AttributesImpl atts = new AttributesImpl();
         //Attributes attr = new Attributes();
@@ -39,11 +44,9 @@ public class GeneralElementLeaf extends GeneralElement {
 
         try {
             target.startElement("","",  name, atts);
-
-            target.characters(leafData.toCharArray(),0,leafData.length());
-            /*for (GeneralElement child: childerns) {
+            for (GeneralElement child: childerns) {
                 child.construct(target);
-            }*/
+            }
             target.endElement("",  "",name);
         } catch (SAXException e) {
             e.printStackTrace();

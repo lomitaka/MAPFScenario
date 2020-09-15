@@ -1,3 +1,5 @@
+package ozoCodeGenerator;
+
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLFilterImpl;
@@ -104,6 +106,76 @@ public class EntryPoint {
 
 
        // System.out.println(ozoCMDS.goLeft.toString());
+
+        generateXml(cp,templateFle.getAbsolutePath(),fileOut.getAbsolutePath(),mfc);
+
+
+    }
+
+    public static void directRun(String inputFile,String template,File fileOut,Integer agentToExport) {
+
+
+        File solIn = new File(inputFile);
+        if (solIn == null || !solIn.isFile() || !solIn.exists()){
+            System.out.print("Error, input file not found");
+            return ;
+        }
+        File templateFle = new File(template);
+        if (templateFle == null || !templateFle.isFile() || !templateFle.exists()){
+            System.out.print("Error, template file not found");
+            return ;
+        }
+      /*  File fileOut = new File(args[2]);
+        if (fileOut == null ){
+            System.out.print("Error, cannot write to file: " + fileOut.getAbsolutePath());
+            return ;
+        }*/
+
+        /*String agentToExportStr = args[3];
+        int agentToExport = 0;
+        try{
+            if (agentToExportStr.toUpperCase().equals("ALL") || agentToExportStr.toUpperCase().equals("-1") ){
+                agentToExport = -1;
+            }else {
+                agentToExport = Integer.parseInt(agentToExportStr);
+            }
+        } catch (Exception e){
+            System.out.print("Cannot parse agent count number");
+        }*/
+
+
+
+        ActionFileWorker afw = new ActionFileWorker();
+        List<List<String>> cmds= afw.loadSolutionFile(solIn);
+        List<String> resultCommands = new ArrayList<>();
+        /** export all agnets */
+        CodePatchIface cp = null;
+        MissingFceChecker mfc = new MissingFceChecker();
+        if (agentToExport == -1){
+
+            cp = new CodePatchMutiple(cmds);
+            mfc.MissingFceCheckerInitListList(cmds);
+
+        } else {
+            /** export only agent number. */
+            cp = new CodePatch(cmds.get(agentToExport));
+            mfc.MissingFceCheckerInitList(cmds.get(agentToExport));
+        }
+
+     /*   ArrayList<String> Commands = new ArrayList<>();
+        Commands.add("FlashStart");
+        Commands.add("goForward");
+        Commands.add("goRight");
+        Commands.add("goForward");
+        Commands.add("goLeft");
+        Commands.add("goLeft");
+        Commands.add("goLeft");
+        Commands.add("goForward");
+        Commands.add("goRight");
+        Commands.add("FlashEnd");*/
+
+
+        // System.out.println(ozoCMDS.goLeft.toString());
 
         generateXml(cp,templateFle.getAbsolutePath(),fileOut.getAbsolutePath(),mfc);
 
